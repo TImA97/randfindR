@@ -1,7 +1,9 @@
 #' Compute redundancy index (see Towse & Neil, 1998)
 #'
 #' @param x vector
-redundancy <- function(x, possible_responses) {
+#' @param possible_responses number of options in sequence
+#' @return redundancy index of \code{x}
+redundancy_index <- function(x, possible_responses) {
   if (possible_responses < 2) {
     stop('sequence must include at least 2 responses')
   }
