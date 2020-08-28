@@ -14,7 +14,7 @@ redundancy_index <- function(x, possible_responses) {
   frequencies <- as.vector(freq_table)
 
   if (possible_responses < unique_responses) {
-    stop('vector includes more unique responses than declared in function call')
+    stop('vector contains more unique responses than declared in function call')
   } else if (possible_responses > unique_responses) {
     options_to_be_added <- possible_responses - unique_responses
     for (i in 1:options_to_be_added) {
