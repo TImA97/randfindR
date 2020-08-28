@@ -39,6 +39,11 @@ redundancy_index <- function(x, possible_responses) {
   return(r_index)
 }
 
+#' function transforms given vector to numeric
+#'
+#' @param x vector
+#' @return x_transformed
+#' @keywords internal
 to_numeric <- function(x) {
   as.numeric(factor(x))
 }
