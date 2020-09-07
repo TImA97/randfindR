@@ -7,9 +7,9 @@
 redundancy_index(x, possible_responses)
 }
 \arguments{
-\item{x}{vector}
+\item{x}{vector of random numbers}
 
-\item{possible_responses}{number of options in sequence}
+\item{possible_responses}{number of available options in sequence}
 }
 \value{
 redundancy index of \code{x}

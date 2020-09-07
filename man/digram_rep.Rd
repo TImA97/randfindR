@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{digram_rep}
 \alias{digram_rep}
-\title{Compute digram repetitions (see Ginsburg & Karpiuk, 1994)}
+\title{Compute Digram Repetitions (see Ginsburg & Karpiuk, 1994)}
 \usage{
 digram_rep(x, possible_responses)
 }
@@ -11,6 +11,9 @@ digram_rep(x, possible_responses)
 
 \item{possible_responses}{number of available options in sequence}
 }
+\value{
+digram repetition of \code{x}
+}
 \description{
-Compute digram repetitions (see Ginsburg & Karpiuk, 1994)
+Compute Digram Repetitions (see Ginsburg & Karpiuk, 1994)
 }
