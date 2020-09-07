@@ -1,7 +1,7 @@
 #' Compute redundancy index (see Towse & Neil, 1998)
 #'
-#' @param x vector
-#' @param possible_responses number of options in sequence
+#' @param x vector of random numbers
+#' @param possible_responses number of available options in sequence
 #' @return redundancy index of \code{x}
 redundancy_index <- function(x, possible_responses) {
   if (possible_responses < 2) {
