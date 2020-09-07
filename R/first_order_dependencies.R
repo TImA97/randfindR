@@ -12,7 +12,9 @@ digram_rep <- function(x, possible_responses) {
   sum <- 0
   for (i in 1:possible_responses) {
     for (j in 1:possible_responses) {
-      sum <- sum + matr[i,j] - 1
+      if (matr[i,j] > 0) {
+        sum <- sum + matr[i,j] - 1
+      }
     }
   }
 
@@ -26,5 +28,7 @@ convert_to_matrix <- function(x, possible_responses) {
     next_value <- x[i + 1]
     matr[current_value, next_value] <- matr[current_value, next_value] + 1
   }
+  print(matr)
+
   return(matr)
 }
