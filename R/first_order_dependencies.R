@@ -21,6 +21,41 @@ digram_rep <- function(x, possible_responses) {
   return(sum)
 }
 
+#' Compute RNG index by Evans (1978)
+#'
+#' @param x vector of random numbers
+#' @param possible_responses number of available options in sequence
+#' #' @return RNG index of \code{x}
+rng_index <- function(x, possible_responses) {
+
+  ## decide whether to include transition from last to first number
+
+  x <- to_numeric(x)
+  matr <- convert_to_matrix(x, possible_responses)
+
+  dividend  <- 0
+  for (i in 1:possible_responses) {
+    for (j in 1:possible_responses) {
+      if (matr[i,j] > 1) {
+        dividend  <- dividend  + log10(matr[i,j]) *  matr[i,j]
+      }
+    }
+  }
+
+  divisor <- 0
+  rowMarginals <- rowSums(matr)
+  for (i in 1:possible_responses) {
+    rowMarginal <- rowMarginals[i]
+    if (rowMarginal > 1) {
+      divisor <- divisor + log10(rowMarginal) * rowMarginal;
+    }
+  }
+
+  result <- dividend / divisor
+  return(result)
+}
+
+
 convert_to_matrix <- function(x, possible_responses) {
   matr <- matrix(data = 0, nrow = possible_responses, ncol = possible_responses)
   for (i in 1:(length(x) - 1)) {
@@ -28,7 +63,6 @@ convert_to_matrix <- function(x, possible_responses) {
     next_value <- x[i + 1]
     matr[current_value, next_value] <- matr[current_value, next_value] + 1
   }
-  print(matr)
 
   return(matr)
 }
