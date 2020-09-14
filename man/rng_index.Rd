@@ -4,12 +4,12 @@
 \alias{rng_index}
 \title{Compute RNG index by Evans (1978)}
 \usage{
-rng_index(x, possible_responses)
+rng_index(x, options)
 }
 \arguments{
 \item{x}{vector of random numbers}
 
-\item{possible_responses}{number of available options in sequence}
+\item{options}{number of available options in sequence}
 }
 \value{
 RNG index of \code{x}

@@ -4,12 +4,12 @@
 \alias{convert_to_matrix}
 \title{convert vector to matrix of first order dependencies}
 \usage{
-convert_to_matrix(x, possible_responses)
+convert_to_matrix(x, options)
 }
 \arguments{
 \item{x}{vector of random numbers}
 
-\item{possible_responses}{number of available options in sequence}
+\item{options}{number of available options in sequence}
 }
 \description{
 helper function to transform a given vector to a matrix of first order

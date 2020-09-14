@@ -4,12 +4,12 @@
 \alias{digram_rep}
 \title{Compute Digram Repetitions (see Ginsburg & Karpiuk, 1994)}
 \usage{
-digram_rep(x, possible_responses)
+digram_rep(x, options)
 }
 \arguments{
 \item{x}{vector of random numbers}
 
-\item{possible_responses}{number of available options in sequence}
+\item{options}{number of available options in sequence}
 }
 \value{
 digram repetition of \code{x}

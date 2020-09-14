@@ -9,11 +9,11 @@ repetitions(x, options)
 \arguments{
 \item{x}{vector of random numbers}
 
-\item{oprions}{number of available options in sequence}
+\item{options}{number of available options in sequence}
 }
 \value{
 repetitions of \code{x}
 }
 \description{
-Compute number of times a value is repeated in the next round
+Compute frequency a value is repeated in the next round
 }

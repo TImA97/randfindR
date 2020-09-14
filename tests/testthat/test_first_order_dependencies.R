@@ -26,5 +26,4 @@ sequence_two <- c(1,3,5,7,6,8,5,3,2,1,
 test_that("rng_index returns correct result", {
   expect_equal(round(rng_index(sequence_one, 10), 3), 0.216)
   expect_equal(round(rng_index(sequence_two, 10), 3), 0.427)
-
 })
