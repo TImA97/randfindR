@@ -51,4 +51,8 @@ test_that("repetitions returns correct result", {
   expect_equal(repetitions(sequence_three, 10), 2)
 })
 
+test_that("series returns correct result", {
+  expect_equal(series(sequence_three, 10), 39)
+})
+
 

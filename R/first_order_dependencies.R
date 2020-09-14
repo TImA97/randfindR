@@ -76,12 +76,11 @@ repetitions <- function(x, options) {
 series <- function(x, options) {
   x <- to_numeric(x)
   matr <- convert_to_matrix(x, options)
-  print(matr)
 
   sum <- 0
 
   # add values below or above the matrix diagonal to sum
-  for (i in (1:(options - 1))) {
+  for (i in (1:options)) {
     if (i != options && i != 1) {
       sum <- sum + matr[i, i - 1]
       sum <- sum + matr[i, i + 1]
