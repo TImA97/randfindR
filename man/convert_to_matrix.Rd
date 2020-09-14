@@ -3,17 +3,17 @@
 \name{convert_to_matrix}
 \alias{convert_to_matrix}
 \title{helper function to transform a given vector to a matrix of first order
-dependencies, specifying the frequency of all possible 2-digit long sequences
-#' @param x vector of random numbers}
+dependencies, specifying the frequency of all possible 2-digit long sequences}
 \usage{
 convert_to_matrix(x, possible_responses)
 }
 \arguments{
+\item{x}{vector of random numbers}
+
 \item{possible_responses}{number of available options in sequence}
 }
 \description{
 helper function to transform a given vector to a matrix of first order
 dependencies, specifying the frequency of all possible 2-digit long sequences
-#' @param x vector of random numbers
 }
 \keyword{internal}

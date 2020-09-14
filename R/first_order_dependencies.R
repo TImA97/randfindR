@@ -57,7 +57,7 @@ rng_index <- function(x, possible_responses) {
 
 #' helper function to transform a given vector to a matrix of first order
 #' dependencies, specifying the frequency of all possible 2-digit long sequences
-#' #' @param x vector of random numbers
+#' @param x vector of random numbers
 #' @param possible_responses number of available options in sequence
 #' @keywords internal
 convert_to_matrix <- function(x, possible_responses) {
