@@ -40,6 +40,8 @@ sequence_three <- c(2,5,7,8,9,1,0,4,2,3,
 test_that("rng_index returns correct result", {
   expect_equal(round(rng_index(sequence_one, 10), 3), 0.216)
   expect_equal(round(rng_index(sequence_two, 10), 3), 0.427)
+  expect_equal(round(rng_index(sequence_three, 10), 2), 0.34)
+
 })
 
 test_that("digram_rep returns correct result", {
