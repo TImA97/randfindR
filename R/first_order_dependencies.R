@@ -100,22 +100,25 @@ series <- function(x, options) {
 }
 
 #' Compute cluster ratio as a measure of randomness (see Ginsburg & Karpiuk, 1994)
-#' @description compute the variance of all frequencies > 0 in table of
+#' @description compute the variance of all frequencies in table of
 #' first-order dependencies
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return cluster ratio of \code{x}
-cluster_ration <- function(x, options) {
+cluster_ratio <- function(x, options) {
   x <- to_numeric(x)
-  matr <- convert_to_matrix(x)
+  matr <- convert_to_matrix(x, options)
 
-  # get all cells from first-order dependencies table and exclude zeros
+  # transform first-order dependency table to vector
   cells <- as.vector(matr)
-  remove <- 0
-  cells <- cells[!cells %in% remove]
 
-  var_cells <- var(cells)
-  return(var)
+  # compute variance and correct result so that it corresponds to the
+  # population variance
+  var_cells <- var(cells) *  (length(cells) - 1) / (length(cells))
+
+
+
+  return(var_cells)
 }
 
 

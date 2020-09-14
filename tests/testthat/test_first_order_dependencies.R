@@ -57,4 +57,8 @@ test_that("series returns correct result", {
   expect_equal(series(sequence_three, 10), 39)
 })
 
+test_that("cluster ratio returns correct result", {
+  expect_equal(round(cluster_ratio(sequence_three, 10), 2), 1.52)
+})
+
 
