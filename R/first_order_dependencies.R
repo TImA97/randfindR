@@ -55,6 +55,17 @@ rng_index <- function(x, possible_responses) {
   return(result)
 }
 
+#' Compute repetitions as measure of randomness
+#' @description Compute number of times a value is repeated in the next round
+#' @param x vector of random numbers
+#' @param oprions number of available options in sequence
+#' @return repetitions of \code{x}
+repetitions <- function(x, options) {
+  x <- to_numeric(x)
+  matr <- convert_to_matrix(x, options)
+  sum <- sum(diag(matr))
+  return(sum)
+}
 
 
 #' convert vector to matrix of first order dependencies
