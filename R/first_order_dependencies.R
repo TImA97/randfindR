@@ -116,8 +116,6 @@ cluster_ratio <- function(x, options) {
   # population variance
   var_cells <- var(cells) *  (length(cells) - 1) / (length(cells))
 
-
-
   return(var_cells)
 }
 

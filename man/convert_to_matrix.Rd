@@ -12,7 +12,8 @@ convert_to_matrix(x, options)
 \item{options}{number of available options in sequence}
 }
 \description{
-helper function to transform a given vector to a matrix of first order
-dependencies, specifying the frequency of all possible 2-digit long sequences
+helper function to transform a given vector to a matrix of first
+order dependencies, specifying the frequency of all possible 2-digit long
+sequences
 }
 \keyword{internal}

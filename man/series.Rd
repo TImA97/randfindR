@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{series}
 \alias{series}
-\title{Compute series as measure of randomness (see Gisburg & Karpiuk, 1994)}
+\title{Compute series as measure of randomness (see Ginsburg & Karpiuk, 1994)}
 \usage{
 series(x, options)
 }
