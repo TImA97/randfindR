@@ -2,8 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{convert_to_matrix}
 \alias{convert_to_matrix}
-\title{helper function to transform a given vector to a matrix of first order
-dependencies, specifying the frequency of all possible 2-digit long sequences}
+\title{convert vector to matrix of first order dependencies}
 \usage{
 convert_to_matrix(x, possible_responses)
 }
