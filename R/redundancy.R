@@ -4,8 +4,10 @@
 #' @param options number of available options in sequence
 #' @return redundancy index of \code{x}
 #' @examples
+#' \dontrun{
 #' redundancy_index(c(1,1,1,1),2)
-#' redundancy_index(c(1,2,1,1),2)
+#' redundancy_index(c(1,2,1,),2)
+#' }
 redundancy_index <- function(x, options) {
   if (options < 2) {
     stop('sequence must include at least 2 distinct responses')
