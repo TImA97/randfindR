@@ -9,8 +9,10 @@ rng_index(x, possible_responses)
 \arguments{
 \item{x}{vector of random numbers}
 
-\item{possible_responses}{number of available options in sequence
-#' @return RNG index of \code{x}}
+\item{possible_responses}{number of available options in sequence}
+}
+\value{
+RNG index of \code{x}
 }
 \description{
 Compute RNG index by Evans (1978)

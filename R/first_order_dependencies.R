@@ -25,7 +25,7 @@ digram_rep <- function(x, possible_responses) {
 #'
 #' @param x vector of random numbers
 #' @param possible_responses number of available options in sequence
-#' #' @return RNG index of \code{x}
+#' @return RNG index of \code{x}
 rng_index <- function(x, possible_responses) {
 
   ## decide whether to include transition from last to first number
