@@ -1,10 +1,13 @@
 #' Compute redundancy index (see Towse & Neil, 1998)
 #'
 #' @param x vector of random numbers
-#' @param possible_responses number of available options in sequence
+#' @param options number of available options in sequence
 #' @return redundancy index of \code{x}
-redundancy_index <- function(x, possible_responses) {
-  if (possible_responses < 2) {
+#' @examples
+#' redundancy_index(c(1,1,1,1),2)
+#' redundancy_index(c(1,2,1,1),2)
+redundancy_index <- function(x, options) {
+  if (options < 2) {
     stop('sequence must include at least 2 distinct responses')
   }
 
@@ -16,17 +19,17 @@ redundancy_index <- function(x, possible_responses) {
   # if so, return error message.
   # if there are more possible  than distinct options in the vector,
   # add the omitted options to the observed frequencies with value '0'
-  if (possible_responses < distinct_responses) {
+  if (options < distinct_responses) {
     stop('vector contains more unique responses than declared in function call')
-  } else if (possible_responses > distinct_responses) {
-    options_to_be_added <- possible_responses - distinct_responses
+  } else if (options > distinct_responses) {
+    options_to_be_added <- options - distinct_responses
     for (i in 1:options_to_be_added) {
       frequencies[distinct_responses + i] <- 0
     }
   }
 
   log_sum <- 0
-  for (i in 1:possible_responses) {
+  for (i in 1:options) {
     if (frequencies[i] == 0) {
       log_sum <- log_sum
     } else {
@@ -36,7 +39,7 @@ redundancy_index <- function(x, possible_responses) {
   }
 
   h_single <- log2(length(x)) - (1 / length(x)) * log_sum
-  h_max <- log2(possible_responses)
+  h_max <- log2(options)
   r_index <- 100 * (1 - (h_single / h_max))
 
   return(r_index)

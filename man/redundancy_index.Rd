@@ -4,16 +4,20 @@
 \alias{redundancy_index}
 \title{Compute redundancy index (see Towse & Neil, 1998)}
 \usage{
-redundancy_index(x, possible_responses)
+redundancy_index(x, options)
 }
 \arguments{
 \item{x}{vector of random numbers}
 
-\item{possible_responses}{number of available options in sequence}
+\item{options}{number of available options in sequence}
 }
 \value{
 redundancy index of \code{x}
 }
 \description{
 Compute redundancy index (see Towse & Neil, 1998)
+}
+\examples{
+redundancy_index(c(1,1,1,1),2)
+redundancy_index(c(1,2,1,1),2)
 }
