@@ -55,7 +55,7 @@ rng_index <- function(x, options) {
   return(result)
 }
 
-#' Compute repetitions as measure of randomness
+#' Compute repetitions as measure of randomness (see Gisburg & Karpiuk, 1994)
 #' @description Compute frequency a value is repeated in the next round
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
@@ -67,7 +67,7 @@ repetitions <- function(x, options) {
   return(sum)
 }
 
-#' Compute series as measure of randomness
+#' Compute series as measure of randomness (see Gisburg & Karpiuk, 1994)
 #' @description Compute frequency with which values are followed by their most
 #' adjacent predecessors and successors in the vector
 #' @param x vector of random numbers
@@ -98,6 +98,8 @@ series <- function(x, options) {
 
   return(sum)
 }
+
+
 
 
 #' convert vector to matrix of first order dependencies

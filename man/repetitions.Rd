@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{repetitions}
 \alias{repetitions}
-\title{Compute repetitions as measure of randomness}
+\title{Compute repetitions as measure of randomness (see Gisburg & Karpiuk, 1994)}
 \usage{
 repetitions(x, options)
 }
