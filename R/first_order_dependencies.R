@@ -56,14 +56,47 @@ rng_index <- function(x, possible_responses) {
 }
 
 #' Compute repetitions as measure of randomness
-#' @description Compute number of times a value is repeated in the next round
+#' @description Compute frequency a value is repeated in the next round
 #' @param x vector of random numbers
-#' @param oprions number of available options in sequence
+#' @param options number of available options in sequence
 #' @return repetitions of \code{x}
 repetitions <- function(x, options) {
   x <- to_numeric(x)
   matr <- convert_to_matrix(x, options)
   sum <- sum(diag(matr))
+  return(sum)
+}
+
+#' Compute series as measure of randomness
+#' @description Compute frequency with which values are followed by their most
+#' adjacent predecessors and successors in the vector
+#' @param x vector of random numbers
+#' @param options number of available options in sequence
+#' @return series of \code{x}
+series <- function(x, options) {
+  x <- to_numeric(x)
+  matr <- convert_to_matrix(x, options)
+  print(matr)
+
+  sum <- 0
+
+  # add values below or above the matrix diagonal to sum
+  for (i in (1:(options - 1))) {
+    if (i != options && i != 1) {
+      sum <- sum + matr[i, i - 1]
+      sum <- sum + matr[i, i + 1]
+    }
+    else if (i == options) {
+      sum <- sum + matr[i, i - 1]
+    } else {
+      sum <- sum + matr[i, i + 1]
+    }
+  }
+
+  # add top right and bottom left cell of matrix to sum
+  sum <- sum + matr[1, options]
+  sum <- sum + matr[options, 1]
+
   return(sum)
 }
 
