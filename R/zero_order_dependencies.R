@@ -47,6 +47,21 @@ redundancy_index <- function(x, options) {
   return(r_index)
 }
 
+
+#' Compute variance of digits (see Ginsburg & Karpiuk, 1994)
+#' @description Computes the variance of marginal totals
+#' @param x vector of random numbers
+#' @param options number of available options in sequence
+#' @return variance of digits of \code{x}
+variance_of_digits <- function(x, options) {
+  x <- to_numeric(x)
+  matr <- convert_to_matrix(x, options)
+  frequencies <- colSums(matr)
+  variance <- var (frequencies)
+  return(variance)
+}
+
+
 #' function transforms given vector to numeric
 #'
 #' @param x vector
