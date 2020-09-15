@@ -57,7 +57,11 @@ variance_of_digits <- function(x, options) {
   x <- to_numeric(x)
   matr <- convert_to_matrix(x, options)
   frequencies <- colSums(matr)
-  variance <- var (frequencies)
+
+  # compute variance and correct result so that it corresponds to the
+  # population variance
+  variance <-
+    var (frequencies) * (length(frequencies) - 1) / length(frequencies)
   return(variance)
 }
 
