@@ -1,4 +1,4 @@
-context("redundancy index")
+context("zero_order_dependencies")
 
 test_that("redundancy index returns correct result", {
   expect_equal(redundancy_index(c(1,1,1),2), 100)
@@ -8,7 +8,7 @@ test_that("redundancy index returns correct result", {
 })
 
 
-#Example taken from Gisnburg & Karpiuk (1994)
+#Example taken from Ginsburg & Karpiuk (1994)
 sequence_three <- c(2,5,7,8,9,1,0,4,2,3,
                     9,6,7,9,2,1,4,0,5,3,
                     2,5,4,2,3,5,6,7,9,8,
@@ -20,6 +20,6 @@ sequence_three <- c(2,5,7,8,9,1,0,4,2,3,
                     4,0,3,1,8,9,7,0,2,3,
                     2,3,8,8,7,2,0,3,5,9,2)
 
-test_that("variance of digits retunrs correct result", {
+test_that("variance of digits returns correct result", {
   expect_equal(round(variance_of_digits(sequence_three, 10), 2), 5.00)
 })

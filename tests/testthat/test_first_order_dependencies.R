@@ -23,7 +23,7 @@ sequence_two <- c(1,3,5,7,6,8,5,3,2,1,
                   5,9,3,2,1,6,7,8,9,3,
                   9,2,1,3,7,5,4,3,2,1,1)
 
-#Example taken from Gisnburg & Karpiuk (1994)
+#Example taken from Ginsburg & Karpiuk (1994)
 sequence_three <- c(2,5,7,8,9,1,0,4,2,3,
                     9,6,7,9,2,1,4,0,5,3,
                     2,5,4,2,3,5,6,7,9,8,
