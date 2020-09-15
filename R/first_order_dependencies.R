@@ -82,8 +82,7 @@ series <- function(x, options) {
   # add values below or above the matrix diagonal to sum
   for (i in (1:options)) {
     if (i != options && i != 1) {
-      sum <- sum + matr[i, i - 1]
-      sum <- sum + matr[i, i + 1]
+      sum <- sum + sum(matr[i, c(i + 1, i - 1)])
     }
     else if (i == options) {
       sum <- sum + matr[i, i - 1]
