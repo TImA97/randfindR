@@ -24,5 +24,8 @@ runs_index <- function(x, asc = TRUE) {
   runs[runs_counter] <- current_length
   current_length <- 0
 
-  return(runs)
+  # compute population variance of runs
+  variance <- var(runs) * (length(runs) - 1) / length(runs)
+
+  return(variance)
 }
