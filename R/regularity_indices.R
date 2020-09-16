@@ -50,27 +50,33 @@ coupon_score <- function(x, options) {
 
   # iterate over vector and update occurred_options
   for (i in 1:length(x)) {
+
+    # if all digits were emitted in a sequence, store sequence length
+    # if the last sequence does not contain all possible values, it will not be
+    # added to sequence_lengths
     if (all(occurred_options)) {
       sequence_lengths[sequence_counter] <- current_length
-      current_length <- 1
+      current_length <- 0
       sequence_counter <- sequence_counter + 1
       occurred_options <- occurred_options & FALSE
-    } else {
-      occurred_options[i] <- occurred_options[i] | TRUE
-      current_length <- current_length + 1
     }
+
+    value <- x[i]
+    occurred_options[value] <- occurred_options[value] | TRUE
+    current_length <- current_length + 1
+
   }
 
+  print(occurred_options)
   # store length of last run
-  sequence_lengths[sequence_counter] <- current_length
-
-
-
-  print(sequence_lengths)
+  if (all(occurred_options)) {
+    sequence_lengths[sequence_counter] <- current_length
+  }
 
   # check whether all possible options are included in the provided sequence
-  # this is the case if the fi
-  if (sequence_lengths[1] < options) {
+  # if this is not the case, sequence_lengths is still in its original logical
+  # state
+  if (is.logical(sequence_lengths)) {
     warning(
       "The provided sequence does not contain all possible options.
         Consequently, the Coupon Score cannot be computed and 'NA' is
@@ -79,6 +85,9 @@ coupon_score <- function(x, options) {
     return(NA)
   }
 
-  # check whether the last sequence contains all values
+  # compute mean of all complete sets of digits
+  result <- mean(sequence_lengths)
+  return(result)
+
 }
 
