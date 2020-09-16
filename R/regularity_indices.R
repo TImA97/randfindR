@@ -8,10 +8,13 @@ runs_index <- function(x, asc = TRUE) {
   runs <- vector(length = 1)
 
   # iterate over vector and count runs
+  # make case distinction whether asc is 'TRUE' or 'FALSE'
   current_length <- 1
   runs_counter <- 1
   for (i in 2:length(x)) {
-    if (x[i] > x[i - 1]) {
+    if (asc == TRUE & x[i] > x[i - 1]) {
+      current_length <- current_length + 1
+    } else if (asc == FALSE & x[i] < x[i - 1]) {
       current_length <- current_length + 1
     } else {
       runs[runs_counter] <- current_length
