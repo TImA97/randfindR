@@ -67,7 +67,6 @@ coupon_score <- function(x, options) {
 
   }
 
-  print(occurred_options)
   # store length of last run
   if (all(occurred_options)) {
     sequence_lengths[sequence_counter] <- current_length
