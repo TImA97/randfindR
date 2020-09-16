@@ -16,3 +16,7 @@ sequence_three <- c(2,5,7,8,9,1,0,4,2,3,
 test_that("runs_index returns correct result", {
   expect_equal(round(runs_index(sequence_three), 2), 1.76)
 })
+
+test_that("coupon_score returns correct result", {
+  expect_equal(round(coupon_score(sequence_three, 10), 1), 19.8)
+})
