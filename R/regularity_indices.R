@@ -32,3 +32,53 @@ runs_index <- function(x, asc = TRUE) {
 
   return(variance)
 }
+
+#' Compute Coupon Score (see Ginsburg & Karpiuk)
+#' @description Compute average digit length required for all responses to occur
+#' @param x vector of random numbers
+#' @param options number of available options in sequence
+#' @return Coupon Score of \code{x}
+coupon_score <- function(x, options) {
+  x <- to_numeric(x)
+
+  # logical vector to check whether digit has occurred in sequence
+  occurred_options <- vector(length = options)
+
+  sequence_lengths <- vector(length = 1)
+  current_length <- 0
+  sequence_counter <- 1
+
+  # iterate over vector and update occurred_options
+  for (i in 1:length(x)) {
+    if (all(occurred_options)) {
+      sequence_lengths[sequence_counter] <- current_length
+      current_length <- 1
+      sequence_counter <- sequence_counter + 1
+      occurred_options <- occurred_options & FALSE
+    } else {
+      occurred_options[i] <- occurred_options[i] | TRUE
+      current_length <- current_length + 1
+    }
+  }
+
+  # store length of last run
+  sequence_lengths[sequence_counter] <- current_length
+
+
+
+  print(sequence_lengths)
+
+  # check whether all possible options are included in the provided sequence
+  # this is the case if the fi
+  if (sequence_lengths[1] < options) {
+    warning(
+      "The provided sequence does not contain all possible options.
+        Consequently, the Coupon Score cannot be computed and 'NA' is
+        returned."
+    )
+    return(NA)
+  }
+
+  # check whether the last sequence contains all values
+}
+
