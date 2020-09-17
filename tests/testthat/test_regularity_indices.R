@@ -20,3 +20,7 @@ test_that("runs_index returns correct result", {
 test_that("coupon_score returns correct result", {
   expect_equal(round(coupon_score(sequence_three, 10), 1), 19.8)
 })
+
+test_that("gap_score returns correct result", {
+  expect_equal(round(gap_score(sequence_three), 1), 7.9)
+})
