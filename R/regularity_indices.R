@@ -107,7 +107,7 @@ gap_score <- function(x) {
 
   for (i in 1:length(x)) {
 
-    # check whether value has not occurred in vector x
+    # check whether current value has not occurred yet
     # if so, update current value and position
     # otherwise, go to the next value in vector x
     if (!any(x[i] %in% occurred_values)) {
