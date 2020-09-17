@@ -90,3 +90,55 @@ coupon_score <- function(x, options) {
 
 }
 
+
+#' Compute gap score (see Ginsburg & Karpiuk, 1994)
+#' @description Compute median gap between identical values
+#' @param x vector of random numbers
+#' @return gap score of \code{x}
+gap_score <- function(x) {
+  x <- to_numeric(x)
+
+  current_value <- x[1]
+  gaps <- 0
+  gap_counter <- 1
+  occurred_values <- vector(length = 1)
+  occurred_counter <- 1
+  last_position <- 1
+
+  for (i in 1:length(x)) {
+
+    # check whether value has not occurred in vector x
+    # if so, update current value and position
+    # otherwise, go to the next value in vector x
+    if (!any(x[i] %in% occurred_values)) {
+      current_value <- x[i]
+      last_position <- i
+      occurred_values[occurred_counter] <- current_value
+      occurred_counter <- occurred_counter + 1
+    } else {
+      next
+    }
+
+    # break loop if last value in vector x is reached
+    if (i == length(x)) {
+      break
+    }
+
+    for (j in (i + 1):length(x)) {
+      if (x[j] == current_value) {
+        gap <- j - last_position
+        gaps[gap_counter] <- gap
+        last_position <- j
+        gap_counter <- gap_counter + 1
+      }
+    }
+  }
+
+  #print(gaps)
+
+  # compute median of gaps
+  result <- median(gaps)
+  return(result)
+}
+
+
