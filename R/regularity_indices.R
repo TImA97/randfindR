@@ -147,8 +147,8 @@ gap_score <- function(x) {
 
 
 #' Compute Poker Score (see Ginsburg & Karpiuk, 1994)
-#' @description Computer number of times exactly two responses of the same value
-#' occur in 5-digit-long sequences
+#' @description Compute number of times exactly two responses of the same value
+#' occur after division of the complete sequence into 5-digit-long sub-sequences
 #' @param x vector of random numbers
 #' @return poker score of \code{x}
 poker_score <- function(x) {
@@ -168,17 +168,16 @@ poker_score <- function(x) {
     # if so, check whether previous sequence contains two-of-a-kind
     if (counter %% 5 == 0) {
 
-      values <- as.vector(table(x))
+      values <- as.vector(table(last_five))
       two_of_a_kind <- values == 2
+      # increment result if a two-of-a-kind occurs exactly one time
       if (sum(two_of_a_kind == 1)) {
         result <- result + 1
       }
-
       counter <- 0
     }
     counter <- counter + 1
   }
-
   return(result)
 }
 

@@ -25,3 +25,7 @@ test_that("gap_score returns correct result", {
   # however, this implementation and manual calculation result in 8.0!
   expect_equal(round(gap_score(sequence_three), 1), 7.9)
 })
+
+test_that("poker_score returns correct result", {
+  expect_equal(poker_score(sequence_three), 4)
+})
