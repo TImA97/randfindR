@@ -124,6 +124,7 @@ gap_score <- function(x) {
       break
     }
 
+    # compute and store gaps
     for (j in (i + 1):length(x)) {
       if (x[j] == current_value) {
         gap <- j - last_position
@@ -134,10 +135,50 @@ gap_score <- function(x) {
     }
   }
 
-  #print(gaps)
+  # debug statements - delete later
+  print(gaps)
+  print(length(gaps))
+  print(table(gaps))
 
   # compute median of gaps
   result <- median(gaps)
+  return(result)
+}
+
+
+#' Compute Poker Score (see Ginsburg & Karpiuk, 1994)
+#' @description Computer number of times exactly two responses of the same value
+#' occur in 5-digit-long sequences
+#' @param x vector of random numbers
+#' @return poker score of \code{x}
+poker_score <- function(x) {
+  x <- to_numeric(x)
+
+  last_five <- numeric(length = 5)
+  counter <- 1
+  result <- 0
+
+  # iterate over vector x, store last 5 responses and check if an option
+  # occurred exactly 2 times
+  for (i in 1:length(x)) {
+
+    last_five[counter] <- x[i]
+
+    # check whether to begin new 5-digit-long sequence
+    # if so, check whether previous sequence contains two-of-a-kind
+    if (counter %% 5 == 0) {
+
+      values <- as.vector(table(x))
+      two_of_a_kind <- values == 2
+      if (sum(two_of_a_kind == 1)) {
+        result <- result + 1
+      }
+
+      counter <- 0
+    }
+    counter <- counter + 1
+  }
+
   return(result)
 }
 
