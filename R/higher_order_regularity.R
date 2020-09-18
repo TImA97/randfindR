@@ -26,7 +26,7 @@ reg_index <- function(x, options) {
   # compare displaced with original sequence and compute components
   for (i in 1:length(all_sequences)) {
     components[components_counter] <-
-      get_sum_of_squares(x, all_sequences[i], options)
+      get_sum_of_squares(x, all_sequences[[i]], options)
     components_counter <- components_counter + 1
   }
 
@@ -37,6 +37,8 @@ reg_index <- function(x, options) {
   divisor <- sqrt(divisor_sum_one + divisor_sume_two)
 
   reg_index <- max_component / divisor
+  rnd_index <- 1 - reg_index
+  print(rnd_index)
   return(reg_index)
 }
 
