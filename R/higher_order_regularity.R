@@ -14,23 +14,32 @@ reg_index <- function(x, options) {
 
 
   # displace input sequence (number of options -1) times and save them in list
-  all_sequences <- get_all_displacements(x)
+  sequences <- get_all_displacements(x)
 
-  # compare displaced with original sequence and compute dyads and sum of squares
+  # reverse input sequence and then, get all displacements into a list
+  x_rev <- rev(x)
+  reversed_sequences <- get_all_displacements(x_rev)
 
+  # combine all displaced sequences to one list
+  all_sequences <- c(sequences, list(x_rev), reversed_sequences)
+
+  # compare displaced with original sequence and compute components
   for (i in 1:length(all_sequences)) {
     components[components_counter] <-
       get_sum_of_squares(x, all_sequences[i], options)
     components_counter <- components_counter + 1
   }
 
-  # inverse input sequence and do displacements again
-
-  # conduct comparisons again and add new sums of squares
-
   # compute index with max sum of squares
+  max_component <- max(components)
+  divisor_sum_one <- (length(x) - (length(x) / options ^ 2)) ^ 2
+  divisor_sume_two <- (options ^ 2 - 1) * (length(x) / options ^ 2) ^ 2
+  divisor <- sqrt(divisor_sum_one + divisor_sume_two)
 
+  reg_index <- max_component / divisor
+  return(reg_index)
 }
+
 
 get_sum_of_squares <- function(x, y, options) {
   dyads <- numeric(length = (options ^ 2))
