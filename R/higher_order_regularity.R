@@ -37,8 +37,9 @@ reg_index <- function(x, options) {
   divisor <- sqrt(divisor_sum_one + divisor_sume_two)
 
   reg_index <- max_component / divisor
-  rnd_index <- 1 - reg_index
-  print(rnd_index)
+
+  # optional: interchange reg_index with rnd_index
+  #rnd_index <- 1 - reg_index
   return(reg_index)
 }
 
