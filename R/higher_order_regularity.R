@@ -4,10 +4,28 @@
 #' @return regularity index of \code{x}
 reg_index <- function(x, options) {
 
+  if (length(x) < (options ^ 2)) {
+    stop("The provided vector is too short. Its length has to be at least as
+         high as the number of options squared.")
+  }
+
   x <- to_numeric(x)
 
-  # make case distinction depending on length of input vector (TODO)
 
+  # if length of vector x is dividable by the number of options squared,
+  # compute index as usual
+  # else, compute average reg_index over sub-strings
+  if (length(x) %% (options ^ 2) == 0) {
+    reg_index <- compute_index(x, options)
+  } else {
+    reg_index <- compute_average_index(x, options)
+  }
+
+  return(reg_index)
+}
+
+
+compute_index <- function(x, options) {
   components <- numeric(length = length(x) * 2 - 1)
   components_counter <- 1
   number_dyads <- (options^2)
@@ -39,8 +57,27 @@ reg_index <- function(x, options) {
   reg_index <- max_component / divisor
 
   # optional: interchange reg_index with rnd_index
-  #rnd_index <- 1 - reg_index
+  rnd_index <- 1 - reg_index
   return(reg_index)
+}
+
+
+compute_average_index <- function(x, options) {
+  # determine number of sub-strings for which the index has to be computed
+  additional_length <- length(x) %% (options ^ 2)
+  number_indizes <- additional_length + 1
+  substring_length <- length(x) - additional_length
+  indizes <- numeric(length = number_indizes)
+
+  # compute reg_index for each sub-string with a length dividable by the
+  # number of options squared
+  for (i in 1:number_indizes) {
+    indizes[i] <- compute_index(x[i:(substring_length + i - 1)], options)
+  }
+
+  # compute and return average of regularity measures
+  average_index <- mean(indizes)
+  return(average_index)
 }
 
 
@@ -67,7 +104,6 @@ get_sum_of_squares <- function(x, y, options) {
   score <- as.vector(sqrt(score))
 
   return(score)
-
 }
 
 get_all_displacements <- function(x) {
@@ -82,6 +118,7 @@ get_all_displacements <- function(x) {
   }
   return(all_sequences)
 }
+
 
 displace_sequence <- function(x) {
   result <- x
