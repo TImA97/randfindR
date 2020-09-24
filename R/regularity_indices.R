@@ -40,6 +40,8 @@ runs_index <- function(x, asc = TRUE) {
 #' @return Coupon Score of \code{x}
 coupon_score <- function(x, options) {
   x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
 
   # check whether all possible options are included in the provided sequence
   distinct_options <- length(unique(x))
@@ -75,7 +77,6 @@ coupon_score <- function(x, options) {
     value <- x[i]
     occurred_options[value] <- occurred_options[value] | TRUE
     current_length <- current_length + 1
-
   }
 
   # store length of last sequence if its complete
@@ -86,7 +87,6 @@ coupon_score <- function(x, options) {
   # compute mean of all complete sets of digits
   result <- mean(sequence_lengths)
   return(result)
-
 }
 
 
