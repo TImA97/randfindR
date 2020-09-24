@@ -10,17 +10,13 @@
 #' }
 redundancy_index <- function(x, options) {
 
-  # check whether argument 'options' has the minimum length
   min_options <- 2
-  sufficient_options_provided(options, min_options)
-
   x <- to_numeric(x)
+
+  base_checks(x, options, min_options)
+
   distinct_responses <- length(unique(x))
   frequencies <- as.vector(table(x))
-
-  # check whether there are more distinct options in the vector than declared
-  # if so, return error message.
-  is_number_of_distinct_options_too_high(x, options)
 
   # if there are more possible  than distinct options in the vector,
   # add the omitted options to the observed frequencies with value '0'
@@ -58,7 +54,11 @@ redundancy_index <- function(x, options) {
 #' @param options number of available options in sequence
 #' @return variance of digits of \code{x}
 variance_of_digits <- function(x, options) {
+
+  min_options <- 2
   x <- to_numeric(x)
+  base_checks(x, options, min_options)
+
   matr <- convert_to_matrix(x, options)
   frequencies <- colSums(matr)
 
