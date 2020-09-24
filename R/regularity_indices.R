@@ -96,6 +96,7 @@ coupon_score <- function(x, options) {
 #' @return gap score of \code{x}
 gap_score <- function(x) {
   x <- to_numeric(x)
+  is_vector_long_enough(x)
 
   current_value <- x[1]
   gaps <- 0
@@ -152,6 +153,7 @@ gap_score <- function(x) {
 #' @return poker score of \code{x}
 poker_score <- function(x) {
   x <- to_numeric(x)
+  is_vector_long_enough(x, min_length = 5)
 
   last_five <- numeric(length = 5)
   counter <- 1
