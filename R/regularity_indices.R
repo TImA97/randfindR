@@ -41,6 +41,17 @@ runs_index <- function(x, asc = TRUE) {
 coupon_score <- function(x, options) {
   x <- to_numeric(x)
 
+  # check whether all possible options are included in the provided sequence
+  distinct_options <- length(unique(x))
+  if (distinct_options < options) {
+    warning(
+      "The provided sequence does not contain all possible options.
+        Consequently, the Coupon Score cannot be computed and 'NA' is
+        returned."
+    )
+    return(NA)
+  }
+
   # logical vector to check whether digit has occurred in sequence
   occurred_options <- vector(length = options)
 
@@ -70,18 +81,6 @@ coupon_score <- function(x, options) {
   # store length of last sequence if its complete
   if (all(occurred_options)) {
     sequence_lengths[sequence_counter] <- current_length
-  }
-
-  # check whether all possible options are included in the provided sequence
-  # if this is not the case, sequence_lengths is still in its original logical
-  # state
-  if (is.logical(sequence_lengths)) {
-    warning(
-      "The provided sequence does not contain all possible options.
-        Consequently, the Coupon Score cannot be computed and 'NA' is
-        returned."
-    )
-    return(NA)
   }
 
   # compute mean of all complete sets of digits
