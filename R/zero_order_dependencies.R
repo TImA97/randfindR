@@ -9,9 +9,10 @@
 #' redundancy_index(c(1,2,1,),2)
 #' }
 redundancy_index <- function(x, options) {
-  if (options < 2) {
-    stop('sequence must include at least 2 distinct responses')
-  }
+
+  # check whether argument 'options' has the minimum length
+  min_options <- 2
+  sufficient_options_provided(options, min_options)
 
   x <- to_numeric(x)
   distinct_responses <- length(unique(x))
@@ -19,17 +20,18 @@ redundancy_index <- function(x, options) {
 
   # check whether there are more distinct options in the vector than declared
   # if so, return error message.
+  is_number_of_distinct_options_too_high(x, options)
+
   # if there are more possible  than distinct options in the vector,
   # add the omitted options to the observed frequencies with value '0'
-  if (options < distinct_responses) {
-    stop('vector contains more unique responses than declared in function call')
-  } else if (options > distinct_responses) {
+  if (options > distinct_responses) {
     options_to_be_added <- options - distinct_responses
     for (i in 1:options_to_be_added) {
       frequencies[distinct_responses + i] <- 0
     }
   }
 
+  # compute information that is provided by the sequence
   log_sum <- 0
   for (i in 1:options) {
     if (frequencies[i] == 0) {
@@ -39,9 +41,11 @@ redundancy_index <- function(x, options) {
       log_sum <- log_sum + freq * log2(freq)
     }
   }
-
   h_single <- log2(length(x)) - (1 / length(x)) * log_sum
+
+  # compute maximum information of sequence given the number of possible options
   h_max <- log2(options)
+
   r_index <- 100 * (1 - (h_single / h_max))
 
   return(r_index)
