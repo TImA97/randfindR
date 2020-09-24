@@ -2,15 +2,18 @@
 
 # aggregate function that conducts basic checks for functions
 base_checks <- function(x, options, min_options) {
-  vector_length_at_least_two(x);
+  is_vector_long_enough(x);
   sufficient_options_provided(options, min_options)
   is_number_of_distinct_options_too_high(x, options)
 }
 
 # check whether vector length is at least 2
-vector_length_at_least_two <- function(x) {
-  if (length(x) < 2) {
-    stop("sequence length should be at least 2")
+is_vector_long_enough <- function(x, min_length = 2) {
+  if (length(x) < min_length) {
+    error_message <- paste("the sequence should contain at least",
+                           min_length,
+                           "digits")
+    stop(error_message)
   }
 }
 
