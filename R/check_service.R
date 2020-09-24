@@ -11,3 +11,13 @@ sufficient_options_provided <- function(options, min_options) {
     stop(error_message)
   }
 }
+
+# check whether vector contains more unique options than provided in the
+# 'options' argument
+is_number_of_distinct_options_too_high <- function(x, options) {
+  distinct_options <- length(unique(x))
+
+  if (distinct_options > options) {
+    stop("vector contains more distinct responses than declared in function call")
+  }
+}
