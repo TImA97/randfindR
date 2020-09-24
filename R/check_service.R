@@ -35,7 +35,7 @@ is_number_of_distinct_options_too_high <- function(x, options) {
 
   if (distinct_options > options) {
     stop(
-      "vector contains more distinct responses than declared in 'function call
+      "vector contains more distinct responses than declared in
       'options' argument"
     )
   }
