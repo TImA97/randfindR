@@ -1,3 +1,5 @@
+## decide whether to include transition from last to first number
+
 #' Compute Digram Repetitions (see Ginsburg & Karpiuk, 1994)
 #'
 #' @param x vector of random numbers
@@ -6,6 +8,8 @@
 digram_rep <- function(x, options) {
 
   x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
   # compute sum of (cell values - 1)
@@ -28,9 +32,10 @@ digram_rep <- function(x, options) {
 #' @return RNG index of \code{x}
 rng_index <- function(x, options) {
 
-  ## decide whether to include transition from last to first number
 
   x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
   dividend  <- 0
@@ -62,6 +67,8 @@ rng_index <- function(x, options) {
 #' @return repetitions of \code{x}
 repetitions <- function(x, options) {
   x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
   sum <- sum(diag(matr))
   return(sum)
@@ -75,6 +82,8 @@ repetitions <- function(x, options) {
 #' @return series of \code{x}
 series <- function(x, options) {
   x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
   sum <- 0
@@ -106,6 +115,8 @@ series <- function(x, options) {
 #' @return cluster ratio of \code{x}
 cluster_ratio <- function(x, options) {
   x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
   # transform first-order dependency table to vector
