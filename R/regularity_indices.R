@@ -1,6 +1,8 @@
 #' Compute runs (see Ginsburg & Karpiuk, 1994)
 #' @description Compute the variance of successive ascending or descending runs
 #' @param x vector of random numbers
+#' @param asc Indicate whether to compute variance of ascending or descending
+#' runs. Default value is set to ascending.
 #' @return runs of \code{x}
 runs_index <- function(x, asc = TRUE) {
   x <- to_numeric(x)

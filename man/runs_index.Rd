@@ -8,6 +8,9 @@ runs_index(x, asc = TRUE)
 }
 \arguments{
 \item{x}{vector of random numbers}
+
+\item{asc}{Indicate whether to compute variance of ascending or descending
+runs. Default value is set to ascending.}
 }
 \value{
 runs of \code{x}
