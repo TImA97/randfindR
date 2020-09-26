@@ -2,7 +2,7 @@
 % Please edit documentation in R/higher_order_regularity.R
 \name{reg_index}
 \alias{reg_index}
-\title{Compute regularity index by Skliar, Monge & Oviedo (2009)}
+\title{Compute regularity index}
 \usage{
 reg_index(x, options)
 }
@@ -15,5 +15,8 @@ reg_index(x, options)
 regularity index of \code{x}
 }
 \description{
-Compute regularity index by Skliar, Monge & Oviedo (2009)
+Compute regularity index
+}
+\references{
+Skliar, Monge & Oviedo (2009)
 }
