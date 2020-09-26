@@ -1,8 +1,9 @@
 # this class contains checks that are conducted before the main code is executed
 
 # aggregate function that conducts basic checks for functions
-base_checks <- function(x, options, min_options) {
-  is_vector_long_enough(x);
+# set default of min_length to 2
+base_checks <- function(x, options, min_options, min_length = 2) {
+  is_vector_long_enough(x, min_length);
   sufficient_options_provided(options, min_options)
   is_number_of_distinct_options_too_high(x, options)
 }

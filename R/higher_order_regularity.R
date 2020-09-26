@@ -4,13 +4,11 @@
 #' @return regularity index of \code{x}
 reg_index <- function(x, options) {
 
-  if (length(x) < (options ^ 2)) {
-    stop("The provided vector is too short. Its length has to be at least as
-         high as the number of options squared.")
-  }
-
   x <- to_numeric(x)
-
+  min_length <- (options ^ 2)
+  min_options <- 2
+  #is_vector_long_enough(x, min_length)
+  base_checks(x, options, min_options, min_length)
 
   # if length of vector x is dividable by the number of options squared,
   # compute index as usual
