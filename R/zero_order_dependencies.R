@@ -6,6 +6,7 @@
 #' @examples
 #' redundancy_index(c(1,1,1,1),2)
 #' redundancy_index(c(2,2,1,1),2)
+#'
 #' @export
 redundancy_index <- function(x, options) {
 
@@ -52,6 +53,8 @@ redundancy_index <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return variance of digits of \code{x}
+#'
+#' @export
 variance_of_digits <- function(x, options) {
 
   min_options <- 2

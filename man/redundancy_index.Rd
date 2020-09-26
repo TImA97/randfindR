@@ -20,4 +20,5 @@ Compute redundancy index (see Towse & Neil, 1998)
 \examples{
 redundancy_index(c(1,1,1,1),2)
 redundancy_index(c(2,2,1,1),2)
+
 }
