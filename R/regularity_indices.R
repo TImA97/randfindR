@@ -135,11 +135,6 @@ gap_score <- function(x) {
     }
   }
 
-  # debug statements - delete later
-  print(gaps)
-  print(length(gaps))
-  print(table(gaps))
-
   # compute median of gaps
   result <- median(gaps)
   return(result)
