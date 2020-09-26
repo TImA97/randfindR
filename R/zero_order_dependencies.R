@@ -4,10 +4,9 @@
 #' @param options number of available options in sequence
 #' @return redundancy index of \code{x}
 #' @examples
-#' \dontrun{
 #' redundancy_index(c(1,1,1,1),2)
-#' redundancy_index(c(1,2,1,),2)
-#' }
+#' redundancy_index(c(2,2,1,1),2)
+#' @export
 redundancy_index <- function(x, options) {
 
   min_options <- 2
@@ -75,6 +74,8 @@ variance_of_digits <- function(x, options) {
 #' @param x vector
 #' @return x_transformed
 #' @keywords internal
+#'
+#' @noRd
 to_numeric <- function(x) {
   as.numeric(factor(x))
 }
