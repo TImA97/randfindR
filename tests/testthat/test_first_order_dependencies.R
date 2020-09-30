@@ -61,4 +61,8 @@ test_that("cluster ratio returns correct result", {
   expect_equal(round(cluster_ratio(sequence_three, 10), 2), 1.52)
 })
 
-
+test_that("Guttmann's Null-Score Quotient returns correct result", {
+  expect_equal(round(null_score(sequence_one, 10), 2), 33.33)
+  expect_equal(round(null_score(sequence_two, 10), 4), 52.5253)
+  expect_equal(round(null_score(sequence_three, 10), 4), 47.4747)
+})
