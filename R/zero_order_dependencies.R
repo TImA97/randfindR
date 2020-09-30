@@ -15,15 +15,15 @@ redundancy_index <- function(x, options) {
 
   base_checks(x, options, min_options)
 
-  distinct_responses <- length(unique(x))
+  unique_responses <- get_number_unique_responses(x)
   frequencies <- as.vector(table(x))
 
   # if there are more possible  than distinct options in the vector,
   # add the omitted options to the observed frequencies with value '0'
-  if (options > distinct_responses) {
-    options_to_be_added <- options - distinct_responses
+  if (options > unique_responses) {
+    options_to_be_added <- options - unique_responses
     for (i in 1:options_to_be_added) {
-      frequencies[distinct_responses + i] <- 0
+      frequencies[unique_responses + i] <- 0
     }
   }
 

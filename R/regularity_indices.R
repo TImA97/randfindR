@@ -46,7 +46,7 @@ coupon_score <- function(x, options) {
   base_checks(x, options, min_options)
 
   # check whether all possible options are included in the provided sequence
-  distinct_options <- length(unique(x))
+  distinct_options <- get_number_unique_responses(x)
   if (distinct_options < options) {
     warning(
       "The provided sequence does not contain all possible options.

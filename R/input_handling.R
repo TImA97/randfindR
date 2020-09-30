@@ -22,9 +22,19 @@ convert_to_matrix <- function(x, options) {
 #'
 #' @param x vector
 #' @return x_transformed
-#' @keywords internal
 #'
 #' @noRd
 to_numeric <- function(x) {
   as.numeric(factor(x))
+}
+
+
+# TODO: Add function that returns the number of unqiue options in a given vector
+#' function returns the number of unique response in a vector
+#' @param x vector
+#' @return number of unique responses in \code{x}
+#' @noRd
+get_number_unique_responses <- function(x) {
+  unique_responses <- length(unique(x))
+  return(unique_responses)
 }
