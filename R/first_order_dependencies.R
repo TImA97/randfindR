@@ -147,8 +147,14 @@ cluster_ratio <- function(x, options) {
 #'
 #' @details
 #'
-#' This function takes a vector and computes the number of all response pairs
-#' that do not occur in this sequence.
+#' This function takes a vector \code{x} and computes the number of all response
+#' pairs that do not occur in this sequence given the number of possible
+#' \code{options}. The result of this computation is weighted with the highest
+#' possible number of unused response pairs for this sequence.
+#' The final result is attained by multiplying this quotient with 100.
+#' The result of this quotient ranges from 0 to 100.
+#' High values indicate an uneven distribution of response pairs, whereas low
+#' values indicate an even distribution of response pairs.
 #'
 #' @export
 #'
@@ -157,7 +163,7 @@ cluster_ratio <- function(x, options) {
 #' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 #' methods used and a computer program for describing performance. Behavior
 #' Research Methods, Instruments, & Computers 30, 583–591 (1998).
-#' https://doi.org/10.3758/BF03209475
+#' \url{https://doi.org/10.3758/BF03209475}
 null_score <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
