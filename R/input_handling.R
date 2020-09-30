@@ -35,6 +35,5 @@ to_numeric <- function(x) {
 #' @return number of unique responses in \code{x}
 #' @noRd
 get_number_unique_responses <- function(x) {
-  unique_responses <- length(unique(x))
-  return(unique_responses)
+  length(unique(x))
 }
