@@ -72,13 +72,3 @@ variance_of_digits <- function(x, options) {
 }
 
 
-#' function transforms given vector to numeric
-#'
-#' @param x vector
-#' @return x_transformed
-#' @keywords internal
-#'
-#' @noRd
-to_numeric <- function(x) {
-  as.numeric(factor(x))
-}
