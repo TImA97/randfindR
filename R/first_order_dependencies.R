@@ -138,3 +138,36 @@ cluster_ratio <- function(x, options) {
 
   return(var_cells)
 }
+
+#' Compute Guttmann's Null-Score Quotient
+#'
+#' @param x vector of random numbers
+#' @param options number of available options in sequence
+#' @return Guttmann Null-Score Quotient of \code{x}
+#'
+#' @details
+#'
+#' This function takes a vector and computes the number of all response pairs
+#' that do not occur in this sequence.
+#'
+#' @export
+#'
+#' @references
+#'
+#' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
+#' methods used and a computer program for describing performance. Behavior
+#' Research Methods, Instruments, & Computers 30, 583–591 (1998).
+#' https://doi.org/10.3758/BF03209475
+null_score <- function(x, options) {
+  x <- to_numeric(x)
+  min_options <- 2
+  base_checks(x, options, min_options)
+  matr <- convert_to_matrix(x, options)
+
+  # compute number of 0-value-cells and compute quotient
+  null_score <- sum(matr == 0)
+  max_score <- (options ^ 2) - 1
+  null_score_quotient <- 100 * (null_score / max_score)
+  return(null_score_quotient)
+}
+
