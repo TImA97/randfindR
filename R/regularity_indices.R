@@ -4,6 +4,8 @@
 #' @param asc Indicate whether to compute variance of ascending or descending
 #' runs. Default value is set to ascending.
 #' @return runs of \code{x}
+#'
+#' @export
 runs_index <- function(x, asc = TRUE) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
@@ -40,6 +42,8 @@ runs_index <- function(x, asc = TRUE) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return Coupon Score of \code{x}
+#'
+#' @export
 coupon_score <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
@@ -96,6 +100,8 @@ coupon_score <- function(x, options) {
 #' @description Compute median gap between identical values
 #' @param x vector of random numbers
 #' @return gap score of \code{x}
+#'
+#' @export
 gap_score <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
@@ -148,6 +154,8 @@ gap_score <- function(x) {
 #' occur after division of the complete sequence into 5-digit-long sub-sequences
 #' @param x vector of random numbers
 #' @return poker score of \code{x}
+#'
+#' @export
 poker_score <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x, min_length = 5)

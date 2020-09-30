@@ -3,6 +3,8 @@
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return regularity index of \code{x}
+#'
+#' @export
 reg_index <- function(x, options) {
 
   x <- to_numeric(x)

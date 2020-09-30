@@ -5,6 +5,8 @@
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return digram repetition of \code{x}
+#'
+#' @export
 digram_rep <- function(x, options) {
 
   x <- to_numeric(x)
@@ -30,6 +32,8 @@ digram_rep <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return RNG index of \code{x}
+#'
+#' @export
 rng_index <- function(x, options) {
 
 
@@ -65,6 +69,8 @@ rng_index <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return repetitions of \code{x}
+#'
+#' @export
 repetitions <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
@@ -80,6 +86,8 @@ repetitions <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return series of \code{x}
+#'
+#' @export
 series <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
@@ -113,6 +121,8 @@ series <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return cluster ratio of \code{x}
+#'
+#' @export
 cluster_ratio <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
