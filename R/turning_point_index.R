@@ -29,6 +29,23 @@ tp_index <- function(x) {
   is_vector_long_enough(x, min_length)
 
   # compute number of turning points in x
+  tp_observed <- get_number_tps(x)
+
+  # compute number of expected turning points
+  tp_expected <- (2 / 3) * (length(x) - 2)
+
+  # compute quotient of observed and expected turning points
+  tp_index <- 100 * (tp_observed / tp_expected)
+  return(tp_index)
+}
+
+#' Computes number of turning points
+#'
+#' @param x vector of random numbers
+#' @return number of turning points of \code{x}
+#'
+#' @noRd
+get_number_tps <- function(x) {
   tp_observed <- 0
   for (i in 2:(length(x) - 1)) {
     if (
@@ -37,11 +54,5 @@ tp_index <- function(x) {
       tp_observed <- tp_observed + 1
     }
   }
-
-  # compute number of expected turning points
-  tp_expected <- (2 / 3) * (length(x) - 2)
-
-  # compute quotient of observed and expected turning points
-  tp_index <- 100 * (tp_observed / tp_expected)
-  return(tp_index)
+  return(tp_observed)
 }
