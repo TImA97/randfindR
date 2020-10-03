@@ -52,11 +52,11 @@ rng_index <- function(x, options) {
   }
 
   divisor <- 0
-  rowMarginals <- rowSums(matr)
+  row_marginals <- rowSums(matr)
   for (i in 1:options) {
-    rowMarginal <- rowMarginals[i]
-    if (rowMarginal > 1) {
-      divisor <- divisor + log10(rowMarginal) * rowMarginal;
+    row_marginal <- row_marginals[i]
+    if (row_marginal > 1) {
+      divisor <- divisor + log10(row_marginal) * row_marginal;
     }
   }
 
