@@ -47,11 +47,23 @@ tp_index <- function(x) {
 #' @noRd
 get_number_tps <- function(x) {
   tp_observed <- 0
+  level <- FALSE
   for (i in 2:(length(x) - 1)) {
+    # mark occurrence of a sequence of identical values
+    if (x[i - 1] == x[i]) {
+      level <- TRUE
+    }
+
+    # increment turning points if there is a local peak or low point
+    # also, consider special case that the local peak or low point consists
+    # of several values of the same kind
     if (
       (x[i] < x[i - 1] & x[i] < x[i + 1]) |
       (x[i] > x[i - 1] & x[i] > x[i + 1])) {
       tp_observed <- tp_observed + 1
+    } else if ((x[i] > x[i + 1] | x[i] < x[i + 1]) & level == TRUE & i > 2) {
+      tp_observed <- tp_observed + 1
+      level <- FALSE
     }
   }
   return(tp_observed)
