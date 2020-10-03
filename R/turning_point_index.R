@@ -48,20 +48,28 @@ tp_index <- function(x) {
 get_number_tps <- function(x) {
   tp_observed <- 0
   level <- FALSE
+  before_level <- x[1]
+  level_value <- 0
   for (i in 2:(length(x) - 1)) {
-    # mark occurrence of a sequence of identical values
-    if (x[i - 1] == x[i]) {
+    # mark occurrence of a sequence of identical values (change level to 'TRUE')
+    if (x[i] == x[i + 1] & level == FALSE) {
       level <- TRUE
+      before_level <- x[i - 1]
+      level_value <- x[i]
+    } else if (level == TRUE & x[i] != level_value) {
+      # mark end of sequence of identical values (change level to 'FALSE')
+      level = FALSE
     }
 
     # increment turning points if there is a local peak or low point
     # also, consider special case that the local peak or low point consists
     # of several values of the same kind
-    if (
-      (x[i] < x[i - 1] & x[i] < x[i + 1]) |
-      (x[i] > x[i - 1] & x[i] > x[i + 1])) {
+    if ((x[i] < x[i - 1] & x[i] < x[i + 1]) |
+        (x[i] > x[i - 1] & x[i] > x[i + 1])) {
       tp_observed <- tp_observed + 1
-    } else if ((x[i] > x[i + 1] | x[i] < x[i + 1]) & level == TRUE & i > 2) {
+    } else if (((x[i] < x[i + 1] & x[i] < before_level) |
+                (x[i] > x[i + 1] & x[i] > before_level)) &
+               (level == TRUE)) {
       tp_observed <- tp_observed + 1
       level <- FALSE
     }
