@@ -21,34 +21,26 @@
 #' Bull. Psychon. Soc. 12, 35–38 (1978).
 #' \url{https://doi.org/10.3758/BF03329617}
 rng_index <- function(x, options) {
-
-
   x <- to_numeric(x)
   min_options <- 2
   base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
+  # get dividend and divisor of rng_index
   dividend <- get_quotient_dividend(matr)
+  divisor <- get_quotient_divisor(matr)
 
-  divisor <- 0
-  row_marginals <- rowSums(matr)
-  for (i in 1:options) {
-    row_marginal <- row_marginals[i]
-    if (row_marginal > 1) {
-      divisor <- divisor + log10(row_marginal) * row_marginal;
-    }
-  }
-
+  # compute and return quotient
   result <- dividend / divisor
   return(result)
 }
 
 
-#' Compute dividend of rng_index, which reflects the sum of the log values of
-#' all matrix cell frequencies higher than 1
+#' Compute dividend of rng_index, which reflects the sum of log values of
+#' all matrix cell frequencies
 #'
 #' @param matr matrix of response pairs
-#' @return
+#' @return rng_index dividend of \code{x}
 #'
 #' @noRd
 get_quotient_dividend <- function(matr) {
@@ -63,4 +55,24 @@ get_quotient_dividend <- function(matr) {
     }
   }
   return(dividend)
+}
+
+#' Compute divisor of rng_index, which reflects the sum of log values of all
+#' matrix row frequencies
+#'
+#' @param matr matrix of response pairs
+#' @return rng_index divisor of \code{x}
+#'
+#' @noRd
+get_quotient_divisor <- function(matr) {
+  divisor <- 0
+  row_length <- sqrt(length(matr))
+  row_marginals <- rowSums(matr)
+  for (i in 1:row_length) {
+    row_marginal <- row_marginals[i]
+    if (row_marginal > 1) {
+      divisor <- divisor + log10(row_marginal) * row_marginal;
+    }
+  }
+  return(divisor)
 }
