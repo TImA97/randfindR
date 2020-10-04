@@ -29,7 +29,6 @@ to_numeric <- function(x) {
 }
 
 
-# TODO: Add function that returns the number of unqiue options in a given vector
 #' function returns the number of unique response in a vector
 #' @param x vector
 #' @return number of unique responses in \code{x}
