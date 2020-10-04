@@ -28,7 +28,7 @@ reg_index <- function(x, options) {
 compute_index <- function(x, options) {
   components <- numeric(length = length(x) * 2 - 1)
   components_counter <- 1
-  number_dyads <- (options^2)
+  number_dyads <- (options ^ 2)
 
 
   # displace input sequence (number of options -1) times and save them in list
