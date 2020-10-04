@@ -9,6 +9,8 @@
 #' @noRd
 convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
   matr <- matrix(data = 0, nrow = options, ncol = options)
+
+  # count response pairs depending on the specified order
   for (i in 1:(length(x) - order)) {
     current_value <- x[i]
     next_value <- x[i + order]
