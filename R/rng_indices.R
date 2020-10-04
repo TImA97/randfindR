@@ -28,14 +28,7 @@ rng_index <- function(x, options) {
   base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
-  dividend  <- 0
-  for (i in 1:options) {
-    for (j in 1:options) {
-      if (matr[i,j] > 1) {
-        dividend  <- dividend  + log10(matr[i,j]) *  matr[i,j]
-      }
-    }
-  }
+  dividend <- get_quotient_dividend(matr)
 
   divisor <- 0
   row_marginals <- rowSums(matr)
@@ -48,4 +41,26 @@ rng_index <- function(x, options) {
 
   result <- dividend / divisor
   return(result)
+}
+
+
+#' Compute dividend of rng_index, which reflects the sum of the log values of
+#' all matrix cell frequencies higher than 1
+#'
+#' @param matr matrix of response pairs
+#' @return
+#'
+#' @noRd
+get_quotient_dividend <- function(matr) {
+  dividend  <- 0
+  row_length <- sqrt(length(matr))
+  col_length <- row_length
+  for (i in 1:row_length) {
+    for (j in 1:col_length) {
+      if (matr[i,j] > 1) {
+        dividend  <- dividend  + log10(matr[i,j]) *  matr[i,j]
+      }
+    }
+  }
+  return(dividend)
 }
