@@ -21,7 +21,6 @@ convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
       current_value <- x[length(x) - order + i]
       next_value <- x[i]
       matr[current_value, next_value] <- matr[current_value, next_value] + 1
-      #(length(x) - order + 1):length(x)
     }
   }
 
