@@ -6,11 +6,11 @@
 #' @param options number of available options in sequence
 #'
 #' @noRd
-convert_to_matrix <- function(x, options) {
+convert_to_matrix <- function(x, options, order = 1) {
   matr <- matrix(data = 0, nrow = options, ncol = options)
-  for (i in 1:(length(x) - 1)) {
+  for (i in 1:(length(x) - order)) {
     current_value <- x[i]
-    next_value <- x[i + 1]
+    next_value <- x[i + order]
     matr[current_value, next_value] <- matr[current_value, next_value] + 1
   }
 
