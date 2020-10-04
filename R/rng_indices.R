@@ -1,10 +1,25 @@
-#' Compute RNG index by Evans (1978)
+#' Compute RNG index
 #'
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return RNG index of \code{x}
 #'
+#' @details
+#'
+#' This function takes a vector \code{x} and computes an index that reflects
+#' whether the distribution of response pairs in the sequence is uneven given
+#' the number of possible \code{options}. The values of this index range between
+#' 0 and 1. A value of '1' would indicate complete redundancy of response pairs,
+#' whereas a value of '0' would indicate an even distribution of response pairs.
+#'
 #' @export
+#'
+#' @references
+#'
+#' Evans, F.J. Monitoring attention deployment by random number generation:
+#' An index to measure subjective randomness.
+#' Bull. Psychon. Soc. 12, 35–38 (1978).
+#' \url{https://doi.org/10.3758/BF03329617}
 rng_index <- function(x, options) {
 
 

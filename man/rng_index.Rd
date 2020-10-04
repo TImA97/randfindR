@@ -2,7 +2,7 @@
 % Please edit documentation in R/rng_indices.R
 \name{rng_index}
 \alias{rng_index}
-\title{Compute RNG index by Evans (1978)}
+\title{Compute RNG index}
 \usage{
 rng_index(x, options)
 }
@@ -15,5 +15,18 @@ rng_index(x, options)
 RNG index of \code{x}
 }
 \description{
-Compute RNG index by Evans (1978)
+Compute RNG index
+}
+\details{
+This function takes a vector \code{x} and computes an index that reflects
+whether the distribution of response pairs in the sequence is uneven given
+the number of possible \code{options}. The values of this index range between
+0 and 1. A value of '1' would indicate complete redundancy of response pairs,
+whereas a value of '0' would indicate an even distribution of response pairs.
+}
+\references{
+Evans, F.J. Monitoring attention deployment by random number generation:
+An index to measure subjective randomness.
+Bull. Psychon. Soc. 12, 35–38 (1978).
+\url{https://doi.org/10.3758/BF03329617}
 }
