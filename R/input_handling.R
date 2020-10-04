@@ -4,14 +4,25 @@
 #' sequences
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
+#' @param order indicates displacement between response pairs (default is 1)
 #'
 #' @noRd
-convert_to_matrix <- function(x, options, order = 1) {
+convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
   matr <- matrix(data = 0, nrow = options, ncol = options)
   for (i in 1:(length(x) - order)) {
     current_value <- x[i]
     next_value <- x[i + order]
     matr[current_value, next_value] <- matr[current_value, next_value] + 1
+  }
+
+  # include transition from latest to first responses
+  if (circ) {
+    for (i in 1:options) {
+      current_value <- x[length(x) - order + i]
+      next_value <- x[i]
+      matr[current_value, next_value] <- matr[current_value, next_value] + 1
+      #(length(x) - order + 1):length(x)
+    }
   }
 
   return(matr)
