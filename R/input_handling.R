@@ -10,20 +10,22 @@
 convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
   matr <- matrix(data = 0, nrow = options, ncol = options)
 
-  # count response pairs depending on the specified order
-  for (i in 1:(length(x) - order)) {
-    current_value <- x[i]
-    next_value <- x[i + order]
-    matr[current_value, next_value] <- matr[current_value, next_value] + 1
+  # check whether to include wrap around in the computation of response pairs
+  indizes <- 1:(length(x) - order)
+  if (circ) {
+    indizes <- 1:length(x)
   }
 
-  # include transition from latest to first responses
-  if (circ) {
-    for (i in 1:options) {
-      current_value <- x[length(x) - order + i]
-      next_value <- x[i]
-      matr[current_value, next_value] <- matr[current_value, next_value] + 1
+  # compute number of response pairs depending on the specified order
+  for (i in indizes) {
+    current_value <- x[i]
+    next_index <- (i + order) %% (length(x) + 1)
+    # if wrap around occurs, add 1 to next_index as there is no index 0
+    if ((i + order) > length(x)) {
+      next_index <- next_index +  1
     }
+    next_value <-x[next_index]
+    matr[current_value, next_value] <- matr[current_value, next_value] + 1
   }
 
   return(matr)
