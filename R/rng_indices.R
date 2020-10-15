@@ -35,6 +35,46 @@ rng_index <- function(x, options) {
   return(result)
 }
 
+#' Compute RNG2 index
+#'
+#' @param x vector of random numbers
+#' @param options number of available options in sequence
+#' @return RNG2 index of \code{x}
+#'
+#' @details
+#'
+#' This function takes a vector \code{x} and computes an index that reflects
+#' whether the distribution of response pairs in the sequence is uneven given
+#' the number of possible \code{options}. In this modified version of the
+#' RNG index response pairs are constructed over the distance of two values,
+#' e.g., in the sequence c(1,2,3) the first response pair is (1,3).
+#' The values of this index range between 0 and 1. A value of '1' would indicate
+#' complete redundancy of response pairs,whereas a value of '0' would indicate
+#' an even distribution of response pairs.
+#'
+#' @export
+#'
+#' @references
+#'
+#' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
+#' methods used and a computer program for describing performance. Behavior
+#' Research Methods, Instruments, & Computers 30, 583–591 (1998).
+rng2_index <- function(x, options) {
+  x <- to_numeric(x)
+  min_options <- 3
+  base_checks(x, options, min_options)
+  matr <- convert_to_matrix(x, options, order = 2)
+
+  # get dividend and divisor of rng_index
+  dividend <- get_quotient_dividend(matr)
+  divisor <- get_quotient_divisor(matr)
+
+  # compute and return quotient
+  result <- dividend / divisor
+  return(result)
+}
+
+
 
 #' Compute dividend of rng_index, which reflects the sum of log values of
 #' all matrix cell frequencies
