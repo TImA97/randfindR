@@ -8,8 +8,6 @@ tp_index(x)
 }
 \arguments{
 \item{x}{vector of random numbers}
-
-\item{options}{number of available options in sequence}
 }
 \value{
 Turning Point Index of \code{x}

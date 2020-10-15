@@ -1,7 +1,6 @@
 #' Turning Point Index
 #'
 #' @param x vector of random numbers
-#' @param options number of available options in sequence
 #' @return Turning Point Index of \code{x}
 #'
 #' @details
