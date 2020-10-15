@@ -63,7 +63,7 @@ rng2_index <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 3
   base_checks(x, options, min_options)
-  matr <- convert_to_matrix(x, options, order = 2)
+  matr <- convert_to_matrix(x, options, order = 2, circ = FALSE)
 
   # get dividend and divisor of rng_index
   dividend <- get_quotient_dividend(matr)
