@@ -20,10 +20,9 @@ convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
   for (i in indizes) {
     current_value <- x[i]
     next_index <- i + order
-    # if wrap around occurs, compute next index with modulo and add 1 to the
-    # result as there is no index 0
+    # if wrap around occurs, compute next index with modulo
     if ((i + order) > length(x)) {
-      next_index <- (next_index %% (length(x) + 1)) + 1
+      next_index <- next_index %% length(x)
     }
     next_value <- x[next_index]
     matr[current_value, next_value] <- matr[current_value, next_value] + 1
