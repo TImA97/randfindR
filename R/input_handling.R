@@ -21,7 +21,7 @@ convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
     current_value <- x[i]
     next_index <- i + order
     # if wrap around occurs, compute next index with modulo
-    if ((i + order) > length(x)) {
+    if (next_index > length(x)) {
       next_index <- next_index %% length(x)
     }
     next_value <- x[next_index]
