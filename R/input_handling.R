@@ -19,10 +19,11 @@ convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
   # compute number of response pairs depending on the specified order
   for (i in indizes) {
     current_value <- x[i]
-    next_index <- (i + order) %% (length(x) + 1)
-    # if wrap around occurs, add 1 to next_index as there is no index 0
+    next_index <- i + order
+    # if wrap around occurs, compute next index with modulo and add 1 to the
+    # result as there is no index 0
     if ((i + order) > length(x)) {
-      next_index <- next_index +  1
+      next_index <- (next_index %% (length(x) + 1)) + 1
     }
     next_value <- x[next_index]
     matr[current_value, next_value] <- matr[current_value, next_value] + 1
