@@ -2,6 +2,8 @@
 #'
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
+#' @param circ indicate whether to include wrap around from end to the beginning
+#' of the sequence when computing response pairs
 #' @return RNG index of \code{x}
 #'
 #' @details
@@ -20,11 +22,11 @@
 #' An index to measure subjective randomness.
 #' Bull. Psychon. Soc. 12, 35–38 (1978).
 #' \url{https://doi.org/10.3758/BF03329617}
-rng_index <- function(x, options) {
+rng_index <- function(x, options, circ = TRUE) {
   x <- to_numeric(x)
   min_options <- 2
   base_checks(x, options, min_options)
-  matr <- convert_to_matrix(x, options)
+  matr <- convert_to_matrix(x, options, circ = circ)
 
   # get dividend and divisor of rng_index
   dividend <- get_quotient_dividend(matr)
@@ -39,6 +41,8 @@ rng_index <- function(x, options) {
 #'
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
+#' @param circ indicate whether to include wrap around from end to the beginning
+#' of the sequence when computing response pairs
 #' @return RNG2 index of \code{x}
 #'
 #' @details
@@ -59,12 +63,12 @@ rng_index <- function(x, options) {
 #' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 #' methods used and a computer program for describing performance. Behavior
 #' Research Methods, Instruments, & Computers 30, 583–591 (1998).
-rng2_index <- function(x, options) {
+rng2_index <- function(x, options, circ = FALSE) {
   x <- to_numeric(x)
   min_options <- 2
   min_length <- 3
   base_checks(x, options, min_options, min_length)
-  matr <- convert_to_matrix(x, options, order = 2, circ = FALSE)
+  matr <- convert_to_matrix(x, options, order = 2, circ = circ)
 
   # get dividend and divisor of rng_index
   dividend <- get_quotient_dividend(matr)
@@ -118,8 +122,8 @@ get_quotient_divisor <- function(matr) {
 
 #' Compute result of rng_index
 #'
-#' @param dividend
-#' @param divisor
+#' @param dividend dividend of rng_index
+#' @param divisor divisor of rng_index
 #' @return rng_index of\code{x}
 #'
 #' @noRd

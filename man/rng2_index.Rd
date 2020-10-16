@@ -4,12 +4,15 @@
 \alias{rng2_index}
 \title{Compute RNG2 index}
 \usage{
-rng2_index(x, options)
+rng2_index(x, options, circ = FALSE)
 }
 \arguments{
 \item{x}{vector of random numbers}
 
 \item{options}{number of available options in sequence}
+
+\item{circ}{indicate whether to include wrap around from end to the beginning
+of the sequence when computing response pairs}
 }
 \value{
 RNG2 index of \code{x}
