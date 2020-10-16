@@ -75,8 +75,6 @@ rng2_index <- function(x, options) {
   return(result)
 }
 
-
-
 #' Compute dividend of rng_index, which reflects the sum of log values of
 #' all matrix cell frequencies
 #'
