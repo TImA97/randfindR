@@ -31,7 +31,7 @@ rng_index <- function(x, options) {
   divisor <- get_quotient_divisor(matr)
 
   # compute and return quotient
-  result <- dividend / divisor
+  result <- get_quotient(dividend, divisor)
   return(result)
 }
 
@@ -61,8 +61,9 @@ rng_index <- function(x, options) {
 #' Research Methods, Instruments, & Computers 30, 583–591 (1998).
 rng2_index <- function(x, options) {
   x <- to_numeric(x)
-  min_options <- 3
-  base_checks(x, options, min_options)
+  min_options <- 2
+  min_length <- 3
+  base_checks(x, options, min_options, min_length)
   matr <- convert_to_matrix(x, options, order = 2, circ = FALSE)
 
   # get dividend and divisor of rng_index
@@ -70,7 +71,7 @@ rng2_index <- function(x, options) {
   divisor <- get_quotient_divisor(matr)
 
   # compute and return quotient
-  result <- dividend / divisor
+  result <- get_quotient(dividend, divisor)
   return(result)
 }
 
@@ -115,4 +116,20 @@ get_quotient_divisor <- function(matr) {
     }
   }
   return(divisor)
+}
+
+#' Compute result of rng_index
+#'
+#' @param dividend
+#' @param divisor
+#' @return rng_index of\code{x}
+#'
+#' @noRd
+get_quotient <- function(dividend, divisor) {
+  if (dividend == 0 & divisor == 0) {
+      return(0)
+  } else {
+    quotient <- dividend / divisor
+    return(quotient)
+  }
 }
