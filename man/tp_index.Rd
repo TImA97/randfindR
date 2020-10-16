@@ -17,13 +17,14 @@ Turning Point Index
 }
 \details{
 This function takes a vector \code{x} and computes all turning points in the
-given sequence. Turning points are defined as values int the given
+given sequence. Turning points are defined as values in the given
 sequence where the preceding and succeeding value are both either higher
 or lower than the current value. The number of observed turning points is
 weighted against the theoretically expected number of turning points given
 the length of the sequence. The resulting quotient is multiplied with 100.
-Values over 100 indicate too many turning points compared to the theoretical
-distributions, values below 100 too few.
+Values over 100 indicate a higher number of turning points than theoretically
+expected; values below 100 indicate fewer turning points than theoretically
+expected.
 }
 \references{
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
