@@ -2,8 +2,8 @@
 #'
 #' @format A data frame with 100 rows and 2 columns:
 #' \describe{
-#'   \item{sequence_one} {first sequence of random numbers}
-#'   \item{sequence_two} {second sequence of random numbers}
+#'   \item{sequence_one}{first sequence of random numbers}
+#'   \item{sequence_two}{second sequence of random numbers}
 #'}
 #' @source
 #' Taken from Evans (1978; see reference below),

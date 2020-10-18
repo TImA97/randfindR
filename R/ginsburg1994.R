@@ -2,7 +2,7 @@
 #'
 #' @format A 100-digit-long vector of random numbers:
 #' \describe{
-#'   \item{ginsburg1994} {sequence of random numbers}
+#'   \item{ginsburg1994}{sequence of random numbers}
 #'}
 #' @source
 #' Taken from Ginsburg & Karpiuk, 1994; see reference below),

@@ -7,7 +7,7 @@
 \format{
 A 100-digit-long vector of random numbers:
 \describe{
-  \item{ginsburg1994} {sequence of random numbers}
+  \item{ginsburg1994}{sequence of random numbers}
 }
 }
 \source{
