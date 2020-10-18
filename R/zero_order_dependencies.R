@@ -1,4 +1,16 @@
-#' Compute redundancy index (see Towse & Neil, 1998)
+#' Redundancy index
+#'
+#' @description
+#' Computes index indicating the evenness of the response frequency
+#' distribution.
+#'
+#' @details
+#' This function takes a vector \code{x} and weights the observed information
+#' concerning the response frequencies against the highest observable
+#' information given the number of possible \code{options}. The resulting
+#' quotient is subtracted from 1 and then, multiplied with 100.
+#' A value of 0 would indicate an even distribution of response frequencies,
+#' whereas a value of 100 would indicate complete redundancy of one response.
 #'
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
@@ -8,6 +20,12 @@
 #' redundancy_index(c(2,2,1,1),2)
 #'
 #' @export
+#'
+#' @references
+#' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
+#' methods used and a computer program for describing performance. Behavior
+#' Research Methods, Instruments, & Computers 30, 583–591 (1998).
+#' \url{https://doi.org/10.3758/BF03209475}
 redundancy_index <- function(x, options) {
 
   min_options <- 2

@@ -2,7 +2,7 @@
 % Please edit documentation in R/zero_order_dependencies.R
 \name{redundancy_index}
 \alias{redundancy_index}
-\title{Compute redundancy index (see Towse & Neil, 1998)}
+\title{Redundancy index}
 \usage{
 redundancy_index(x, options)
 }
@@ -15,10 +15,25 @@ redundancy_index(x, options)
 redundancy index of \code{x}
 }
 \description{
-Compute redundancy index (see Towse & Neil, 1998)
+Computes index indicating the evenness of the response frequency
+distribution.
+}
+\details{
+This function takes a vector \code{x} and weights the observed information
+concerning the response frequencies against the highest observable
+information given the number of possible \code{options}. The resulting
+quotient is subtracted from 1 and then, multiplied with 100.
+A value of 0 would indicate an even distribution of response frequencies,
+whereas a value of 100 would indicate complete redundancy of one response.
 }
 \examples{
 redundancy_index(c(1,1,1,1),2)
 redundancy_index(c(2,2,1,1),2)
 
+}
+\references{
+Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
+methods used and a computer program for describing performance. Behavior
+Research Methods, Instruments, & Computers 30, 583–591 (1998).
+\url{https://doi.org/10.3758/BF03209475}
 }
