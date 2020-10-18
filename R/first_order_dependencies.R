@@ -45,10 +45,10 @@ digram_rep <- function(x, options) {
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
 #' \url{doi:10.2466/pms.1994.79.3.1059}
-repetitions <- function(x, options) {
+repetitions <- function(x) {
   x <- to_numeric(x)
-  min_options <- 2
-  base_checks(x, options, min_options)
+  is_vector_long_enough(x)
+  options <- get_number_unique_responses(x)
   matr <- convert_to_matrix(x, options)
   sum <- sum(diag(matr))
   return(sum)

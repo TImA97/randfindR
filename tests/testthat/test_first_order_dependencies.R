@@ -5,7 +5,7 @@ test_that("digram_rep returns correct result", {
 })
 
 test_that("repetitions returns correct result", {
-  expect_equal(repetitions(ginsburg1994, 10), 2)
+  expect_equal(repetitions(ginsburg1994), 2)
 })
 
 test_that("series returns correct result", {
