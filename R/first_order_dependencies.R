@@ -1,12 +1,23 @@
-## decide whether to include transition from last to first number
-
-#' Compute Digram Repetitions (see Ginsburg & Karpiuk, 1994)
+#' Digram Repetitions
+#'
+#' @description
+#' Compute sum of all response pairs minus one
 #'
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return digram repetition of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and sums up the frequency of all
+#' response pairs given the number of possible \code{options}. For each response
+#' pair that occurs more than once the total sum is reduced by one.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 digram_rep <- function(x, options) {
 
   x <- to_numeric(x)
