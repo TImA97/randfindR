@@ -2,7 +2,7 @@
 % Please edit documentation in R/zero_order_dependencies.R
 \name{variance_of_digits}
 \alias{variance_of_digits}
-\title{Compute variance of digits (see Ginsburg & Karpiuk, 1994)}
+\title{Variance of digits}
 \usage{
 variance_of_digits(x, options)
 }
@@ -16,4 +16,15 @@ variance of digits of \code{x}
 }
 \description{
 Computes the variance of marginal totals
+}
+\details{
+This function takes a vector \code{x} and computes the population variance
+of response frequencies given the number of possible \code{options}.
+This index is conceptually closely related to the idea of the
+\code{\link{redundancy_index}}.
+}
+\references{
+Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+\url{doi:10.2466/pms.1994.79.3.1059}
 }

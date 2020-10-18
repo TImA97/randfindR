@@ -66,13 +66,24 @@ redundancy_index <- function(x, options) {
 }
 
 
-#' Compute variance of digits (see Ginsburg & Karpiuk, 1994)
+#' Variance of digits
 #' @description Computes the variance of marginal totals
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return variance of digits of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and computes the population variance
+#' of response frequencies given the number of possible \code{options}.
+#' This index is conceptually closely related to the idea of the
+#' \code{\link{redundancy_index}}.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 variance_of_digits <- function(x, options) {
 
   min_options <- 2
