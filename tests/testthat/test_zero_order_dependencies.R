@@ -9,5 +9,5 @@ test_that("redundancy index returns correct result", {
 })
 
 test_that("variance of digits returns correct result", {
-  expect_equal(round(variance_of_digits(ginsburg1994, 10), 2), 5.00)
+  expect_equal(round(var_digits(ginsburg1994, 10), 2), 5.00)
 })
