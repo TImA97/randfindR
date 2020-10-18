@@ -86,7 +86,17 @@ series <- function(x, options) {
 #' @param options number of available options in sequence
 #' @return cluster ratio of \code{x}
 #'
+#' @details
+#'
+#' This function takes a vector \code{x} and computes the population variance
+#' of all response pair frequencies given the number of possible \code{options}.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 cluster_ratio <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2

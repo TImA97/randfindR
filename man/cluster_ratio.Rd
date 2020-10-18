@@ -18,3 +18,12 @@ cluster ratio of \code{x}
 compute the variance of all frequencies in table of
 first-order dependencies
 }
+\details{
+This function takes a vector \code{x} and computes the population variance
+of all response pair frequencies given the number of possible \code{options}.
+}
+\references{
+Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+\url{doi:10.2466/pms.1994.79.3.1059}
+}
