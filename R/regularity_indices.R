@@ -50,13 +50,33 @@ runs_index <- function(x, asc = TRUE) {
   return(variance)
 }
 
-#' Compute Coupon Score (see Ginsburg & Karpiuk)
+#' Coupon Score
+#'
 #' @description Compute average digit length required for all responses to occur
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return Coupon Score of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and computes the mean length of values
+#' that is required for all possible \code{options} to occur. A sub-string of
+#' a vector is considered a complete set if all \code{options} occur.
+#' Incomplete sets of responses at the end of a sequence with at least one
+#' option omitted are not used for the computation of this index.
+#' Consequently, this index cannot be computed for for vectors that do not
+#' contain all possible \code{options} and therefore, NA is returned.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
+#'
+#' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
+#' methods used and a computer program for describing performance. Behavior
+#' Research Methods, Instruments, & Computers 30, 583–591 (1998).
+#' \url{https://doi.org/10.3758/BF03209475}
 coupon_score <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
