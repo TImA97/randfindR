@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{series}
 \alias{series}
-\title{Compute series as measure of randomness (see Ginsburg & Karpiuk, 1994)}
+\title{Series index of randomness}
 \usage{
 series(x, options)
 }
@@ -16,5 +16,16 @@ series of \code{x}
 }
 \description{
 Compute frequency with which values are followed by their most
-adjacent predecessors and successors in the vector
+adjacent predecessors and successors
+}
+\details{
+This function takes a vector \code{x} and counts how often values are
+followed by their most adjacent predecessor and successors given the number
+of possible \code{options}. This function includes series from the lowest to
+the highest value and vice versa.
+}
+\references{
+Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+\url{doi:10.2466/pms.1994.79.3.1059}
 }

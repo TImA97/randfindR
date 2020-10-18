@@ -28,13 +28,23 @@ digram_rep <- function(x, options) {
 }
 
 
-#' Compute repetitions as measure of randomness (see Ginsburg & Karpiuk, 1994)
+#' Repetitions index of randomness
 #' @description Compute frequency a value is repeated in the next round
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return repetitions of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and counts how often values are
+#' directly repeated in the next value given the number of possible
+#' \code{options}.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 repetitions <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
@@ -44,14 +54,25 @@ repetitions <- function(x, options) {
   return(sum)
 }
 
-#' Compute series as measure of randomness (see Ginsburg & Karpiuk, 1994)
+#' Series index of randomness
 #' @description Compute frequency with which values are followed by their most
-#' adjacent predecessors and successors in the vector
+#' adjacent predecessors and successors
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return series of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and counts how often values are
+#' followed by their most adjacent predecessor and successors given the number
+#' of possible \code{options}. This function includes series from the lowest to
+#' the highest value and vice versa.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 series <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2

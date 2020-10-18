@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{repetitions}
 \alias{repetitions}
-\title{Compute repetitions as measure of randomness (see Ginsburg & Karpiuk, 1994)}
+\title{Repetitions index of randomness}
 \usage{
 repetitions(x, options)
 }
@@ -16,4 +16,14 @@ repetitions of \code{x}
 }
 \description{
 Compute frequency a value is repeated in the next round
+}
+\details{
+This function takes a vector \code{x} and counts how often values are
+directly repeated in the next value given the number of possible
+\code{options}.
+}
+\references{
+Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+\url{doi:10.2466/pms.1994.79.3.1059}
 }
