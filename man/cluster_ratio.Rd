@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{cluster_ratio}
 \alias{cluster_ratio}
-\title{Compute cluster ratio as a measure of randomness (see Ginsburg & Karpiuk, 1994)}
+\title{Cluster ratio index}
 \usage{
 cluster_ratio(x, options)
 }
@@ -15,8 +15,7 @@ cluster_ratio(x, options)
 cluster ratio of \code{x}
 }
 \description{
-compute the variance of all frequencies in table of
-first-order dependencies
+compute the population variance of all response pair frequencies
 }
 \details{
 This function takes a vector \code{x} and computes the population variance

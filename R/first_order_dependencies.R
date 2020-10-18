@@ -79,9 +79,8 @@ series <- function(x, options) {
   return(sum)
 }
 
-#' Compute cluster ratio as a measure of randomness (see Ginsburg & Karpiuk, 1994)
-#' @description compute the variance of all frequencies in table of
-#' first-order dependencies
+#' Cluster ratio index
+#' @description compute the population variance of all response pair frequencies
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return cluster ratio of \code{x}
@@ -113,7 +112,7 @@ cluster_ratio <- function(x, options) {
   return(var_cells)
 }
 
-#' Compute Guttmann's Null-Score Quotient
+#' Guttmann's Null-Score Quotient
 #'
 #' @param x vector of random numbers
 #' @param options number of available options in sequence

@@ -2,7 +2,7 @@
 % Please edit documentation in R/first_order_dependencies.R
 \name{null_score}
 \alias{null_score}
-\title{Compute Guttmann's Null-Score Quotient}
+\title{Guttmann's Null-Score Quotient}
 \usage{
 null_score(x, options)
 }
@@ -15,7 +15,7 @@ null_score(x, options)
 Guttmann Null-Score Quotient of \code{x}
 }
 \description{
-Compute Guttmann's Null-Score Quotient
+Guttmann's Null-Score Quotient
 }
 \details{
 This function takes a vector \code{x} and computes the number of all response
