@@ -23,7 +23,7 @@ that is required for all possible \code{options} to occur. A sub-string of
 a vector is considered a complete set if all \code{options} occur.
 Incomplete sets of responses at the end of a sequence with at least one
 option omitted are not used for the computation of this index.
-Consequently, this index cannot be computed for for vectors that do not
+Consequently, this index cannot be computed for vectors that do not
 contain all possible \code{options} and therefore, NA is returned.
 }
 \references{
