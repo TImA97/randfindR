@@ -114,7 +114,7 @@ coupon_score <- function(x, options) {
     }
 
     value <- x[i]
-    occurred_options[value] <- occurred_options[value] | TRUE
+    occurred_options[value] <- TRUE
     current_length <- current_length + 1
   }
 
