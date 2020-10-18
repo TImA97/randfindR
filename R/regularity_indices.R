@@ -1,11 +1,24 @@
-#' Compute runs (see Ginsburg & Karpiuk, 1994)
+#' Compute runs index of randomness
+#'
 #' @description Compute the variance of successive ascending or descending runs
 #' @param x vector of random numbers
+#'
 #' @param asc Indicate whether to compute variance of ascending or descending
 #' runs. Default value is set to ascending.
 #' @return runs of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and computes the population variance
+#' of all ascending or descending run lengths, depending on \code{asc}. The
+#' default version of this function computes the population variance of
+#' ascending run lengths.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 runs_index <- function(x, asc = TRUE) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
