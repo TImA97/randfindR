@@ -31,7 +31,6 @@ digram_rep <- function(x, options) {
 #' Repetitions index of randomness
 #' @description Compute frequency a value is repeated in the next round
 #' @param x vector of random numbers
-#' @param options number of available options in sequence
 #' @return repetitions of \code{x}
 #'
 #' @details

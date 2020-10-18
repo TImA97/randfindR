@@ -4,12 +4,10 @@
 \alias{repetitions}
 \title{Repetitions index of randomness}
 \usage{
-repetitions(x, options)
+repetitions(x)
 }
 \arguments{
 \item{x}{vector of random numbers}
-
-\item{options}{number of available options in sequence}
 }
 \value{
 repetitions of \code{x}
