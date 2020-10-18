@@ -2,7 +2,7 @@
 % Please edit documentation in R/regularity_indices.R
 \name{gap_score}
 \alias{gap_score}
-\title{Compute gap score (see Ginsburg & Karpiuk, 1994)}
+\title{Gap Score}
 \usage{
 gap_score(x)
 }
@@ -14,4 +14,13 @@ gap score of \code{x}
 }
 \description{
 Compute median gap between identical values
+}
+\details{
+This function takes a vector \code{x} and computes the median gap between
+the most adjacent identical values.
+}
+\references{
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+\url{doi:10.2466/pms.1994.79.3.1059}
 }

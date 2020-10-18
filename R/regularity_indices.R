@@ -129,12 +129,22 @@ coupon_score <- function(x, options) {
 }
 
 
-#' Compute gap score (see Ginsburg & Karpiuk, 1994)
+#' Gap Score
+#'
 #' @description Compute median gap between identical values
 #' @param x vector of random numbers
 #' @return gap score of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and computes the median gap between
+#' the most adjacent identical values.
+#'
 #' @export
+#'
+#' @references
+#' #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 gap_score <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
