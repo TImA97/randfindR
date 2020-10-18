@@ -192,13 +192,24 @@ gap_score <- function(x) {
 }
 
 
-#' Compute Poker Score (see Ginsburg & Karpiuk, 1994)
+#' Poker Score
 #' @description Compute number of times exactly two responses of the same value
 #' occur after division of the complete sequence into 5-digit-long sub-sequences
 #' @param x vector of random numbers
 #' @return poker score of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} and computes the frequency with
+#' which exactly two identical values occur in 5-digit-long sub-sequences of the
+#' original vector. If the vector length is not dividable by 5, the last 1-4
+#' values will not be used for this index.
+#'
 #' @export
+#'
+#' @references
+#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
+#' \url{doi:10.2466/pms.1994.79.3.1059}
 poker_score <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x, min_length = 5)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/regularity_indices.R
 \name{poker_score}
 \alias{poker_score}
-\title{Compute Poker Score (see Ginsburg & Karpiuk, 1994)}
+\title{Poker Score}
 \usage{
 poker_score(x)
 }
@@ -15,4 +15,15 @@ poker score of \code{x}
 \description{
 Compute number of times exactly two responses of the same value
 occur after division of the complete sequence into 5-digit-long sub-sequences
+}
+\details{
+This function takes a vector \code{x} and computes the frequency with
+which exactly two identical values occur in 5-digit-long sub-sequences of the
+original vector. If the vector length is not dividable by 5, the last 1-4
+values will not be used for this index.
+}
+\references{
+Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+\url{doi:10.2466/pms.1994.79.3.1059}
 }
