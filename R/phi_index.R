@@ -51,6 +51,9 @@ phi_index <- function(x, options, order = 2) {
 compute_phi_index <- function(x, order) {
   observed_frequencies <- get_observed_frequencies(x, order)
   expected_frequencies <- get_expected_frequencies(x, order)
+
+  contingency_table <-
+    get_contingency_table(observed_frequencies, expected_frequencies, order)
 }
 
 
@@ -77,13 +80,45 @@ get_observed_frequencies <- function(x, order) {
 }
 
 
+get_expected_frequencies <- function(x, order) {
+  all_frequencies <- get_all_expected_frequencies(x, order)
+
+  # only keep frequencies of required order
+  number_values <- 2 ^ order
+  required_values <-
+    (length(all_frequencies) - number_values + 1):length(all_frequencies)
+  frequencies <-
+    all_frequencies[required_values]
+
+  # separate frequencies into cases where first and last value are identical
+  # or alternating
+  reduced_frequencies <- numeric(length = 2)
+  names(reduced_frequencies) <- c("repetitive", "alternating")
+
+  for (i in 1:length(frequencies)) {
+    gram <- names(frequencies[i])
+    first_value <- substring(gram, first = 1, last = 1)
+    last_value <- substring(gram, first = nchar(gram), last = nchar(gram))
+
+    if (first_value == last_value) {
+      reduced_frequencies["repetitive"] <-
+        reduced_frequencies["repetitive"] + frequencies[i]
+    } else {
+      reduced_frequencies["alternating"] <-
+        reduced_frequencies["alternating"] + frequencies[i]
+    }
+  }
+
+  return(reduced_frequencies)
+}
+
 #' Compute expected frequencies
 #' @param x vector of random numbers
 #' @param order order of analysis
 #' @return expected frequencies of \code{x}
 #'
 #' @noRd
-get_expected_frequencies <- function(x, order) {
+get_all_expected_frequencies <- function(x, order) {
 
   # escape condition for recursive call
   if (order == 1) {
@@ -98,7 +133,7 @@ get_expected_frequencies <- function(x, order) {
   }
 
   # recursive call to compute the expected frequencies of previous orders
-  frequencies <- get_expected_frequencies(x, (order - 1))
+  frequencies <- get_all_expected_frequencies(x, (order - 1))
 
   # compute response frequencies of current order
   distance <- order - 1
@@ -136,10 +171,12 @@ get_expected_frequencies <- function(x, order) {
       frequencies[freq_name] <- expected
     }
   }
-  # if 0 is divided by 0, replace NaN with 0
+  # replace NaNs with 0
   frequencies[frequencies == "NaN"] <- 0
   return(frequencies)
-
 }
 
+get_contingency_table <- function(observed, expected, order) {
 
+
+}
