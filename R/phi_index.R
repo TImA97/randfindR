@@ -54,6 +54,7 @@ compute_phi_index <- function(x, order) {
 
   contingency_table <-
     get_contingency_table(observed_frequencies, expected_frequencies, order)
+  print(contingency_table)
 }
 
 
@@ -177,6 +178,8 @@ get_all_expected_frequencies <- function(x, order) {
 }
 
 get_contingency_table <- function(observed, expected, order) {
-
-
+  matr <-
+    cbind(observed = observed,
+          expected = proportions(expected))
+  return(matr)
 }
