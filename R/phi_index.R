@@ -53,7 +53,7 @@ compute_phi_index <- function(x, order) {
   expected_frequencies <- get_expected_frequencies(x, order)
 
   contingency_table <-
-    get_contingency_table(observed_frequencies, expected_frequencies, order)
+    get_contingency_table(observed_frequencies, expected_frequencies)
   #print(contingency_table)
 
   # compute chi-square goodness-of-fit statistic
@@ -196,7 +196,7 @@ get_all_expected_frequencies <- function(x, order) {
   return(frequencies)
 }
 
-get_contingency_table <- function(observed, expected, order) {
+get_contingency_table <- function(observed, expected) {
   matr <-
     cbind(observed = observed,
           expected = proportions(expected))
