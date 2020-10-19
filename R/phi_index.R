@@ -49,5 +49,40 @@ phi_index <- function(x, options, order = 2) {
 #'
 #' @noRd
 compute_phi_index <- function(x, order) {
+  observed_frequencies <- get_observed_frequencies(x, order)
+  expected_frequencies <- get_expected_frequencies(x, order)
+}
+
+
+#' Compute observed frequencies
+#' @param x vector of random numbers
+#' @param order order of analysis
+#' @return observed frequencies of \code{x}
+#'
+#' @noRd
+get_observed_frequencies <- function(x, order) {
+  frequencies <- numeric(length = 2)
+  names(frequencies) <- c("repetitive", "alternating")
+  distance <- order - 1
+  number_grams <- length(x) - distance
+
+  # compute how often values are alternating or identical given the
+  # specified order
+  frequencies["repetitive"] <-
+    sum(x[1:(number_grams)] == x[(1 + distance):length(x)])
+  frequencies["alternating"] <-
+    sum(x[1:(number_grams)] != x[(1 + distance):length(x)])
+
+  return(frequencies)
+}
+
+
+#' Compute expected frequencies
+#' @param x vector of random numbers
+#' @param order order of analysis
+#' @return expected frequencies of \code{x}
+#'
+#' @noRd
+get_expected_frequencies <- function(x, order) {
 
 }
