@@ -19,5 +19,8 @@
 #' Generate Information.” Acta Psychologica 33:233–42.
 #' doi: 10.1016/0001-6918(70)90135-6.
 phi_index <- function(x, options, order = 6) {
-
+  x <- to_numeric(x)
+  min_options <- 2
+  min_length <- order + 1
+  base_checks(x, options, min_options, min_length)
 }
