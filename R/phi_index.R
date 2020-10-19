@@ -66,8 +66,8 @@ get_observed_frequencies <- function(x, order) {
   distance <- order - 1
   number_grams <- length(x) - distance
 
-  # compute how often values are alternating or identical given the
-  # specified order
+  # compute how often the first and last value of a sequence with length of a
+  # specified order are alternating or identical
   frequencies["repetitive"] <-
     sum(x[1:(number_grams)] == x[(1 + distance):length(x)])
   frequencies["alternating"] <-
