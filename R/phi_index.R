@@ -54,7 +54,26 @@ compute_phi_index <- function(x, order) {
 
   contingency_table <-
     get_contingency_table(observed_frequencies, expected_frequencies, order)
-  print(contingency_table)
+  #print(contingency_table)
+
+  # compute chi-square goodness-of-fit statistic
+  chi_squared_test <-
+    suppressWarnings(chisq.test(
+      as.vector(contingency_table[, 1]),
+      p = contingency_table[, 2]))
+  chi_squared <- chi_squared_test$statistic
+  chi_squared <- unname(chi_squared)
+
+  # compute phi index
+  phi <- sqrt(chi_squared / length(x)) * 100
+
+  # reverse sign if there are more alternating than repetitive pairs
+  if (contingency_table[1, 1] < contingency_table[2, 1]) {
+    phi <- phi * (-1)
+  }
+
+  print(phi)
+  return(phi)
 }
 
 
