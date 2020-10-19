@@ -85,4 +85,57 @@ get_observed_frequencies <- function(x, order) {
 #' @noRd
 get_expected_frequencies <- function(x, order) {
 
+  # escape condition for recursive call
+  if (order == 1) {
+    frequencies <- numeric(length = 2)
+
+    # include base rates as first values in frequencies
+    names(frequencies) <- c("1", "2")
+    frequencies["1"] <- sum(x == 1)
+    frequencies["2"] <- sum(x == 2)
+
+    return(frequencies)
+  }
+
+  # recursive call to compute the expected frequencies of previous orders
+  frequencies <- get_expected_frequencies(x, (order - 1))
+
+  # compute response frequencies of current order
+  distance <- order - 1
+  for (i in 1:order) {
+    permutations <- expand.grid(rep(list(1:2), order))
+
+    #compute expected frequencies for all permutations
+    for (j in 1:nrow(permutations)) {
+      permutation <- as.vector(permutations[j, ])
+
+      # compute dividend for expected frequencies
+      dividend_factor_one <- paste(permutation[1:distance], collapse = "")
+      dividend_factor_one <- frequencies[dividend_factor_one]
+      dividend_factor_two <- paste(permutation[2:order], collapse = "")
+      dividend_factor_two <- frequencies[dividend_factor_two]
+
+      dividend <- dividend_factor_one * dividend_factor_two
+
+      # compute divisor for expected frequencies
+      if (i == 2) {
+        divisor <- length(x)
+      } else {
+        divisor <- paste(permutation[2:distance], collapse = "")
+        divisor <- frequencies[divisor]
+      }
+
+      # compute expected frequencies
+      expected <- dividend / divisor
+
+      # generate name under which to store this frequency
+      freq_name <- paste(permutation, collapse = "")
+
+      frequencies[freq_name] <- expected
+    }
+  }
+  return(frequencies)
+
 }
+
+
