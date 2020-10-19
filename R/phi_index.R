@@ -118,6 +118,7 @@ get_expected_frequencies <- function(x, order) {
       dividend <- dividend_factor_one * dividend_factor_two
 
       # compute divisor for expected frequencies
+      divisor <- 0
       if (i == 2) {
         divisor <- length(x)
       } else {
@@ -126,6 +127,7 @@ get_expected_frequencies <- function(x, order) {
       }
 
       # compute expected frequencies
+      expected <- 0
       expected <- dividend / divisor
 
       # generate name under which to store this frequency
@@ -134,6 +136,8 @@ get_expected_frequencies <- function(x, order) {
       frequencies[freq_name] <- expected
     }
   }
+  # if 0 is divided by 0, replace NaN with 0
+  frequencies[frequencies == "NaN"] <- 0
   return(frequencies)
 
 }
