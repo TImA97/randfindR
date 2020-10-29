@@ -1,10 +1,23 @@
 #' Compute regularity index
-#' @references Skliar, Monge & Oviedo (2009)
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return regularity index of \code{x}
 #'
+#' @details
+#' This function takes a vector \code{x} as a sequence and the number of
+#' possible \code{options} and computes the regularity of the given sequence.
+#' Values range from 0 and 1. A value of 0 (which is barely ever obtained)
+#' indicates no regularity, whereas a value of 1 indicates maximum regularity.
+#' The regularity index is obtained by identifying the the maximum regularity
+#' occurring in the sequence.
+#'
 #' @export
+#'
+#' @references
+#'
+#' Skliar, Osvaldo, Ricardo E. Monge, Guillermo Oviedo, and Víctor Medina. 2009.
+#' “Indices of regularity and indices of randomness for m-ary strings.”
+#' doi: 10.15517/rmta.v16i1.1418.
 reg_index <- function(x, options) {
 
   x <- to_numeric(x)
