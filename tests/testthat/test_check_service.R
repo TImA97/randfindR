@@ -1,6 +1,6 @@
 context("tests by check_service")
 
-test_that("checks return errors", {
+test_that("checks return error", {
   expect_error(is_vector_long_enough(1))
   expect_error(is_vector_long_enough(1:10, min_length = 11))
   expect_error(sufficient_options_provided(options = 3, min_options = 4))
