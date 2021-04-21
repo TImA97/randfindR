@@ -19,7 +19,7 @@ Computes index indicating the evenness of the response frequency
 distribution.
 }
 \details{
-This function takes a vector \code{x} and weights the observed information
+This function takes a vector \code{x} and weighs the observed information
 concerning the response frequencies against the highest observable
 information given the number of possible \code{options}. The resulting
 quotient is subtracted from 1 and then, multiplied with 100.
