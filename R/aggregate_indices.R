@@ -14,8 +14,31 @@
 #' that the whole data frame should be used for computing the indices.
 #' The 'indices_names' argument indicates the selection of randomness indices
 #' you want to have. By default all indices are computed.
-all_rand <- function(df, options, columns = NULL, indices_names = NULL, new_col_name) {
+all_rand <- function(df, options, columns = NULL, indices = NULL, new_col_name) {
   ## add checks
+
+  all_indices <-
+    c(
+      "digram_rep",
+      "repetitions",
+      "series",
+      "cluster_ratio",
+      "null_score",
+      "reg_index",
+      "runs_index",
+      "coupon_score",
+      "gap_score",
+      "poker_score",
+      "rng_index",
+      "rng2_index",
+      "tp_index",
+      "redundancy_index",
+      "var_digits"
+    )
+
+  ## check if provided indices are valid
+  correct_indices_provided(indices, all_indices)
+
 
   for (i in indices_names) {
     new_var <- numeric(length = nrow(df))
