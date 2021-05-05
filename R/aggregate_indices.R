@@ -15,7 +15,9 @@
 #' The 'indices_names' argument indicates the selection of randomness indices
 #' you want to have. By default all indices are computed.
 all_rand <- function(df, options, columns = NULL, indices = NULL, new_col_name) {
-  ## add checks
+
+  ## check whether 'df' is a data frame and not a list
+  df_has_correct_format(df)
 
   all_indices <-
     c(
