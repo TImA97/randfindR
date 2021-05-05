@@ -1,9 +1,9 @@
 #' Compute variety of randomness indices
 #'
 #' @param df data frame containing sequences of options in row-wise format
-#' @param arguments indicates the wanted options for the computation of indices
 #' @param columns columns which will be interpreted as sequence
 #' @param indices_names indices of randomness to be computed as character vector
+#' @param arguments indicates the wanted options for the computation of indices
 #'
 #' @details
 #'
@@ -14,7 +14,7 @@
 #' that the whole data frame should be used for computing the indices.
 #' The 'indices_names' argument indicates the selection of randomness indices
 #' you want to have. By default all indices are computed.
-all_rand <- function(df, arguments = NULL, columns = NULL, indices = NULL, new_col_name) {
+all_rand <- function(df, columns = NULL, indices = NULL, arguments = NULL) {
 
   ## check whether 'df' is a data frame and not a list
   df_has_correct_format(df)
