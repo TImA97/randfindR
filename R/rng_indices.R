@@ -88,7 +88,7 @@ rng2_index <- function(x, options, circ = FALSE) {
 #' @noRd
 get_quotient_dividend <- function(matr) {
   dividend  <- 0
-  row_length <- sqrt(length(matr))
+  row_length <- nrow(matr)
   col_length <- row_length
   for (i in 1:row_length) {
     for (j in 1:col_length) {
