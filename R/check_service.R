@@ -80,3 +80,18 @@ correct_indices_provided <- function(indices, available_indices) {
   stop("The 'indices' argument must be a character vector of valid randomness
        indices in the randseq package.")
 }
+
+#' Check whether data frame in aggregate function has correct format
+#'
+#' @param df data frame
+#'
+#' @noRd
+df_has_correct_format <- function(df) {
+  if (!is.data.frame(df)) {
+    stop("'df' argument must be a data frame.")
+  }
+
+  if (is.list(df)) {
+    stop("'df' argument must not be a list.")
+  }
+}
