@@ -60,3 +60,23 @@ is_number_of_distinct_options_too_high <- function(x, options) {
     )
   }
 }
+
+#' Check whether correct a list of correct vector of indices was provided
+#'
+#' @param indices character vector of wanted indices
+#' @param available_indices character vector of allowed indices
+#'
+#' @noRd
+correct_indices_provided <- function(indices, available_indices) {
+  if (is.character(indices)) {
+    correct_index <- indicies %in% indices_names
+
+    if (sum(correct_index) != length(indices_names)) {
+      stop("The provided vector of randomness indices names contains at least
+           one incorrect name")
+    }
+  }
+
+  stop("The 'indices' argument must be a character vector of valid randomness
+       indices in the randseq package.")
+}
