@@ -23,8 +23,8 @@ This function takes a vector \code{x} and weighs the observed information
 concerning the response frequencies against the highest observable
 information given the number of possible \code{options}. The resulting
 quotient is subtracted from 1 and then, multiplied with 100.
-A value of 0 would indicate an even distribution of response frequencies,
-whereas a value of 100 would indicate complete redundancy of one response.
+A value of 0 indicates an even distribution of response frequencies,
+whereas a value of 100 indicates complete redundancy of one response.
 }
 \examples{
 redundancy_index(c(1,1,1,1),2)
