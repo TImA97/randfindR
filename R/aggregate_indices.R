@@ -38,9 +38,13 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, new_col_name) 
       "var_digits"
     )
 
-  ## check if provided indices are valid
-  correct_indices_provided(indices, all_indices)
+  indices_names <- all_indices
 
+  ## check if provided indices are valid
+  if (!is.null(indices)) {
+    correct_indices_provided(indices, all_indices)
+    indices_names <- indices
+  }
 
   for (i in indices_names) {
     new_var <- numeric(length = nrow(df))
