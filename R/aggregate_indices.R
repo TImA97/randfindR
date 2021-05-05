@@ -14,6 +14,8 @@
 #' that the whole data frame should be used for computing the indices.
 #' The 'indices_names' argument indicates the selection of randomness indices
 #' you want to have. By default all indices are computed.
+#'
+#' @export
 all_rand <- function(df, columns = NULL, indices = NULL, arguments = NULL) {
 
   ## check whether 'df' is a data frame and not a list

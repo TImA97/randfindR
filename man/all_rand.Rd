@@ -4,14 +4,14 @@
 \alias{all_rand}
 \title{Compute variety of randomness indices}
 \usage{
-all_rand(df, options, columns = NULL, indices_names = NULL, new_col_name)
+all_rand(df, columns = NULL, indices = NULL, arguments = NULL)
 }
 \arguments{
 \item{df}{data frame containing sequences of options in row-wise format}
 
-\item{options}{indicates the wanted options for the ocmputation of indices}
-
 \item{columns}{columns which will be interpreted as sequence}
+
+\item{arguments}{indicates the wanted options for the computation of indices}
 
 \item{indices_names}{indices of randomness to be computed as character vector}
 }
