@@ -90,8 +90,4 @@ df_has_correct_format <- function(df) {
   if (!is.data.frame(df)) {
     stop("'df' argument must be a data frame.")
   }
-
-  if (is.list(df)) {
-    stop("'df' argument must not be a list.")
-  }
 }
