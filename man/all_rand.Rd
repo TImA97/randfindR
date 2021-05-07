@@ -4,10 +4,12 @@
 \alias{all_rand}
 \title{Compute variety of randomness indices}
 \usage{
-all_rand(df, columns = NULL, indices = NULL, arguments = NULL)
+all_rand(df, options, columns = NULL, indices = NULL, arguments = NULL)
 }
 \arguments{
 \item{df}{data frame containing sequences of options in row-wise format}
+
+\item{options}{number of available options in sequence}
 
 \item{columns}{columns which will be interpreted as sequence}
 
