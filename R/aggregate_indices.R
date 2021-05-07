@@ -52,12 +52,19 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NU
   ## prepare default arguments for the computation of randomness indices
   default_arguments <- character(length = length(indices_names))
 
+  without_options_argument <-
+    c("repetitions",
+      "runs_index",
+      "gap_score",
+      "poker_score",
+      "tp_index")
+
   for (i in indices_names) {
     new_var <- numeric(length = nrow(df))
 
     for (p in 1:nrow(df)) {
-      arguments <- list(df[p, columns], 3)
-      if (i == "runs_index" | i == "repetitions" | i == "gap_score" | i == "tp_index") {
+      arguments <- list(df[p, columns], options)
+      if (i %in% without_options_argument) {
         arguments <- list(df[p, columns])
       }
       new_var[p] <- do.call(i, arguments)
@@ -65,6 +72,10 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NU
     col_name <- paste0(new_col_name, i)
     df[, col_name] <- new_var
   }
+  print(df)
   return(df)
 }
 
+get_default_arguments <- function(indices_names) {
+
+}
