@@ -59,23 +59,30 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NU
       "poker_score",
       "tp_index")
 
+  ## take by default all columns as arguments
+  col_names <- names(df)
+
   for (i in indices_names) {
-    new_var <- numeric(length = nrow(df))
+    new_index <- numeric(length = nrow(df))
 
     for (p in 1:nrow(df)) {
-      arguments <- list(df[p, columns], options)
+      arguments <- list(df[p, col_names], options)
       if (i %in% without_options_argument) {
-        arguments <- list(df[p, columns])
+        arguments <- list(df[p, col_names])
       }
-      new_var[p] <- do.call(i, arguments)
+      tryCatch(
+        {
+          new_index[p] <- do.call(i, arguments)
+        },
+        error = function(e) {
+          print(paste0("An error occurred. It was called from ", i, ": ", e))
+        }
+      )
     }
-    col_name <- paste0(new_col_name, i)
-    df[, col_name] <- new_var
+    col_name <- i
+    df[, col_name] <- new_index
   }
   print(df)
   return(df)
 }
 
-get_default_arguments <- function(indices_names) {
-
-}
