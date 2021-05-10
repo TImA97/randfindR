@@ -5,6 +5,8 @@
 #' @param columns columns which will be interpreted as sequence
 #' @param indices_names indices of randomness to be computed as character vector
 #' @param arguments indicates the wanted options for the computation of indices
+#' @param combine indicates whether the computed indices should be combined with
+#' the original data frame.
 #'
 #' @details
 #'
@@ -13,11 +15,15 @@
 #' row-wise, i.e., each row represents one sequences. The output of this function
 #' is also a data frame. If the 'columns' argument is not provided, it is assumed
 #' that the whole data frame should be used for computing the indices.
-#' The 'indices_names' argument indicates the selection of randomness indices
-#' you want to have. By default all indices are computed.
+#' The 'indices' argument indicates the selection of randomness indices
+#' you want to have. By default all indices are computed.You can also decide
+#' whether the computed indices should be appended to the data frame provided
+#' as input or whether they should be returned by themselves in a new data frame.
+#' This can be done with 'combine' argument.
 #'
 #' @export
-all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NULL) {
+all_rand <- function(df, options, columns = NULL, indices = NULL,
+                     arguments = NULL, combine = FALSE) {
 
   ## check whether 'df' is a data frame and not a list
   df_has_correct_format(df)
@@ -62,10 +68,19 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NU
   ## take by default all columns as arguments
   col_names <- names(df)
 
-  if (!is.na(columns)) {
+  ## use columns argument if not empty
+  if (!is.null(columns)) {
     col_names <- columns
   }
 
+  ## prepare output data frame (can be the input data frame if 'combine' equals
+  ## true)
+  new_df <- data.frame(nr = vector(length = nrow(df)))
+  if (combine == TRUE) {
+    new_df <- df
+  }
+
+  ## compute randomness indices for each row
   for (i in indices_names) {
     new_index <- numeric(length = nrow(df))
 
@@ -84,9 +99,15 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NU
       )
     }
     col_name <- i
-    df[, col_name] <- new_index
+    new_df[, col_name] <- new_index
   }
-  print(df)
-  return(df)
+
+  ## remove first placeholder column if entirely new data frame was created
+  if (combine == FALSE) {
+    new_df <- new_df[-1]
+  }
+
+  ## return data frame
+  return(new_df)
 }
 
