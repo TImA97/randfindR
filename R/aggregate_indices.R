@@ -62,6 +62,10 @@ all_rand <- function(df, options, columns = NULL, indices = NULL, arguments = NU
   ## take by default all columns as arguments
   col_names <- names(df)
 
+  if (!is.na(columns)) {
+    col_names <- columns
+  }
+
   for (i in indices_names) {
     new_index <- numeric(length = nrow(df))
 
