@@ -96,7 +96,7 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
           new_index[p] <- do.call(i, arguments)
         },
         error = function(e) {
-          new_error <- paste0("An error occurred. It was called from ", i, ": ", e, "\n")
+          new_error <- paste0("An error occurred. It was called from ", i, ": ", e)
           error_messages <<- append(error_messages, new_error)
         }
       )
