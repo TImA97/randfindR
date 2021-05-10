@@ -8,8 +8,6 @@
 #' @details
 #' to be filled
 #'
-#' @export
-#'
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
@@ -54,13 +52,12 @@ compute_phi_index <- function(x, order) {
 
   contingency_table <-
     get_contingency_table(observed_frequencies, expected_frequencies)
-  #print(contingency_table)
+  print(contingency_table)
 
   # compute chi-square goodness-of-fit statistic
   chi_squared_test <-
-    suppressWarnings(chisq.test(
-      as.vector(contingency_table[, 1]),
-      p = contingency_table[, 2]))
+    suppressWarnings(chisq.test(as.vector(contingency_table[, 1]),
+                                p = contingency_table[, 2]))
   chi_squared <- chi_squared_test$statistic
   chi_squared <- unname(chi_squared)
 
@@ -140,11 +137,11 @@ get_expected_frequencies <- function(x, order) {
 #' @noRd
 get_all_expected_frequencies <- function(x, order) {
 
-  # escape condition for recursive call
+  ## escape condition for recursive call
   if (order == 1) {
     frequencies <- numeric(length = 2)
 
-    # include base rates as first values in frequencies
+    ## include base rates as first values in frequencies
     names(frequencies) <- c("1", "2")
     frequencies["1"] <- sum(x == 1)
     frequencies["2"] <- sum(x == 2)
@@ -165,10 +162,10 @@ get_all_expected_frequencies <- function(x, order) {
       permutation <- as.vector(permutations[j, ])
 
       # compute dividend for expected frequencies
-      dividend_factor_one <- paste(permutation[1:distance], collapse = "")
-      dividend_factor_one <- frequencies[dividend_factor_one]
-      dividend_factor_two <- paste(permutation[2:order], collapse = "")
-      dividend_factor_two <- frequencies[dividend_factor_two]
+      dividend_factor_one_name <- paste(permutation[1:distance], collapse = "")
+      dividend_factor_one <- frequencies[dividend_factor_one_name]
+      dividend_factor_two_name <- paste(permutation[2:order], collapse = "")
+      dividend_factor_two <- frequencies[dividend_factor_two_name]
 
       dividend <- dividend_factor_one * dividend_factor_two
 
