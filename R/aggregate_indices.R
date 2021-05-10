@@ -108,7 +108,6 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
   ## only keep and print unique error messages
   error_messages <- unique(error_messages)
   print(error_messages)
-  #print(length(error_messages))
 
   ## remove first placeholder column if entirely new data frame was created
   if (combine == FALSE) {
