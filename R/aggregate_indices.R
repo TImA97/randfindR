@@ -80,6 +80,8 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
     new_df <- df
   }
 
+  error_messages <- "There were errors during the analysis:\n"
+
   ## compute randomness indices for each row
   for (i in indices_names) {
     new_index <- numeric(length = nrow(df))
@@ -94,13 +96,19 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
           new_index[p] <- do.call(i, arguments)
         },
         error = function(e) {
-          print(paste0("An error occurred. It was called from ", i, ": ", e))
+          new_error <- paste0("An error occurred. It was called from ", i, ": ", e, "\n")
+          error_messages <<- append(error_messages, new_error)
         }
       )
     }
     col_name <- i
     new_df[, col_name] <- new_index
   }
+
+  ## only keep and print unique error messages
+  error_messages <- unique(error_messages)
+  print(error_messages)
+  #print(length(error_messages))
 
   ## remove first placeholder column if entirely new data frame was created
   if (combine == FALSE) {
