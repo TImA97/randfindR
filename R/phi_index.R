@@ -61,6 +61,11 @@ compute_phi_index <- function(x, order) {
   chi_squared <- chi_squared_test$statistic
   chi_squared <- unname(chi_squared)
 
+  ## manually change value to 100 if 'NaN' was returned by the chisq-test
+  if (is.nan(chi_squared)) {
+    chi_squared <- 100
+  }
+
   # compute phi index
   phi <- sqrt(chi_squared / length(x)) * 100
 
