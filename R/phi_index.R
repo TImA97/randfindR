@@ -198,6 +198,70 @@ get_all_expected_frequencies <- function(x, order) {
   return(frequencies)
 }
 
+#' Compute expected frequencies
+#' @param x vector of random numbers
+#' @param order order of analysis
+#' @return expected frequencies of \code{x}
+#'
+#' @noRd
+get_all_expected_frequencies_from_scratch <- function(x, order) {
+
+  ## escape condition for recursive call
+  if (order == 1) {
+    frequencies <- numeric(length = 2)
+
+    ## include base rates as first values in frequencies
+    names(frequencies) <- c("1", "2")
+    frequencies["1"] <- sum(x == 1)
+    frequencies["2"] <- sum(x == 2)
+
+    return(frequencies)
+  }
+
+  # recursive call to compute the expected frequencies of previous orders
+  frequencies <- get_all_expected_frequencies(x, (order - 1))
+
+  # compute response frequencies of current order
+  distance <- order - 1
+  for (i in 1:order) {
+    permutations <- expand.grid(rep(list(1:2), order))
+
+    #compute expected frequencies for all permutations
+    for (j in 1:nrow(permutations)) {
+      permutation <- as.vector(permutations[j, ])
+
+      # compute dividend for expected frequencies
+      dividend_factor_one_name <- paste(permutation[1:distance], collapse = "")
+      dividend_factor_one <- frequencies[dividend_factor_one_name]
+      dividend_factor_two_name <- paste(permutation[2:order], collapse = "")
+      dividend_factor_two <- frequencies[dividend_factor_two_name]
+
+      dividend <- dividend_factor_one * dividend_factor_two
+
+      # compute divisor for expected frequencies
+      divisor <- 0
+      if (i == 2) {
+        divisor <- length(x)
+      } else {
+        divisor <- paste(permutation[2:distance], collapse = "")
+        divisor <- frequencies[divisor]
+      }
+
+      # compute expected frequencies
+      expected <- 0
+      expected <- dividend / divisor
+
+      # generate name under which to store this frequency
+      freq_name <- paste(permutation, collapse = "")
+
+      frequencies[freq_name] <- expected
+    }
+  }
+  # replace NaNs with 0
+  frequencies[frequencies == "NaN"] <- 0
+  return(frequencies)
+}
+
 get_contingency_table <- function(observed, expected) {
   matr <-
     cbind(observed = observed,
