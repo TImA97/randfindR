@@ -142,20 +142,8 @@ get_expected_frequencies <- function(x, order) {
 #' @noRd
 get_all_expected_frequencies <- function(x, order) {
 
-  ## escape condition for recursive call
-  if (order == 1) {
-    frequencies <- numeric(length = 2)
-
-    ## include base rates as first values in frequencies
-    names(frequencies) <- c("1", "2")
-    frequencies["1"] <- sum(x == 1)
-    frequencies["2"] <- sum(x == 2)
-
-    return(frequencies)
-  }
-
-  # recursive call to compute the expected frequencies of previous orders
-  frequencies <- get_all_expected_frequencies(x, (order - 1))
+  ## use lower order observed frequencies to compute expected frequencies
+  lower_order_freq <- get_observed_frequencies(x, order - 1)
 
   # compute response frequencies of current order
   distance <- order - 1
