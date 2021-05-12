@@ -143,7 +143,17 @@ get_expected_frequencies <- function(x, order) {
 get_all_expected_frequencies <- function(x, order) {
 
   ## use lower order observed frequencies to compute expected frequencies
+  ## TODO: delete this and compute actual frequencies, not aggregation
   lower_order_freq <- get_observed_frequencies(x, order - 1)
+
+  lower_order_permutations <- expand.grid(rep(list(1:2), order - 1))
+
+  ##TODO https://stackoverflow.com/questions/12427385/how-to-calculate-the-number-of-occurrence-of-a-given-character-in-each-row-of-a
+  x_string <- paste(x, collapse = "")
+  for (i in 1:nrow(lower_order_permutations)) {
+    permutation <- lower_order_permutations[i, ]
+    permutation <- paste(permutation, collapse = "")
+  }
 
   # compute response frequencies of current order
   distance <- order - 1
@@ -155,6 +165,7 @@ get_all_expected_frequencies <- function(x, order) {
       permutation <- as.vector(permutations[j, ])
 
       # compute dividend for expected frequencies
+      ## TODO or call function that computes observed frequencies here!
       dividend_factor_one_name <- paste(permutation[1:distance], collapse = "")
       dividend_factor_one <- frequencies[dividend_factor_one_name]
       dividend_factor_two_name <- paste(permutation[2:order], collapse = "")
