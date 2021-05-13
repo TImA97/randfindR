@@ -197,6 +197,24 @@ get_all_expected_frequencies <- function(x, order) {
   return(frequencies)
 }
 
+get_underlying_observed_frequency <- function(x, freq) {
+  print(mode(freq))
+  distance <- length(freq) - 1
+  counter <- 0
+
+  ## count equal occurrences of substrings
+  for (i in 1:(length(x) - length(freq) + 1)) {
+    if (identical(x[i:(i + distance)], freq)) {
+      counter <- counter + 1
+    }
+  }
+
+  return(counter)
+
+  cat(paste0("compared against: ", frequency))
+  print(all(x[i:(1 + distance)] == frequency))
+}
+
 #' Compute expected frequencies
 #' @param x vector of random numbers
 #' @param order order of analysis
