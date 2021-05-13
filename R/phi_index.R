@@ -198,7 +198,6 @@ get_all_expected_frequencies <- function(x, order) {
 }
 
 get_underlying_observed_frequency <- function(x, freq) {
-  print(mode(freq))
   distance <- length(freq) - 1
   counter <- 0
 
