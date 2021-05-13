@@ -104,13 +104,14 @@ get_observed_frequencies <- function(x, order) {
 
 get_expected_frequencies <- function(x, order) {
   all_frequencies <- get_all_expected_frequencies(x, order)
+  frequencies <- all_frequencies
 
   # only keep frequencies of required order
-  number_values <- 2 ^ order
-  required_values <-
-    (length(all_frequencies) - number_values + 1):length(all_frequencies)
-  frequencies <-
-    all_frequencies[required_values]
+#  number_values <- 2 ^ order
+ # required_values <-
+#    (length(all_frequencies) - number_values + 1):length(all_frequencies)
+ # frequencies <-
+  #  all_frequencies[required_values]
 
   # separate frequencies into cases where first and last value are identical
   # or alternating
@@ -144,16 +145,18 @@ get_all_expected_frequencies <- function(x, order) {
 
   ## use lower order observed frequencies to compute expected frequencies
   ## TODO: delete this and compute actual frequencies, not aggregation
-  lower_order_freq <- get_observed_frequencies(x, order - 1)
+ # lower_order_freq <- get_observed_frequencies(x, order - 1)
 
-  lower_order_permutations <- expand.grid(rep(list(1:2), order - 1))
+ # lower_order_permutations <- expand.grid(rep(list(1:2), order - 1))
 
   ##TODO https://stackoverflow.com/questions/12427385/how-to-calculate-the-number-of-occurrence-of-a-given-character-in-each-row-of-a
-  x_string <- paste(x, collapse = "")
-  for (i in 1:nrow(lower_order_permutations)) {
-    permutation <- lower_order_permutations[i, ]
-    permutation <- paste(permutation, collapse = "")
-  }
+#  x_string <- paste(x, collapse = "")
+#  for (i in 1:nrow(lower_order_permutations)) {
+ #   permutation <- lower_order_permutations[i, ]
+#    permutation <- paste(permutation, collapse = "")
+#  }
+
+  frequencies <- numeric()
 
   # compute response frequencies of current order
   distance <- order - 1
@@ -163,12 +166,14 @@ get_all_expected_frequencies <- function(x, order) {
     #compute expected frequencies for all permutations
     for (j in 1:nrow(permutations)) {
       permutation <- as.vector(permutations[j, ])
+     # print(permutation)
 
       # compute dividend for expected frequencies
       ## TODO or call function that computes observed frequencies here!
-      dividend_factor_one_name <- permutation[1:distance]
+      dividend_factor_one_name <- unname(permutation[[1:distance]])
+     # print(dividend_factor_one_name)
       dividend_factor_one <- get_underlying_observed_frequency(x, dividend_factor_one_name)
-      dividend_factor_two_name <- permutation[2:order]
+      dividend_factor_two_name <- unname(permutation[[2:order]])
       dividend_factor_two <- get_underlying_observed_frequency(x, dividend_factor_two_name)
 
       dividend <- dividend_factor_one * dividend_factor_two
@@ -178,7 +183,7 @@ get_all_expected_frequencies <- function(x, order) {
       if (i == 2) {
         divisor <- length(x)
       } else {
-        divisor_factor_name <- permutation[2:distance]
+        divisor_factor_name <- permutation[[2:distance]]
         divisor <- get_underlying_observed_frequency(x, divisor_factor_name)
       }
 
@@ -200,11 +205,20 @@ get_all_expected_frequencies <- function(x, order) {
 get_underlying_observed_frequency <- function(x, freq) {
   distance <- length(freq) - 1
   counter <- 0
+  #print(x)
+  #print(freq)
+
+  if (length(freq) == 1) {
+    return(sum(x == freq))
+  }
 
   ## count equal occurrences of substrings
   for (i in 1:(length(x) - length(freq) + 1)) {
+    print(x[i:(i + distance)])#
+    print(freq)
     if (identical(x[i:(i + distance)], freq)) {
       counter <- counter + 1
+      print("yey")
     }
   }
 
