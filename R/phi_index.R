@@ -166,20 +166,20 @@ get_all_expected_frequencies <- function(x, order) {
 
       # compute dividend for expected frequencies
       ## TODO or call function that computes observed frequencies here!
-      dividend_factor_one_name <- paste(permutation[1:distance], collapse = "")
-      dividend_factor_one <- frequencies[dividend_factor_one_name]
-      dividend_factor_two_name <- paste(permutation[2:order], collapse = "")
-      dividend_factor_two <- frequencies[dividend_factor_two_name]
+      dividend_factor_one_name <- permutation[1:distance]
+      dividend_factor_one <- get_underlying_observed_frequency(x, dividend_factor_one_name)
+      dividend_factor_two_name <- permutation[2:order]
+      dividend_factor_two <- get_underlying_observed_frequency(x, dividend_factor_two_name)
 
       dividend <- dividend_factor_one * dividend_factor_two
 
-      # compute divisor for expected frequencies
+      # compute divisor for expected frequencies TODO
       divisor <- 0
       if (i == 2) {
         divisor <- length(x)
       } else {
-        divisor <- paste(permutation[2:distance], collapse = "")
-        divisor <- frequencies[divisor]
+        divisor_factor_name <- permutation[2:distance]
+        divisor <- get_underlying_observed_frequency(x, divisor_factor_name)
       }
 
       # compute expected frequencies
