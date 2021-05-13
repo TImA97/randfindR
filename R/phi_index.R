@@ -210,9 +210,6 @@ get_underlying_observed_frequency <- function(x, freq) {
   }
 
   return(counter)
-
-  cat(paste0("compared against: ", frequency))
-  print(all(x[i:(1 + distance)] == frequency))
 }
 
 #' Compute expected frequencies
