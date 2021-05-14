@@ -38,6 +38,8 @@ phi_index <- function(x, options, order = 2) {
   ## get chi-square value (function)
   ## get phi value (not necessarily function)
   ## apply normalization procedure (function)?
+
+  return(phi_index)
 }
 
 #' Compute phi index
@@ -60,21 +62,23 @@ compute_phi_index <- function(x, order) {
                                 p = contingency_table[, 2]))
   chi_squared <- chi_squared_test$statistic
   chi_squared <- unname(chi_squared)
+  #print(chi_squared)
+
 
   ## manually change value to 100 if 'NaN' was returned by the chisq-test
+  phi <- 0
   if (is.nan(chi_squared)) {
-    chi_squared <- 100
+    phi <- 100
+  } else {
+    # compute phi index
+    phi <- sqrt(chi_squared / length(x)) * 100
   }
-
-  # compute phi index
-  phi <- sqrt(chi_squared / length(x)) * 100
 
   # reverse sign if there are more alternating than repetitive pairs
   if (contingency_table[1, 1] < contingency_table[2, 1]) {
     phi <- phi * (-1)
   }
 
-  print(phi)
   return(phi)
 }
 
@@ -157,7 +161,6 @@ get_all_expected_frequencies <- function(x, order) {
     # compute dividend for expected frequencies TODO hier läuft etwas schief!
     dividend_factor_one_name <- as.numeric(permutation[1:distance])
     dividend_factor_one <- get_underlying_observed_frequency(x, dividend_factor_one_name)
-    print(dividend_factor_one)
     dividend_factor_two_name <- as.numeric(permutation[2:order])
     dividend_factor_two <- get_underlying_observed_frequency(x, dividend_factor_two_name)
 
