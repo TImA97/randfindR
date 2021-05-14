@@ -205,6 +205,13 @@ get_underlying_observed_frequency <- function(x, freq) {
   return(counter)
 }
 
+get_contingency_table <- function(observed, expected) {
+  matr <-
+    cbind(observed = observed,
+          expected = proportions(expected))
+  return(matr)
+}
+
 #' Compute expected frequencies
 #' @param x vector of random numbers
 #' @param order order of analysis
@@ -267,11 +274,4 @@ get_all_expected_frequencies_from_scratch <- function(x, order) {
   # replace NaNs with 0
   frequencies[frequencies == "NaN"] <- 0
   return(frequencies)
-}
-
-get_contingency_table <- function(observed, expected) {
-  matr <-
-    cbind(observed = observed,
-          expected = proportions(expected))
-  return(matr)
 }
