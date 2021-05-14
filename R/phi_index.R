@@ -52,7 +52,7 @@ compute_phi_index <- function(x, order) {
 
   contingency_table <-
     get_contingency_table(observed_frequencies, expected_frequencies)
-  print(contingency_table)
+ # print(contingency_table)
 
   # compute chi-square goodness-of-fit statistic
   chi_squared_test <-
@@ -143,59 +143,44 @@ get_expected_frequencies <- function(x, order) {
 #' @noRd
 get_all_expected_frequencies <- function(x, order) {
 
-  ## use lower order observed frequencies to compute expected frequencies
-  ## TODO: delete this and compute actual frequencies, not aggregation
- # lower_order_freq <- get_observed_frequencies(x, order - 1)
-
- # lower_order_permutations <- expand.grid(rep(list(1:2), order - 1))
-
-  ##TODO https://stackoverflow.com/questions/12427385/how-to-calculate-the-number-of-occurrence-of-a-given-character-in-each-row-of-a
-#  x_string <- paste(x, collapse = "")
-#  for (i in 1:nrow(lower_order_permutations)) {
- #   permutation <- lower_order_permutations[i, ]
-#    permutation <- paste(permutation, collapse = "")
-#  }
-
   frequencies <- numeric()
+  distance <- order - 1
 
   # compute response frequencies of current order
-  distance <- order - 1
-  for (i in 1:order) {
-    permutations <- expand.grid(rep(list(1:2), order))
+  permutations <- expand.grid(rep(list(1:2), order))
 
-    #compute expected frequencies for all permutations
-    for (j in 1:nrow(permutations)) {
-      permutation <- as.vector(permutations[j, ])
-     # print(permutation)
+  #compute expected frequencies for all permutations
+  for (j in 1:nrow(permutations)) {
+    permutation <- as.vector(permutations[j, ])
+    #print(permutation)
 
-      # compute dividend for expected frequencies
-      ## TODO or call function that computes observed frequencies here!
-      dividend_factor_one_name <- unname(permutation[[1:distance]])
-     # print(dividend_factor_one_name)
-      dividend_factor_one <- get_underlying_observed_frequency(x, dividend_factor_one_name)
-      dividend_factor_two_name <- unname(permutation[[2:order]])
-      dividend_factor_two <- get_underlying_observed_frequency(x, dividend_factor_two_name)
+    # compute dividend for expected frequencies TODO hier läuft etwas schief!
+    dividend_factor_one_name <- as.numeric(permutation[1:distance])
+    dividend_factor_one <- get_underlying_observed_frequency(x, dividend_factor_one_name)
+    print(dividend_factor_one)
+    dividend_factor_two_name <- as.numeric(permutation[2:order])
+    dividend_factor_two <- get_underlying_observed_frequency(x, dividend_factor_two_name)
 
-      dividend <- dividend_factor_one * dividend_factor_two
+    dividend <- dividend_factor_one * dividend_factor_two
 
-      # compute divisor for expected frequencies TODO
-      divisor <- 0
-      if (i == 2) {
-        divisor <- length(x)
-      } else {
-        divisor_factor_name <- permutation[[2:distance]]
-        divisor <- get_underlying_observed_frequency(x, divisor_factor_name)
-      }
-
-      # compute expected frequencies
-      expected <- 0
-      expected <- dividend / divisor
-
-      # generate name under which to store this frequency
-      freq_name <- paste(permutation, collapse = "")
-
-      frequencies[freq_name] <- expected
+    # compute divisor for expected frequencies
+    divisor <- 0
+    if (order == 2) {
+      divisor <- length(x)
+    } else {
+      divisor_factor_name <- as.numeric(permutation[2:distance])
+      divisor <- get_underlying_observed_frequency(x, divisor_factor_name)
     }
+
+    # compute expected frequencies
+    expected <- 0
+    expected <- dividend / divisor
+
+    # generate name under which to store this frequency
+    freq_name <- paste(permutation, collapse = "")
+
+    frequencies[freq_name] <- expected
+
   }
   # replace NaNs with 0
   frequencies[frequencies == "NaN"] <- 0
@@ -205,8 +190,6 @@ get_all_expected_frequencies <- function(x, order) {
 get_underlying_observed_frequency <- function(x, freq) {
   distance <- length(freq) - 1
   counter <- 0
-  #print(x)
-  #print(freq)
 
   if (length(freq) == 1) {
     return(sum(x == freq))
@@ -214,11 +197,8 @@ get_underlying_observed_frequency <- function(x, freq) {
 
   ## count equal occurrences of substrings
   for (i in 1:(length(x) - length(freq) + 1)) {
-    print(x[i:(i + distance)])#
-    print(freq)
     if (identical(x[i:(i + distance)], freq)) {
       counter <- counter + 1
-      print("yey")
     }
   }
 
