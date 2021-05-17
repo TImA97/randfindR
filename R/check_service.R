@@ -73,7 +73,7 @@ correct_indices_provided <- function(indices, available_indices) {
 
     if (sum(correct_index) != length(indices_names)) {
       stop("The provided vector of randomness indices names contains at least
-           one incorrect name")
+           one invalid name")
     }
   }
 
@@ -89,5 +89,14 @@ correct_indices_provided <- function(indices, available_indices) {
 df_has_correct_format <- function(df) {
   if (!is.data.frame(df)) {
     stop("'df' argument must be a data frame.")
+  }
+}
+
+do_arguments_have_correct_length <- function(indices_names, arguments) {
+  for (i in indices_names) {
+    if (!(i %in% names(arguments))) {
+      stop(paste0("You have provided arguments for an index (", i, ") that was
+                  not included in the 'indices' argument."))
+    }
   }
 }
