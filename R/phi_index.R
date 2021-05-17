@@ -20,7 +20,7 @@
 phi_index <- function(x, options, order = 2) {
   x <- to_numeric(x)
   min_options <- 2
-  min_length <- order + 1
+  min_length <- order
   base_checks(x, options, min_options, min_length)
 
   phi_index <- 0
