@@ -76,7 +76,8 @@ compute_phi_index <- function(x, order) {
 
   ## check whether sign has to be reversed
   proportions_alternating <- proportions(observed_frequencies)[2]
-  if (proportions_alternating > contingency_table[2, 2]) {
+  proportions_alternating_predicted <- contingency_table[2, 2]
+  if (proportions_alternating > proportions_alternating_predicted) {
     phi <- phi * (-1)
   }
 
