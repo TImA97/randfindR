@@ -9,9 +9,10 @@
 #' to be filled
 #'
 #' @references
-#' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
-#' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
+#' methods used and a computer program for describing performance. Behavior
+#' Research Methods, Instruments, & Computers 30, 583–591 (1998).
+#' \url{https://doi.org/10.3758/BF03209475}
 #'
 #' Wagenaar, W. A. 1970. “Subjective Randomness and the Capacity to
 #' Generate Information.” Acta Psychologica 33:233–42.
