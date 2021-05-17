@@ -55,7 +55,7 @@ compute_phi_index <- function(x, order) {
 
   contingency_table <-
     get_contingency_table(observed_frequencies, expected_frequencies)
- # print(contingency_table)
+  #print(contingency_table)
 
   # compute chi-square goodness-of-fit statistic
   chi_squared_test <-
@@ -63,7 +63,6 @@ compute_phi_index <- function(x, order) {
                                 p = contingency_table[, 2]))
   chi_squared <- chi_squared_test$statistic
   chi_squared <- unname(chi_squared)
-  #print(chi_squared)
 
 
   ## manually change value to 100 if 'NaN' was returned by the chisq-test
@@ -75,8 +74,9 @@ compute_phi_index <- function(x, order) {
     phi <- sqrt(chi_squared / length(x)) * 100
   }
 
-  # reverse sign if there are more alternating than repetitive pairs
-  if (contingency_table[1, 1] < contingency_table[2, 1]) {
+  ## check whether sign has to be reversed
+  proportions_alternating <- proportions(observed_frequencies)[2]
+  if (proportions_alternating > contingency_table[2, 2]) {
     phi <- phi * (-1)
   }
 
