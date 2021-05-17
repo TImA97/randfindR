@@ -55,15 +55,24 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
     indices_names <- indices
   }
 
-  ## prepare default arguments for the computation of randomness indices
-  default_arguments <- character(length = length(indices_names))
-
   without_options_argument <-
     c("repetitions",
       "runs_index",
       "gap_score",
       "poker_score",
       "tp_index")
+
+  ## prepare default arguments for the computation of randomness indices
+  #default_arguments <- character(length = length(indices_names))
+  default_arguments <-
+    add_default_arguments(all_indices, without_options_argument, options)
+
+
+  if (!is.null(arguments)) {
+    ## add check
+    is_index_included(indices_names, arguments)
+  }
+
 
   ## take by default all columns as arguments
   col_names <- names(df)
@@ -87,13 +96,13 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
     new_index <- numeric(length = nrow(df))
 
     for (p in 1:nrow(df)) {
-      arguments <- list(df[p, col_names], options)
+      col_args <- list(x = df[p, col_names])
       if (i %in% without_options_argument) {
-        arguments <- list(df[p, col_names])
+        col_args <- list(x = df[p, col_names])
       }
       tryCatch(
         {
-          new_index[p] <- do.call(i, arguments)
+          new_index[p] <- do.call(i, c(col_args, arguments[[i]]))
         },
         error = function(e) {
           new_error <- paste0("An error occurred. It was called from ", i, ": ", e)
@@ -118,3 +127,18 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
   return(new_df)
 }
 
+add_default_arguments <- function(all_indices, without_options_argument, options) {
+
+  ## add arguments to list and make exception for functions without option
+  ## argument
+  default_arguments <- list()
+  for (i in 1:length(all_indices)) {
+    arguments <- list(options = options)
+    if (i %in% without_options_argument) {
+      arguments <- list()
+    }
+    default_arguments[[i]] <- arguments
+    names(default_arguments)[i] <- all_indices[i]
+  }
+  return(default_arguments)
+}
