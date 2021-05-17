@@ -95,8 +95,8 @@ get_observed_frequencies <- function(x, order) {
   distance <- order - 1
   number_grams <- length(x) - distance
 
-  # compute how often the first and last value of a sequence with length of a
-  # specified order are alternating or identical
+  ## compute how often the first and last value of a sequence with length of a
+  ## specified order are alternating or identical
   frequencies["repetitive"] <-
     sum(x[1:(number_grams)] == x[(1 + distance):length(x)])
   frequencies["alternating"] <-
@@ -105,23 +105,23 @@ get_observed_frequencies <- function(x, order) {
   return(frequencies)
 }
 
-
+#' Compute expected frequencies
+#' @param x vector of random numbers
+#' @param order order of analysis
+#' @return expected frequencies of \code{x} with \code{order}
+#'
+#' @noRd
 get_expected_frequencies <- function(x, order) {
-  all_frequencies <- get_all_expected_frequencies(x, order)
-  frequencies <- all_frequencies
+  frequencies <- get_all_expected_frequencies(x, order)
 
-  # only keep frequencies of required order
-#  number_values <- 2 ^ order
- # required_values <-
-#    (length(all_frequencies) - number_values + 1):length(all_frequencies)
- # frequencies <-
-  #  all_frequencies[required_values]
-
-  # separate frequencies into cases where first and last value are identical
-  # or alternating
+  ## separate frequencies into cases where first and last value are identical
+  ## or alternating
   reduced_frequencies <- numeric(length = 2)
   names(reduced_frequencies) <- c("repetitive", "alternating")
 
+  ## Inspect all possible sequences and determine whether the first and last
+  ## value are identical or alternating. The frequency of each sequence is added
+  ## to the count of identical/reptitive or alternating sequences.
   for (i in 1:length(frequencies)) {
     gram <- names(frequencies[i])
     first_value <- substring(gram, first = 1, last = 1)
@@ -135,14 +135,17 @@ get_expected_frequencies <- function(x, order) {
         reduced_frequencies["alternating"] + frequencies[i]
     }
   }
-
   return(reduced_frequencies)
 }
 
 #' Compute expected frequencies
 #' @param x vector of random numbers
 #' @param order order of analysis
-#' @return expected frequencies of \code{x}
+#' @return expected frequencies of \code{x} with \code{order}
+#'
+#' @details
+#' Observed frequencies of \code{order} - 1 are used to determine the expected
+#' frequency of each possible sequence of the specified \code{order}.
 #'
 #' @noRd
 get_all_expected_frequencies <- function(x, order) {
@@ -150,15 +153,14 @@ get_all_expected_frequencies <- function(x, order) {
   frequencies <- numeric()
   distance <- order - 1
 
-  # compute response frequencies of current order
+  ## compute all possible sequences of the current order
   permutations <- expand.grid(rep(list(1:2), order))
 
-  #compute expected frequencies for all permutations
+  ## compute expected frequencies for all permutations
   for (j in 1:nrow(permutations)) {
     permutation <- as.vector(permutations[j, ])
-    #print(permutation)
 
-    # compute dividend for expected frequencies TODO hier läuft etwas schief!
+    ## compute dividend for expected frequencies
     dividend_factor_one_name <- as.numeric(permutation[1:distance])
     dividend_factor_one <- get_underlying_observed_frequency(x, dividend_factor_one_name)
     dividend_factor_two_name <- as.numeric(permutation[2:order])
@@ -166,7 +168,7 @@ get_all_expected_frequencies <- function(x, order) {
 
     dividend <- dividend_factor_one * dividend_factor_two
 
-    # compute divisor for expected frequencies
+    ## compute divisor for expected frequencies
     divisor <- 0
     if (order == 2) {
       divisor <- length(x)
@@ -175,21 +177,28 @@ get_all_expected_frequencies <- function(x, order) {
       divisor <- get_underlying_observed_frequency(x, divisor_factor_name)
     }
 
-    # compute expected frequencies
+    ## compute expected frequencies
     expected <- 0
     expected <- dividend / divisor
 
-    # generate name under which to store this frequency
+    ## generate name under which to store this frequency
     freq_name <- paste(permutation, collapse = "")
 
     frequencies[freq_name] <- expected
 
   }
-  # replace NaNs with 0
+  ## replace NaNs with 0
   frequencies[frequencies == "NaN"] <- 0
   return(frequencies)
 }
 
+#' Compute observed frequency of a sequence
+#'
+#' @param x vector of random numbers
+#' @param freq frequency against which to look for in \code{x}
+#' @return observed frequency of \code{freq} in \code{x}
+#'
+#' @noRd
 get_underlying_observed_frequency <- function(x, freq) {
   distance <- length(freq) - 1
   counter <- 0
@@ -204,10 +213,16 @@ get_underlying_observed_frequency <- function(x, freq) {
       counter <- counter + 1
     }
   }
-
   return(counter)
 }
 
+#' Compute contingengy table of observed and expected frequencies
+#'
+#' @param observed vector with observed frequencies
+#' @param expected vector with expected frequencies
+#' @return contingency table of \code{observed} and \code{expected} frequencies
+#'
+#' @noRd
 get_contingency_table <- function(observed, expected) {
   matr <-
     cbind(observed = observed,
