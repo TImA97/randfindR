@@ -4,7 +4,14 @@
 \alias{all_rand}
 \title{Compute variety of randomness indices}
 \usage{
-all_rand(df, options, columns = NULL, indices = NULL, arguments = NULL)
+all_rand(
+  df,
+  options,
+  columns = NULL,
+  indices = NULL,
+  arguments = NULL,
+  combine = FALSE
+)
 }
 \arguments{
 \item{df}{data frame containing sequences of options in row-wise format}
@@ -13,9 +20,12 @@ all_rand(df, options, columns = NULL, indices = NULL, arguments = NULL)
 
 \item{columns}{columns which will be interpreted as sequence}
 
-\item{arguments}{indicates the wanted options for the computation of indices}
+\item{indices}{indices of randomness to be computed as character vector}
 
-\item{indices_names}{indices of randomness to be computed as character vector}
+\item{arguments}{list of options for the computation of randomness indices}
+
+\item{combine}{indicates whether the computed indices should be combined with
+the original data frame.}
 }
 \description{
 Compute variety of randomness indices
@@ -26,6 +36,9 @@ variety of randomness indices. It is assumed that the data is provided in
 row-wise, i.e., each row represents one sequences. The output of this function
 is also a data frame. If the 'columns' argument is not provided, it is assumed
 that the whole data frame should be used for computing the indices.
-The 'indices_names' argument indicates the selection of randomness indices
-you want to have. By default all indices are computed.
+The 'indices' argument indicates the selection of randomness indices
+you want to have. By default all indices are computed.You can also decide
+whether the computed indices should be appended to the data frame provided
+as input or whether they should be returned by themselves in a new data frame.
+This can be done with 'combine' argument.
 }

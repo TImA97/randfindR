@@ -3,7 +3,7 @@
 #' @param df data frame containing sequences of options in row-wise format
 #' @param options number of available options in sequence
 #' @param columns columns which will be interpreted as sequence
-#' @param indices_names indices of randomness to be computed as character vector
+#' @param indices indices of randomness to be computed as character vector
 #' @param arguments list of options for the computation of randomness indices
 #' @param combine indicates whether the computed indices should be combined with
 #' the original data frame.
