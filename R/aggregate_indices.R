@@ -70,9 +70,16 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
 
 
   ## TOD make list!
-  with_circ_argument <- c()
+  with_circ_argument <-
+    c("rng_index",
+      "rng2_index",
+      "digram_rep",
+      "repetitions",
+      "series",
+      "cluster_ratio",
+      "null_score",)
 
-  with_asc_argument <- c()
+  with_asc_argument <- c("runs_index")
 
   ## prepare default arguments for the computation of randomness indices
   #default_arguments <- character(length = length(indices_names))
