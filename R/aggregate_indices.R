@@ -141,6 +141,8 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
 #' @param without_options_argument vector with the names of indices that do not
 #' have an \code{options} argument
 #' @param options number of available options in sequence
+#'
+#' @noRd
 add_default_arguments <- function(all_indices, without_options_argument, options) {
 
   ## add arguments to list and make exception for functions without option
