@@ -2,7 +2,9 @@
 #'
 #' @param df data frame containing sequences of options in row-wise format
 #' @param options number of available options in sequence
-#' @param columns columns which will be interpreted as sequence
+#' @param circ indicate whether to include wrap around from end to the beginning
+#' @param asc Indicate whether to compute variance of ascending or descending
+#' runs. Default value is set to ascending.
 #' @param indices indices of randomness to be computed as character vector
 #' @param arguments list of options for the computation of randomness indices
 #' @param combine indicates whether the computed indices should be combined with
@@ -10,20 +12,24 @@
 #'
 #' @details
 #'
-#' This function allows to enter a data frame of sequence data and computes a
-#' variety of randomness indices. It is assumed that the data is provided in
-#' row-wise, i.e., each row represents one sequences. The output of this function
-#' is also a data frame. If the 'columns' argument is not provided, it is assumed
-#' that the whole data frame should be used for computing the indices.
-#' The 'indices' argument indicates the selection of randomness indices
+#' This function allows to enter a data frame \code{df} of sequence data and
+#' computes a variety of randomness indices. It is assumed that the data is provided
+#' in row-wise, i.e., each row represents one sequences. The output of this function
+#' is also a data frame. It is assumed that the whole data frame should be used
+#' for computing the indices.
+#' The \code{circ} arguments indicates whether a wrap around of the last digits
+#' in a sequence to the first digits of a sequence should be included for indices
+#' that are based on computing response pairs. The \code{asc} arguments
+#' determines whether ascending or descending runs should be computed for the
+#' runs index. The 'indices' argument indicates the selection of randomness indices
 #' you want to have. By default all indices are computed.You can also decide
 #' whether the computed indices should be appended to the data frame provided
 #' as input or whether they should be returned by themselves in a new data frame.
 #' This can be done with 'combine' argument.
 #'
 #' @export
-all_rand <- function(df, options, columns = NULL, indices = NULL,
-                     arguments = NULL, combine = FALSE) {
+all_rand <- function(df, options, circ = TRUE, asc = TRUE,
+                     indices = NULL, arguments = NULL, combine = FALSE) {
 
   ## check whether 'df' is a data frame and not a list
   df_has_correct_format(df)
@@ -70,17 +76,12 @@ all_rand <- function(df, options, columns = NULL, indices = NULL,
 
   if (!is.null(arguments)) {
     ## add check
-    is_index_included(indices_names, arguments)
+   # is_index_included(indices_names, arguments)
   }
 
 
   ## take by default all columns as arguments
   col_names <- names(df)
-
-  ## use columns argument if not empty
-  if (!is.null(columns)) {
-    col_names <- columns
-  }
 
   ## prepare output data frame (can be the input data frame if 'combine' equals
   ## true)

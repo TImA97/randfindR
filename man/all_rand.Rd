@@ -7,7 +7,8 @@
 all_rand(
   df,
   options,
-  columns = NULL,
+  circ = TRUE,
+  asc = TRUE,
   indices = NULL,
   arguments = NULL,
   combine = FALSE
@@ -18,7 +19,10 @@ all_rand(
 
 \item{options}{number of available options in sequence}
 
-\item{columns}{columns which will be interpreted as sequence}
+\item{circ}{indicate whether to include wrap around from end to the beginning}
+
+\item{asc}{Indicate whether to compute variance of ascending or descending
+runs. Default value is set to ascending.}
 
 \item{indices}{indices of randomness to be computed as character vector}
 
@@ -31,12 +35,16 @@ the original data frame.}
 Compute variety of randomness indices
 }
 \details{
-This function allows to enter a data frame of sequence data and computes a
-variety of randomness indices. It is assumed that the data is provided in
-row-wise, i.e., each row represents one sequences. The output of this function
-is also a data frame. If the 'columns' argument is not provided, it is assumed
-that the whole data frame should be used for computing the indices.
-The 'indices' argument indicates the selection of randomness indices
+This function allows to enter a data frame \code{df} of sequence data and
+computes a variety of randomness indices. It is assumed that the data is provided
+in row-wise, i.e., each row represents one sequences. The output of this function
+is also a data frame. It is assumed that the whole data frame should be used
+for computing the indices.
+The \code{circ} arguments indicates whether a wrap around of the last digits
+in a sequence to the first digits of a sequence should be included for indices
+that are based on computing response pairs. The \code{asc} arguments
+determines whether ascending or descending runs should be computed for the
+runs index. The 'indices' argument indicates the selection of randomness indices
 you want to have. By default all indices are computed.You can also decide
 whether the computed indices should be appended to the data frame provided
 as input or whether they should be returned by themselves in a new data frame.
