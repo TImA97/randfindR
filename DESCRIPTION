@@ -1,11 +1,11 @@
 Package: randseq
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Analysis of human generated sequences
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Tim Angelike
+Maintainer: Tim Angelike <tim.angelike@gmx.de>
+Description: This package was desinged for analysing human generated sequences 
+regarding the occurence of systematic (non-random) patterns.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
