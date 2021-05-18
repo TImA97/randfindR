@@ -1,4 +1,4 @@
-#' Compute variety of randomness indices
+#' Compute collection of randomness indices
 #'
 #' @param df data frame containing sequences of options in row-wise format
 #' @param options number of available options in sequence
@@ -68,6 +68,12 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
       "poker_score",
       "tp_index")
 
+
+  ## TOD make list!
+  with_circ_argument <- c()
+
+  with_asc_argument <- c()
+
   ## prepare default arguments for the computation of randomness indices
   #default_arguments <- character(length = length(indices_names))
   default_arguments <-
@@ -128,6 +134,13 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
   return(new_df)
 }
 
+
+#' Prepare default arguments for computation of indices
+#'
+#' @param all_indices vector with the names of all available indices
+#' @param without_options_argument vector with the names of indices that do not
+#' have an \code{options} argument
+#' @param options number of available options in sequence
 add_default_arguments <- function(all_indices, without_options_argument, options) {
 
   ## add arguments to list and make exception for functions without option
