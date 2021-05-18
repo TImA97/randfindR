@@ -67,9 +67,9 @@ is_number_of_distinct_options_too_high <- function(x, options) {
 #' @param available_indices character vector of allowed indices
 #'
 #' @noRd
-correct_indices_provided <- function(indices, available_indices) {
+correct_indices_provided <- function(indices, indices_names) {
   if (is.character(indices)) {
-    correct_index <- indicies %in% indices_names
+    correct_index <- indices %in% indices_names
 
     if (sum(correct_index) != length(indices_names)) {
       stop("The provided vector of randomness indices names contains at least
@@ -92,6 +92,8 @@ df_has_correct_format <- function(df) {
   }
 }
 
+#'
+#' @noRd
 do_arguments_have_correct_length <- function(indices_names, arguments) {
   for (i in indices_names) {
     if (!(i %in% names(arguments))) {
