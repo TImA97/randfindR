@@ -1,11 +1,11 @@
 Package: randseq
 Type: Package
-Title: Analysis of human generated sequences
+Title: Analysis of Human Henerated Sequences
 Version: 0.1.0
 Author: Tim Angelike
 Maintainer: Tim Angelike <tim.angelike@gmx.de>
 Description: This package was desinged for analysing human generated sequences 
-regarding the occurence of systematic (non-random) patterns.
+    regarding the occurence of systematic (non-random) patterns.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
