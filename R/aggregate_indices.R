@@ -6,7 +6,6 @@
 #' @param asc Indicate whether to compute variance of ascending or descending
 #' runs. Default value is set to ascending.
 #' @param indices indices of randomness to be computed as character vector
-#' @param arguments list of options for the computation of randomness indices
 #' @param combine indicates whether the computed indices should be combined with
 #' the original data frame.
 #'
@@ -29,7 +28,7 @@
 #'
 #' @export
 all_rand <- function(df, options, circ = TRUE, asc = TRUE,
-                     indices = NULL, arguments = NULL, combine = FALSE) {
+                     indices = NULL, combine = FALSE) {
 
   ## check whether 'df' is a data frame and not a list
   df_has_correct_format(df)
