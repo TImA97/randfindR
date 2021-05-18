@@ -85,13 +85,6 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
   default_arguments <-
     add_default_arguments(all_indices, without_options_argument, options)
 
-
-  if (!is.null(arguments)) {
-    ## add check
-   # is_index_included(indices_names, arguments)
-  }
-
-
   ## take by default all columns as arguments
   col_names <- names(df)
 
