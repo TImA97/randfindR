@@ -17,7 +17,7 @@
 #' in row-wise, i.e., each row represents one sequences. The output of this function
 #' is also a data frame. It is assumed that the whole data frame should be used
 #' for computing the indices.
-#' The \code{circ} arguments indicates whether a wrap around of the last digits
+#' The \code{circ} arguments determines whether a wrap around of the last digits
 #' in a sequence to the first digits of a sequence should be included for indices
 #' that are based on computing response pairs. The \code{asc} arguments
 #' determines whether ascending or descending runs should be computed for the
