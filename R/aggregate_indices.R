@@ -1,6 +1,6 @@
 #' Compute collection of randomness indices
 #'
-#' @param df data frame containing sequences of options in row-wise format
+#' @param x data frame or vector containing sequences of options in row-wise format
 #' @param options number of available options in sequence
 #' @param circ indicate whether to include wrap around from end to the beginning
 #' @param asc Indicate whether to compute variance of ascending or descending
@@ -11,27 +11,30 @@
 #'
 #' @details
 #'
-#' This function allows to enter a data frame \code{df} of sequence data and
-#' computes a variety of randomness indices. It is assumed that the data is provided
-#' in row-wise, i.e., each row represents one sequences. The output of this function
-#' is also a data frame. It is assumed that the whole data frame should be used
-#' for computing the indices.
+#' This function allows to enter a data frame or vector \code{x} of sequence data and
+#' computes a variety of randomness indices. If \code{x} is a data frame, it is
+#' assumed that the sequences are provided in a row-wise format, i.e., each row
+#' represents one sequence. All columns are included in the analysis.
+#' In this case, the output of the function is also a data frame. If you want
+#' the indices to be appended to your input data frame, you can set
+#' \code{combine} to TRUE.
+#' If \code{x} is a vector all indices are computed normally over said vector.
+#' In this case, the output of the function is also a vector with one value for
+#' each computed index.
 #' The \code{circ} arguments determines whether a wrap around of the last digits
 #' in a sequence to the first digits of a sequence should be included for indices
 #' that are based on computing response pairs. The \code{asc} arguments
 #' determines whether ascending or descending runs should be computed for the
-#' runs index. The 'indices' argument indicates the selection of randomness indices
-#' you want to have. By default all indices are computed.You can also decide
-#' whether the computed indices should be appended to the data frame provided
-#' as input or whether they should be returned by themselves in a new data frame.
-#' This can be done with 'combine' argument.
+#' runs index.
+#' The \code{indices} argument lets you specify the randomness indices that you
+#' want to have. By default all indices are computed.
 #'
 #' @export
-all_rand <- function(df, options, circ = TRUE, asc = TRUE,
+all_rand <- function(x, options, circ = TRUE, asc = TRUE,
                      indices = NULL, combine = FALSE) {
 
   ## check whether 'df' is a data frame and not a list
-  df_has_correct_format(df)
+  df_has_correct_format(x)
 
   all_indices <-
     c(
@@ -62,20 +65,20 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
 
   ## prepare output data frame (can be the input data frame if 'combine' equals
   ## true)
-  new_df <- data.frame(nr = vector(length = nrow(df)))
+  new_df <- data.frame(nr = vector(length = nrow(x)))
   if (combine == TRUE) {
-    new_df <- df
+    new_df <- x
   }
 
   error_messages <- "There were errors during the analysis:\n"
 
   ## compute randomness indices for each row
   for (i in indices_names) {
-    new_index <- numeric(length = nrow(df))
+    new_index <- numeric(length = nrow(x))
     arguments <- get_function_arguments(i, options, circ, asc)
 
-    for (p in 1:nrow(df)) {
-      row <- list(x = df[p, ])
+    for (p in 1:nrow(x)) {
+      row <- list(x = x[p, ])
       arguments["x"] <- row
 
       tryCatch(
