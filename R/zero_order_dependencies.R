@@ -15,9 +15,13 @@
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return redundancy index of \code{x}
+#'
 #' @examples
-#' redundancy_index(c(1,1,1,1),2)
-#' redundancy_index(c(2,2,1,1),2)
+#' redundancy_index(c(1,1,1,1), 2)
+#' redundancy_index(c(2,2,1,1), 2)
+#' redundancy_index(ginsburg1994, 10)
+#' redundancy_index(evans1978[, 1], 10)
+#' redundancy_index(evans1978[, 2], 10)
 #'
 #' @export
 #'
@@ -71,6 +75,11 @@ redundancy_index <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return variance of digits of \code{x}
+#'
+#' @examples
+#' var_digits(ginsburg1994, 10)
+#' var_digits(evans1978[, 1], 10)
+#' var_digits(evans1978[, 2], 10)
 #'
 #' @details
 #' This function takes a vector \code{x} and computes the population variance

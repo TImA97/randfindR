@@ -6,6 +6,12 @@
 #' of the sequence when computing response pairs
 #' @return RNG index of \code{x}
 #'
+#' @examples
+#' rng_index(ginsburg1994, 10)
+#' rng_index(ginsburg1994, 10, circ = FALSE)
+#' rng_index(evans1978[, 1], 10)
+#' rng_index(evans1978[, 2], 10)
+#'
 #' @details
 #'
 #' This function takes a vector \code{x} and computes an index that reflects
@@ -45,6 +51,12 @@ rng_index <- function(x, options, circ = TRUE) {
 #' of the sequence when computing response pairs
 #' @return RNG2 index of \code{x}
 #'
+#' @examples
+#' rng2_index(ginsburg1994, 10)
+#' rng2_index(ginsburg1994, 10, circ = FALSE)
+#' rng2_index(evans1978[, 1], 10)
+#' rng2_index(evans1978[, 2], 10)
+#'
 #' @details
 #'
 #' This function takes a vector \code{x} and computes an index that reflects
@@ -63,7 +75,7 @@ rng_index <- function(x, options, circ = TRUE) {
 #' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 #' methods used and a computer program for describing performance. Behavior
 #' Research Methods, Instruments, & Computers 30, 583–591 (1998).
-rng2_index <- function(x, options, circ = FALSE) {
+rng2_index <- function(x, options, circ = TRUE) {
   x <- to_numeric(x)
   min_options <- 2
   min_length <- 3

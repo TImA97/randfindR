@@ -3,6 +3,11 @@
 #' @param x vector of random numbers
 #' @return Turning Point Index of \code{x}
 #'
+#' @examples
+#' tp_index(ginsburg1994)
+#' tp_index(evans1978[, 1])
+#' tp_index(evans1978[, 2])
+#'
 #' @details
 #'
 #' This function takes a vector \code{x} and computes all turning points in the
@@ -14,6 +19,8 @@
 #' Values over 100 indicate a higher number of turning points than theoretically
 #' expected; values below 100 indicate fewer turning points than theoretically
 #' expected.
+#'
+#' Related to turning point text -> reference to package?
 #'
 #' @export
 #'
