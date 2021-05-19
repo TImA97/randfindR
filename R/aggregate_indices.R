@@ -33,8 +33,8 @@
 all_rand <- function(x, options, circ = TRUE, asc = TRUE,
                      indices = NULL, combine = FALSE) {
 
-  ## check whether 'df' is a data frame and not a list
-  df_has_correct_format(x)
+  ## check whether 'x' is not a list
+  input_has_correct_format(x)
 
   all_indices <-
     c(
@@ -63,6 +63,20 @@ all_rand <- function(x, options, circ = TRUE, asc = TRUE,
     indices_names <- indices
   }
 
+
+  if (is.data.frame(x)) {
+    output_df <- all_rand_df(x, options, circ, asc, indices_names, combine)
+    return(output_df)
+  } else {
+    ## all_rand_vector
+  }
+}
+
+#' Compute randomness indices when input is a data frame
+#' (arguments are the same as in the main function)
+#'
+#' @noRd
+all_rand_df <- function(x, options, circ, asc, indices_names, combine) {
   ## prepare output data frame (can be the input data frame if 'combine' equals
   ## true)
   new_df <- data.frame(nr = vector(length = nrow(x)))
