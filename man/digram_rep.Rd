@@ -22,6 +22,12 @@ This function takes a vector \code{x} and sums up the frequency of all
 response pairs given the number of possible \code{options}. For each response
 pair that occurs more than once the total sum is reduced by one.
 }
+\examples{
+digram_rep(ginsburg1994, 10)
+digram_rep(evans1978[, 1], 10)
+digram_rep(evans1978[, 2], 10)
+
+}
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.

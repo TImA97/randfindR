@@ -24,6 +24,12 @@ followed by their most adjacent predecessor and successors given the number
 of possible \code{options}. This function includes series from the lowest to
 the highest value and vice versa.
 }
+\examples{
+series(ginsburg1994, 10)
+series(evans1978[, 1], 10)
+series(evans1978[, 2], 10)
+
+}
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.

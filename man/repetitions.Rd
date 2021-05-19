@@ -17,8 +17,13 @@ Compute frequency a value is repeated in the next round
 }
 \details{
 This function takes a vector \code{x} and counts how often values are
-directly repeated in the next value given the number of possible
-\code{options}.
+directly repeated in the next value.
+}
+\examples{
+repetitions(ginsburg1994)
+repetitions(evans1978[, 1])
+repetitions(evans1978[, 2])
+
 }
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.

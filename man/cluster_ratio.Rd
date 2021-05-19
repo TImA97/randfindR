@@ -21,6 +21,12 @@ compute the population variance of all response pair frequencies
 This function takes a vector \code{x} and computes the population variance
 of all response pair frequencies given the number of possible \code{options}.
 }
+\examples{
+cluster_ratio(ginsburg1994, 10)
+cluster_ratio(evans1978[, 1], 10)
+cluster_ratio(evans1978[, 2], 10)
+
+}
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.

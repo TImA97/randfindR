@@ -27,6 +27,12 @@ The result of this quotient ranges from 0 to 100.
 High values indicate an uneven distribution of response pairs, whereas low
 values indicate an even distribution of response pairs.
 }
+\examples{
+null_score(ginsburg1994, 10)
+null_score(evans1978[, 1], 10)
+null_score(evans1978[, 2], 10)
+
+}
 \references{
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 methods used and a computer program for describing performance. Behavior

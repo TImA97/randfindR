@@ -7,6 +7,11 @@
 #' @param options number of available options in sequence
 #' @return digram repetition of \code{x}
 #'
+#' @examples
+#' digram_rep(ginsburg1994, 10)
+#' digram_rep(evans1978[, 1], 10)
+#' digram_rep(evans1978[, 2], 10)
+#'
 #' @details
 #' This function takes a vector \code{x} and sums up the frequency of all
 #' response pairs given the number of possible \code{options}. For each response
@@ -44,10 +49,14 @@ digram_rep <- function(x, options) {
 #' @param x vector of random numbers
 #' @return repetitions of \code{x}
 #'
+#' @examples
+#' repetitions(ginsburg1994)
+#' repetitions(evans1978[, 1])
+#' repetitions(evans1978[, 2])
+#'
 #' @details
 #' This function takes a vector \code{x} and counts how often values are
-#' directly repeated in the next value given the number of possible
-#' \code{options}.
+#' directly repeated in the next value.
 #'
 #' @export
 #'
@@ -70,6 +79,11 @@ repetitions <- function(x) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return series of \code{x}
+#'
+#' @examples
+#' series(ginsburg1994, 10)
+#' series(evans1978[, 1], 10)
+#' series(evans1978[, 2], 10)
 #'
 #' @details
 #' This function takes a vector \code{x} and counts how often values are
@@ -116,6 +130,11 @@ series <- function(x, options) {
 #' @param options number of available options in sequence
 #' @return cluster ratio of \code{x}
 #'
+#' @examples
+#' cluster_ratio(ginsburg1994, 10)
+#' cluster_ratio(evans1978[, 1], 10)
+#' cluster_ratio(evans1978[, 2], 10)
+#'
 #' @details
 #'
 #' This function takes a vector \code{x} and computes the population variance
@@ -148,6 +167,11 @@ cluster_ratio <- function(x, options) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return Guttmann Null-Score Quotient of \code{x}
+#'
+#' @examples
+#' null_score(ginsburg1994, 10)
+#' null_score(evans1978[, 1], 10)
+#' null_score(evans1978[, 2], 10)
 #'
 #' @details
 #'
