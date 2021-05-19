@@ -4,7 +4,7 @@
 \alias{rng2_index}
 \title{Compute RNG2 index}
 \usage{
-rng2_index(x, options, circ = FALSE)
+rng2_index(x, options, circ = TRUE)
 }
 \arguments{
 \item{x}{vector of random numbers}
@@ -29,6 +29,13 @@ e.g., in the sequence c(1,2,3) the first response pair is (1,3).
 The values of this index range between 0 and 1. A value of '1' would indicate
 complete redundancy of response pairs,whereas a value of '0' would indicate
 an even distribution of response pairs.
+}
+\examples{
+rng2_index(ginsburg1994, 10)
+rng2_index(ginsburg1994, 10, circ = FALSE)
+rng2_index(evans1978[, 1], 10)
+rng2_index(evans1978[, 2], 10)
+
 }
 \references{
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of

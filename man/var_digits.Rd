@@ -23,6 +23,12 @@ of response frequencies given the number of possible \code{options}.
 This index is conceptually closely related to the idea of the
 \code{\link{redundancy_index}}.
 }
+\examples{
+var_digits(ginsburg1994, 10)
+var_digits(evans1978[, 1], 10)
+var_digits(evans1978[, 2], 10)
+
+}
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.

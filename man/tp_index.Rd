@@ -25,6 +25,14 @@ the length of the sequence. The resulting quotient is multiplied with 100.
 Values over 100 indicate a higher number of turning points than theoretically
 expected; values below 100 indicate fewer turning points than theoretically
 expected.
+
+Related to turning point text -> reference to package?
+}
+\examples{
+tp_index(ginsburg1994)
+tp_index(evans1978[, 1])
+tp_index(evans1978[, 2])
+
 }
 \references{
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of

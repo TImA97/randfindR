@@ -21,6 +21,9 @@ runs. Default value is set to ascending.}
 \item{combine}{indicates whether the computed indices should be combined with
 the original data frame.}
 }
+\value{
+vector or data frame containing the selection of randomness indices
+}
 \description{
 Compute collection of randomness indices
 }
@@ -42,4 +45,10 @@ determines whether ascending or descending runs should be computed for the
 runs index.
 The \code{indices} argument lets you specify the randomness indices that you
 want to have. By default all indices are computed.
+}
+\examples{
+all_rand(ginsburg1994, 10)
+all_rand(evans1978[, 1], 10)
+all_rand(evans1978[, 2], 10)
+
 }

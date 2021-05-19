@@ -27,8 +27,11 @@ A value of 0 indicates an even distribution of response frequencies,
 whereas a value of 100 indicates complete redundancy of one response.
 }
 \examples{
-redundancy_index(c(1,1,1,1),2)
-redundancy_index(c(2,2,1,1),2)
+redundancy_index(c(1,1,1,1), 2)
+redundancy_index(c(2,2,1,1), 2)
+redundancy_index(ginsburg1994, 10)
+redundancy_index(evans1978[, 1], 10)
+redundancy_index(evans1978[, 2], 10)
 
 }
 \references{

@@ -27,6 +27,13 @@ the number of possible \code{options}. The values of this index range between
 0 and 1. A value of '1' would indicate complete redundancy of response pairs,
 whereas a value of '0' would indicate an even distribution of response pairs.
 }
+\examples{
+rng_index(ginsburg1994, 10)
+rng_index(ginsburg1994, 10, circ = FALSE)
+rng_index(evans1978[, 1], 10)
+rng_index(evans1978[, 2], 10)
+
+}
 \references{
 Evans, F.J. Monitoring attention deployment by random number generation:
 An index to measure subjective randomness.
