@@ -60,34 +60,6 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
     indices_names <- indices
   }
 
-  without_options_argument <-
-    c("repetitions",
-      "runs_index",
-      "gap_score",
-      "poker_score",
-      "tp_index")
-
-
-  ## TOD make list!
-  with_circ_argument <-
-    c("rng_index",
-      "rng2_index",
-      "digram_rep",
-      "repetitions",
-      "series",
-      "cluster_ratio",
-      "null_score",)
-
-  with_asc_argument <- c("runs_index")
-
-  ## prepare default arguments for the computation of randomness indices
-  #default_arguments <- character(length = length(indices_names))
-  default_arguments <-
-    add_default_arguments(all_indices, without_options_argument, options)
-
-  ## take by default all columns as arguments
-  col_names <- names(df)
-
   ## prepare output data frame (can be the input data frame if 'combine' equals
   ## true)
   new_df <- data.frame(nr = vector(length = nrow(df)))
@@ -97,21 +69,18 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
 
   error_messages <- "There were errors during the analysis:\n"
 
-
-  ## TODO: add function get_function_arguments()
-
   ## compute randomness indices for each row
   for (i in indices_names) {
     new_index <- numeric(length = nrow(df))
+    arguments <- get_function_arguments(i, options, circ, asc)
 
     for (p in 1:nrow(df)) {
-      col_args <- list(x = df[p, col_names])
-      if (i %in% without_options_argument) {
-        col_args <- list(x = df[p, col_names])
-      }
+      row <- list(x = df[p, ])
+      arguments["x"] <- row
+
       tryCatch(
         {
-          new_index[p] <- do.call(i, c(col_args, arguments[[i]]))
+          new_index[p] <- do.call(i, arguments)
         },
         error = function(e) {
           new_error <- paste0("An error occurred. It was called from ", i, ": ", e)
@@ -125,42 +94,25 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
 
   ## only keep and print unique error messages
   error_messages <- unique(error_messages)
-  print(error_messages)
+  warning(error_messages)
 
   ## remove first placeholder column if entirely new data frame was created
   if (combine == FALSE) {
     new_df <- new_df[-1]
   }
 
-  ## return data frame
   return(new_df)
 }
 
 
-#' Prepare default arguments for computation of indices
+#' Prepare arguments for computation of indices
 #'
-#' @param all_indices vector with the names of all available indices
-#' @param without_options_argument vector with the names of indices that do not
-#' have an \code{options} argument
-#' @param options number of available options in sequence
+#' @param index name of the randomness index to be computed
+#' @param options
+#' @param circ
+#' @param asc
 #'
 #' @noRd
-add_default_arguments <- function(all_indices, without_options_argument, options) {
-
-  ## add arguments to list and make exception for functions without option
-  ## argument
-  default_arguments <- list()
-  for (i in 1:length(all_indices)) {
-    arguments <- list(options = options)
-    if (i %in% without_options_argument) {
-      arguments <- list()
-    }
-    default_arguments[[i]] <- arguments
-    names(default_arguments)[i] <- all_indices[i]
-  }
-  return(default_arguments)
-}
-
 get_function_arguments <- function(index, options, circ, asc) {
   without_options_argument <-
     c("repetitions",
@@ -173,27 +125,23 @@ get_function_arguments <- function(index, options, circ, asc) {
   ## TOD make list!
   with_circ_argument <-
     c("rng_index",
-      "rng2_index",
-      "digram_rep",
-      "repetitions",
-      "series",
-      "cluster_ratio",
-      "null_score",)
+      "rng2_index")
 
   with_asc_argument <- c("runs_index")
 
   arguments <- list()
+  arguments["x"] <- 0
 
   if (!index %in% without_options_argument) {
-    list["options"] <- options
+    arguments["options"] <- options
   }
 
   if(index %in% with_circ_argument) {
-    list["circ"] <- circ
+    arguments["circ"] <- circ
   }
 
   if(index %in% with_asc_argument) {
-    list["asc"] <- asc
+    arguments["asc"] <- asc
   }
 
   return(arguments)
