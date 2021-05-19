@@ -125,6 +125,7 @@ all_rand_df <- function(x, options, circ, asc, indices_names, combine) {
 #' (arguments are the same as in the main function except for \code{combine}
 #' as this argument is only required for working with data frames)
 #'
+#' @noRd
 all_rand_vector <- function(x, options, circ, asc, indices_names) {
 
   result <- numeric(length = length(indices_names))
