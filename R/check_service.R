@@ -86,7 +86,7 @@ correct_indices_provided <- function(indices, indices_names) {
 #' @param df data frame
 #'
 #' @noRd
-df_has_correct_format <- function(df) {
+input_has_correct_format <- function(df) {
   if (!is.data.frame(df)) {
     stop("'df' argument must be a data frame.")
   }
