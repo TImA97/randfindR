@@ -97,6 +97,9 @@ all_rand <- function(df, options, circ = TRUE, asc = TRUE,
 
   error_messages <- "There were errors during the analysis:\n"
 
+
+  ## TODO: add function get_function_arguments()
+
   ## compute randomness indices for each row
   for (i in indices_names) {
     new_index <- numeric(length = nrow(df))
@@ -156,4 +159,42 @@ add_default_arguments <- function(all_indices, without_options_argument, options
     names(default_arguments)[i] <- all_indices[i]
   }
   return(default_arguments)
+}
+
+get_function_arguments <- function(index, options, circ, asc) {
+  without_options_argument <-
+    c("repetitions",
+      "runs_index",
+      "gap_score",
+      "poker_score",
+      "tp_index")
+
+
+  ## TOD make list!
+  with_circ_argument <-
+    c("rng_index",
+      "rng2_index",
+      "digram_rep",
+      "repetitions",
+      "series",
+      "cluster_ratio",
+      "null_score",)
+
+  with_asc_argument <- c("runs_index")
+
+  arguments <- list()
+
+  if (!index %in% without_options_argument) {
+    list["options"] <- options
+  }
+
+  if(index %in% with_circ_argument) {
+    list["circ"] <- circ
+  }
+
+  if(index %in% with_asc_argument) {
+    list["asc"] <- asc
+  }
+
+  return(arguments)
 }
