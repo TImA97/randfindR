@@ -3,6 +3,11 @@
 #' @param options number of available options in sequence
 #' @return regularity index of \code{x}
 #'
+#' @examples
+#' reg_index(ginsburg1994, 10)
+#' reg_index(evans1978[, 1], 10)
+#' reg_index(evans1978[, 2], 10)
+#'
 #' @details
 #' This function takes a vector \code{x} as a sequence and the number of
 #' possible \code{options} and computes the regularity of the given sequence.

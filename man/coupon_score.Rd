@@ -26,6 +26,12 @@ option omitted are not used for the computation of this index.
 Consequently, this index cannot be computed for vectors that do not
 contain all possible \code{options} and therefore, NA is returned.
 }
+\examples{
+runs_index(ginsburg1994, 10)
+runs_index(evans1978[, 1], 10)
+runs_index(evans1978[, 2], 10)
+
+}
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.

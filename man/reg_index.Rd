@@ -25,6 +25,12 @@ indicates no regularity, whereas a value of 1 indicates maximum regularity.
 The regularity index is obtained by identifying the the maximum regularity
 occurring in the sequence.
 }
+\examples{
+reg_index(ginsburg1994, 10)
+reg_index(evans1978[, 1], 10)
+reg_index(evans1978[, 2], 10)
+
+}
 \references{
 Skliar, Osvaldo, Ricardo E. Monge, Guillermo Oviedo, and Víctor Medina. 2009.
 “Indices of regularity and indices of randomness for m-ary strings.”

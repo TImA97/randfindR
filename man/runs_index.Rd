@@ -16,13 +16,20 @@ runs. Default value is set to ascending.}
 runs of \code{x}
 }
 \description{
-Compute the variance of successive ascending or descending runs
+Compute runs index of randomness
 }
 \details{
 This function takes a vector \code{x} and computes the population variance
 of all ascending or descending run lengths, depending on \code{asc}. The
 default version of this function computes the population variance of
 ascending run lengths.
+}
+\examples{
+runs_index(ginsburg1994)
+runs_index(ginsburg1994, FALSE)
+runs_index(evans1978[, 1])
+runs_index(evans1978[, 2])
+
 }
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.

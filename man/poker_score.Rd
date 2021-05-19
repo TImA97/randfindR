@@ -22,6 +22,12 @@ which exactly two identical values occur in 5-digit-long sub-sequences of the
 original vector. If the vector length is not dividable by 5, the last 1-4
 values will not be used for this index.
 }
+\examples{
+poker_score(ginsburg1994)
+poker_score(evans1978[, 1])
+poker_score(evans1978[, 2])
+
+}
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.

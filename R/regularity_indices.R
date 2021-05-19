@@ -1,11 +1,15 @@
 #' Compute runs index of randomness
 #'
-#' @description Compute the variance of successive ascending or descending runs
 #' @param x vector of random numbers
-#'
 #' @param asc Indicate whether to compute variance of ascending or descending
 #' runs. Default value is set to ascending.
 #' @return runs of \code{x}
+#'
+#' @examples
+#' runs_index(ginsburg1994)
+#' runs_index(ginsburg1994, FALSE)
+#' runs_index(evans1978[, 1])
+#' runs_index(evans1978[, 2])
 #'
 #' @details
 #' This function takes a vector \code{x} and computes the population variance
@@ -56,6 +60,11 @@ runs_index <- function(x, asc = TRUE) {
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @return Coupon Score of \code{x}
+#'
+#' @examples
+#' runs_index(ginsburg1994, 10)
+#' runs_index(evans1978[, 1], 10)
+#' runs_index(evans1978[, 2], 10)
 #'
 #' @details
 #' This function takes a vector \code{x} and computes the mean length of values
@@ -135,6 +144,11 @@ coupon_score <- function(x, options) {
 #' @param x vector of random numbers
 #' @return gap score of \code{x}
 #'
+#' @examples
+#' gap_score(ginsburg1994)
+#' gap_score(evans1978[, 1])
+#' gap_score(evans1978[, 2])
+#'
 #' @details
 #' This function takes a vector \code{x} and computes the median gap between
 #' the most adjacent identical values.
@@ -197,6 +211,11 @@ gap_score <- function(x) {
 #' occur after division of the complete sequence into 5-digit-long sub-sequences
 #' @param x vector of random numbers
 #' @return poker score of \code{x}
+#'
+#' @examples
+#' poker_score(ginsburg1994)
+#' poker_score(evans1978[, 1])
+#' poker_score(evans1978[, 2])
 #'
 #' @details
 #' This function takes a vector \code{x} and computes the frequency with

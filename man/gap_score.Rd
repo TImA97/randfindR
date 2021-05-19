@@ -19,6 +19,12 @@ Compute median gap between identical values
 This function takes a vector \code{x} and computes the median gap between
 the most adjacent identical values.
 }
+\examples{
+gap_score(ginsburg1994)
+gap_score(evans1978[, 1])
+gap_score(evans1978[, 2])
+
+}
 \references{
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.
