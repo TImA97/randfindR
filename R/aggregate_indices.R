@@ -8,6 +8,11 @@
 #' @param indices indices of randomness to be computed as character vector
 #' @param combine indicates whether the computed indices should be combined with
 #' the original data frame.
+#' @return vector or data frame containing the selection of randomness indices
+#' @examples
+#' all_rand(ginsburg1994, 10)
+#' all_rand(evans1978[, 1], 10)
+#' all_rand(evans1978[, 2], 10)
 #'
 #' @details
 #'
