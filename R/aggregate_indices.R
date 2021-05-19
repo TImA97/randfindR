@@ -34,7 +34,7 @@ all_rand <- function(x, options, circ = TRUE, asc = TRUE,
                      indices = NULL, combine = FALSE) {
 
   ## check whether 'x' is not a list
-  input_has_correct_format(x)
+ # input_has_correct_format(x)
 
   all_indices <-
     c(
@@ -63,12 +63,12 @@ all_rand <- function(x, options, circ = TRUE, asc = TRUE,
     indices_names <- indices
   }
 
-
   if (is.data.frame(x)) {
     output_df <- all_rand_df(x, options, circ, asc, indices_names, combine)
     return(output_df)
   } else {
-    ## all_rand_vector
+    output_vector <- all_rand_vector(x, options, circ, asc, indices_names)
+    return(output_vector)
   }
 }
 
@@ -112,7 +112,9 @@ all_rand_df <- function(x, options, circ, asc, indices_names, combine) {
 
   ## only keep and print unique error messages
   error_messages <- unique(error_messages)
-  warning(error_messages)
+  if (length(error_messages) > 1) {
+    warning(error_messages)
+  }
 
   ## remove first placeholder column if entirely new data frame was created
   if (combine == FALSE) {
@@ -126,7 +128,7 @@ all_rand_df <- function(x, options, circ, asc, indices_names, combine) {
 #' (arguments are the same as in the main function except for \code{combine}
 #' as this argument is only required for working with data frames)
 #'
-all_rand_vector(x, options, circ, asc, indices_names) {
+all_rand_vector <- function(x, options, circ, asc, indices_names) {
 
   result <- numeric(length = length(indices_names))
   names(result) <- indices_names
@@ -134,7 +136,8 @@ all_rand_vector(x, options, circ, asc, indices_names) {
 
   for (i in indices_names) {
     arguments <- get_function_arguments(i, options, circ, asc)
-    arguments["x"] <- x
+    #print(x)
+    arguments["x"] <- list(x = x)
 
     tryCatch(
       {
@@ -149,7 +152,11 @@ all_rand_vector(x, options, circ, asc, indices_names) {
 
   ## only keep and print unique error messages
   error_messages <- unique(error_messages)
-  warning(error_messages)
+  if (length(error_messages) > 1) {
+    warning(error_messages)
+  }
+
+  return(result)
 
 }
 
