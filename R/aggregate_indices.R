@@ -33,9 +33,6 @@
 all_rand <- function(x, options, circ = TRUE, asc = TRUE,
                      indices = NULL, combine = FALSE) {
 
-  ## check whether 'x' is not a list
- # input_has_correct_format(x)
-
   all_indices <-
     c(
       "digram_rep",
