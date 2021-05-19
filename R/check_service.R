@@ -71,12 +71,12 @@ correct_indices_provided <- function(indices, indices_names) {
   if (is.character(indices)) {
     correct_index <- indices %in% indices_names
 
-    if (sum(correct_index) != length(indices_names)) {
+    if (sum(correct_index) != length(correct_index)) {
       stop("The provided vector of randomness indices names contains at least
            one invalid name")
     }
-  }
-
-  stop("The 'indices' argument must be a character vector of valid randomness
+  } else {
+    stop("The 'indices' argument must be a character vector of valid randomness
        indices in the randseq package.")
+  }
 }
