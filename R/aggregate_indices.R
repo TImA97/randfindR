@@ -77,6 +77,7 @@ all_rand <- function(x, options, circ = TRUE, asc = TRUE,
 #'
 #' @noRd
 all_rand_df <- function(x, options, circ, asc, indices_names, combine) {
+
   ## prepare output data frame (can be the input data frame if 'combine' equals
   ## true)
   new_df <- data.frame(nr = vector(length = nrow(x)))
@@ -121,6 +122,36 @@ all_rand_df <- function(x, options, circ, asc, indices_names, combine) {
   return(new_df)
 }
 
+#' Compute randomness indices when input is a vector
+#' (arguments are the same as in the main function except for \code{combine}
+#' as this argument is only required for working with data frames)
+#'
+all_rand_vector(x, options, circ, asc, indices_names) {
+
+  result <- numeric(length = length(indices_names))
+  names(result) <- indices_names
+  error_messages <- "There were errors during the analysis:\n"
+
+  for (i in indices_names) {
+    arguments <- get_function_arguments(i, options, circ, asc)
+    arguments["x"] <- x
+
+    tryCatch(
+      {
+        result[i] <- do.call(i, arguments)
+      },
+      error = function(e) {
+        new_error <- paste0("An error was called from ", i, ": ", e)
+        error_messages <<- append(error_messages, new_error)
+      }
+    )
+  }
+
+  ## only keep and print unique error messages
+  error_messages <- unique(error_messages)
+  warning(error_messages)
+
+}
 
 #' Prepare arguments for computation of indices
 #'
