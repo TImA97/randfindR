@@ -23,6 +23,8 @@
 #' redundancy_index(evans1978[, 1], 10)
 #' redundancy_index(evans1978[, 2], 10)
 #'
+#' @importFrom stats chisq.test var median
+#'
 #' @export
 #'
 #' @references
