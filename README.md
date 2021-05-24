@@ -1,11 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # randseq
-
-<!-- badges: start -->
-
-<!-- badges: end -->
 
 randseq is a package for the programming language R in development for
 the analysis of randomness in sequences of distinct options (e.g.,
@@ -30,7 +24,7 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("TImA97/randseq")
 ```
 
-## Get started
+## Getting started
 
 This is quick guide is meant to show you the indices of randomness that
 can be computed with randseq. As of now, randseq offers 15 different
