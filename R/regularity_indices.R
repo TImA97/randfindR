@@ -240,13 +240,11 @@ poker_score <- function(x) {
   # iterate over vector x, store last 5 responses and check if an option
   # occurred exactly 2 times
   for (i in 1:length(x)) {
-
     last_five[counter] <- x[i]
 
     # check whether to begin new 5-digit-long sequence
     # if so, check whether previous sequence contains two-of-a-kind
     if (counter %% 5 == 0) {
-
       values <- as.vector(table(last_five))
       two_of_a_kind <- values == 2
       # increment result if a two-of-a-kind occurs exactly one time
