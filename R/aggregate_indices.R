@@ -183,8 +183,6 @@ get_function_arguments <- function(index, options, circ, asc) {
       "poker_score",
       "tp_index")
 
-
-  ## TOD make list!
   with_circ_argument <-
     c("rng_index",
       "rng2_index")
