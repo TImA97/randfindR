@@ -30,38 +30,113 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("TImA97/randseq")
 ```
 
-## Example
+## Get started
 
-This is a basic example which shows you how to solve a common problem:
+This is quick guide is meant to show you the indices of randomness that
+can be computed with randseq. As of now, randseq included 15 different
+indices of randomness that can easily be computed as can be seen in the
+following example:
+
+All functions take as first argument a vector (your random sequence). In
+most cases you also have to specify the number of possible `options` a
+sequence can contain. The following index indicates how regular a
+sequence is with a value of 0 indicating no regularity and a value of 1
+maximum regularity.
 
 ``` r
 library(randseq)
-## basic example code
+
+reg_index(c(1,2,1,2,1,1,2,2,2), 2)
+#> [1] 0.4654518
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The `options`argument is important because many indices will react to
+the fact that one or several options were omitted in a sequence. Let’s
+take the example from above, but assume this time that there are three
+possible options, i.e., one option was completely omitted\!
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+reg_index(c(1,2,1,2,1,1,2,2,2), 3)
+#> [1] 0.5773503
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+As you can see, the resulting index is now higher, indicating increased
+regularity.
 
-You can also embed plots, for example:
+Some indices have additional arguments or do not have the
+`options`argument. More information and examples on how to use all
+indices can be found in the documentation.
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+## All-inclusive option
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+If you want all available indices or a list of indices of your choice to
+be computed, you can use the `all_rand()` function. This function will
+by default return all indices of randomness for a given `vector` or
+`data.frame` (in the latter case indices are computed using a row-wise
+format).
+
+Let’s take the example from above again, but this time call the
+`all_rand()` function:
+
+``` r
+round(all_rand(c(1,2,1,2,1,1,2,2,2), options = 2), 2)
+#>       digram_rep      repetitions           series    cluster_ratio 
+#>             5.00             3.00            12.00             0.69 
+#>       null_score        reg_index       runs_index     coupon_score 
+#>             0.00             0.47             0.25             2.33 
+#>        gap_score      poker_score        rng_index       rng2_index 
+#>             2.00             1.00             0.59             0.55 
+#>         tp_index redundancy_index       var_digits 
+#>            85.71             0.89             0.25
+```
+
+You can limit the selection of indices to set of your choice:
+
+``` r
+all_rand(c(1,2,1,2,1,1,2,2,2), options = 2, indices = c("reg_index", "rng_index"))
+#> reg_index rng_index 
+#> 0.4654518 0.5869447
+```
+
+You can just enter all relevant arguments into the `all_rand` function
+and the function will take care of everything else and insert your
+specified arguments wherever needed\!
+
+## List of randomness indices
+
+The following list contains all indices that are implemented in randseq.
+More indices may be added in the future.
+
+  - digram\_rep
+  - repetitions
+  - series
+  - cluster\_ratio
+  - null\_score
+  - reg\_index
+  - runs\_index
+  - coupon\_score
+  - gap\_score
+  - poker\_score
+  - rng\_index
+  - rng2\_index
+  - tp\_index
+  - redundancy\_index
+  - var\_digits
+
+## References
+
+These indices implemented in this package are based on the following
+publications:
+
+Towse, J.N., Neil, D. Analyzing human random generation behavior: A
+review of methods used and a computer program for describing
+performance. Behavior Research Methods, Instruments, & Computers 30,
+583–591 (1998). <https://doi.org/10.3758/BF03209475>
+
+Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
+Perceptual and Motor Skills. 1994;79(3):1059-1067.
+<https://doi.org/10.2466/pms.1994.79.3.1059>
+
+Skliar, Osvaldo, Ricardo E. Monge, Guillermo Oviedo, and Víctor Medina.
+2009. “Indices of regularity and indices of randomness for m-ary
+strings.” <https://doi.org/10.15517/rmta.v16i1.1418>
