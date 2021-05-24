@@ -27,7 +27,7 @@ generated sequences.
 
 ## Installation
 
-You can install the released version of randseq from [CRAN](https://CRAN.R-project.org) with:
+Once accepted (!), you can install the released version of randseq from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("randseq")
@@ -121,7 +121,7 @@ More indices may be added in the future.
 
 ## References 
 
-These indices implemented in this package are based on the following publications: 
+The indices implemented in this package are based on the following publications: 
 
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 methods used and a computer program for describing performance. Behavior

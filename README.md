@@ -16,7 +16,7 @@ that are typically found in human generated sequences.
 
 ## Installation
 
-You can install the released version of randseq from
+Once accepted (\!), you can install the released version of randseq from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
@@ -125,7 +125,7 @@ More indices may be added in the future.
 
 ## References
 
-These indices implemented in this package are based on the following
+The indices implemented in this package are based on the following
 publications:
 
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A
