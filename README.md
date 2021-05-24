@@ -33,8 +33,8 @@ devtools::install_github("TImA97/randseq")
 ## Get started
 
 This is quick guide is meant to show you the indices of randomness that
-can be computed with randseq. As of now, randseq included 15 different
-indices of randomness that can easily be computed as can be seen in the
+can be computed with randseq. As of now, randseq offers 15 different
+indices of randomness that can be easily computed as can be seen in the
 following example:
 
 All functions take as first argument a vector (your random sequence). In
@@ -90,7 +90,8 @@ round(all_rand(c(1,2,1,2,1,1,2,2,2), options = 2), 2)
 #>            85.71             0.89             0.25
 ```
 
-You can limit the selection of indices to set of your choice:
+But you can also explicitely specify the indices that should be
+computed:
 
 ``` r
 all_rand(c(1,2,1,2,1,1,2,2,2), options = 2, indices = c("reg_index", "rng_index"))
@@ -98,9 +99,9 @@ all_rand(c(1,2,1,2,1,1,2,2,2), options = 2, indices = c("reg_index", "rng_index"
 #> 0.4654518 0.5869447
 ```
 
-You can just enter all relevant arguments into the `all_rand` function
-and the function will take care of everything else and insert your
-specified arguments wherever needed\!
+You can just enter all relevant arguments into the `all_rand()` function
+and the it will take care of everything else and insert your specified
+arguments in the right places\!
 
 ## List of randomness indices
 
@@ -123,6 +124,9 @@ More indices may be added in the future.
   - redundancy\_index
   - var\_digits
 
+Specific details of these algorithms can be found in the documentation
+by entering `?index_name`into your R-console.
+
 ## References
 
 The indices implemented in this package are based on the following
@@ -138,5 +142,5 @@ Perceptual and Motor Skills. 1994;79(3):1059-1067.
 <https://doi.org/10.2466/pms.1994.79.3.1059>
 
 Skliar, Osvaldo, Ricardo E. Monge, Guillermo Oviedo, and Víctor Medina.
-2009. “Indices of regularity and indices of randomness for m-ary
-strings.” <https://doi.org/10.15517/rmta.v16i1.1418>
+2009. Indices of regularity and indices of randomness for m-ary strings.
+<https://doi.org/10.15517/rmta.v16i1.1418>
