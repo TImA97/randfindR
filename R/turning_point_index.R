@@ -35,13 +35,13 @@ tp_index <- function(x) {
   min_length <- 3
   is_vector_long_enough(x, min_length)
 
-  # compute number of turning points in x
+  ## compute number of turning points in x
   tp_observed <- get_number_tps(x)
 
-  # compute number of expected turning points
+  ## compute number of expected turning points
   tp_expected <- (2 / 3) * (length(x) - 2)
 
-  # compute quotient of observed and expected turning points
+  ## compute quotient of observed and expected turning points
   tp_index <- 100 * (tp_observed / tp_expected)
   return(tp_index)
 }
@@ -58,19 +58,19 @@ get_number_tps <- function(x) {
   before_level <- x[1]
   level_value <- 0
   for (i in 2:(length(x) - 1)) {
-    # mark occurrence of a sequence of identical values (change level to 'TRUE')
+    ## mark occurrence of a sequence of identical values (change level to 'TRUE')
     if (x[i] == x[i + 1] & level == FALSE) {
       level <- TRUE
       before_level <- x[i - 1]
       level_value <- x[i]
     } else if (level == TRUE & x[i] != level_value) {
-      # mark end of sequence of identical values (change level to 'FALSE')
+      ## mark end of sequence of identical values (change level to 'FALSE')
       level = FALSE
     }
 
-    # increment turning points if there is a local peak or low point
-    # also, consider special case that the local peak or low point consists
-    # of several values of the same kind
+    ## increment turning points if there is a local peak or low point
+    ## also, consider special case that the local peak or low point consists
+    ## of several values of the same kind
     if ((x[i] < x[i - 1] & x[i] < x[i + 1]) |
         (x[i] > x[i - 1] & x[i] > x[i + 1])) {
       tp_observed <- tp_observed + 1

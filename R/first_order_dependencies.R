@@ -24,18 +24,17 @@
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
 #' \url{doi:10.2466/pms.1994.79.3.1059}
 digram_rep <- function(x, options) {
-
   x <- to_numeric(x)
   min_options <- 2
   base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
-  # compute sum of (cell values - 1)
+  ## compute sum of (cell values - 1)
   sum <- 0
   for (i in 1:options) {
     for (j in 1:options) {
-      if (matr[i,j] > 0) {
-        sum <- sum + matr[i,j] - 1
+      if (matr[i, j] > 0) {
+        sum <- sum + matr[i, j] - 1
       }
     }
   }
@@ -105,7 +104,7 @@ series <- function(x, options) {
 
   sum <- 0
 
-  # add values below or above the matrix diagonal to sum
+  ## add values below or above the matrix diagonal to sum
   for (i in (1:options)) {
     if (i != options && i != 1) {
       sum <- sum + sum(matr[i, c(i + 1, i - 1)])
@@ -117,7 +116,7 @@ series <- function(x, options) {
     }
   }
 
-  # add top right and bottom left cell of matrix to sum
+  ## add top right and bottom left cell of matrix to sum
   sum <- sum + matr[1, options]
   sum <- sum + matr[options, 1]
 
@@ -152,11 +151,11 @@ cluster_ratio <- function(x, options) {
   base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options)
 
-  # transform first-order dependency table to vector
+  ## transform first-order dependency table to vector
   cells <- as.vector(matr)
 
-  # compute variance and correct result so that it corresponds to the
-  # population variance
+  ## compute variance and correct result so that it corresponds to the
+  ## population variance
   var_cells <- var(cells) *  (length(cells) - 1) / (length(cells))
 
   return(var_cells)

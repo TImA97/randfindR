@@ -34,11 +34,11 @@ rng_index <- function(x, options, circ = TRUE) {
   base_checks(x, options, min_options)
   matr <- convert_to_matrix(x, options, circ = circ)
 
-  # get dividend and divisor of rng_index
+  ## get dividend and divisor of rng_index
   dividend <- get_quotient_dividend(matr)
   divisor <- get_quotient_divisor(matr)
 
-  # compute and return quotient
+  ## compute and return quotient
   result <- get_quotient(dividend, divisor)
   return(result)
 }
@@ -82,11 +82,11 @@ rng2_index <- function(x, options, circ = TRUE) {
   base_checks(x, options, min_options, min_length)
   matr <- convert_to_matrix(x, options, order = 2, circ = circ)
 
-  # get dividend and divisor of rng_index
+  ## get dividend and divisor of rng_index
   dividend <- get_quotient_dividend(matr)
   divisor <- get_quotient_divisor(matr)
 
-  # compute and return quotient
+  ## compute and return quotient
   result <- get_quotient(dividend, divisor)
   return(result)
 }
@@ -104,8 +104,8 @@ get_quotient_dividend <- function(matr) {
   col_length <- row_length
   for (i in 1:row_length) {
     for (j in 1:col_length) {
-      if (matr[i,j] > 1) {
-        dividend  <- dividend  + log10(matr[i,j]) *  matr[i,j]
+      if (matr[i, j] > 1) {
+        dividend  <- dividend  + log10(matr[i, j]) *  matr[i, j]
       }
     }
   }
@@ -141,7 +141,7 @@ get_quotient_divisor <- function(matr) {
 #' @noRd
 get_quotient <- function(dividend, divisor) {
   if (dividend == 0 & divisor == 0) {
-      return(0)
+    return(0)
   } else {
     quotient <- dividend / divisor
     return(quotient)

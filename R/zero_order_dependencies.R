@@ -33,7 +33,6 @@
 #' Research Methods, Instruments, & Computers 30, 583–591 (1998).
 #' \url{https://doi.org/10.3758/BF03209475}
 redundancy_index <- function(x, options) {
-
   min_options <- 2
   x <- to_numeric(x)
 
@@ -42,8 +41,8 @@ redundancy_index <- function(x, options) {
   unique_responses <- get_number_unique_responses(x)
   frequencies <- as.vector(table(x))
 
-  # if there are more possible  than distinct options in the vector,
-  # add the omitted options to the observed frequencies with value '0'
+  ## if there are more possible  than distinct options in the vector,
+  ## add the omitted options to the observed frequencies with value '0'
   if (options > unique_responses) {
     options_to_be_added <- options - unique_responses
     for (i in 1:options_to_be_added) {
@@ -51,7 +50,7 @@ redundancy_index <- function(x, options) {
     }
   }
 
-  # compute information that is provided by the sequence
+  ## compute information that is provided by the sequence
   log_sum <- 0
   for (i in 1:options) {
     if (frequencies[i] == 0) {
@@ -63,7 +62,7 @@ redundancy_index <- function(x, options) {
   }
   h_single <- log2(length(x)) - (1 / length(x)) * log_sum
 
-  # compute maximum information of sequence given the number of possible options
+  ## compute maximum information of sequence given the number of possible options
   h_max <- log2(options)
 
   r_index <- 100 * (1 - (h_single / h_max))
@@ -96,7 +95,6 @@ redundancy_index <- function(x, options) {
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
 #' \url{doi:10.2466/pms.1994.79.3.1059}
 var_digits <- function(x, options) {
-
   min_options <- 2
   x <- to_numeric(x)
   base_checks(x, options, min_options)
@@ -104,8 +102,8 @@ var_digits <- function(x, options) {
   matr <- convert_to_matrix(x, options)
   frequencies <- colSums(matr)
 
-  # compute variance and correct result so that it corresponds to the
-  # population variance
+  ## compute variance and correct result so that it corresponds to the
+  ## population variance
   variance <-
     var (frequencies) * (length(frequencies) - 1) / length(frequencies)
   return(variance)
