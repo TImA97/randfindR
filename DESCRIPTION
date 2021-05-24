@@ -1,16 +1,23 @@
 Package: randseq
 Type: Package
-Title: Analysis of Human Henerated Sequences
+Title: Analysis of Randomness in Human Henerated Sequences
 Version: 0.1.0
 Author: Tim Angelike
 Maintainer: Tim Angelike <tim.angelike@gmx.de>
-Description: This package was desinged for analysing human generated sequences 
-    regarding the occurence of systematic (non-random) patterns.
+Description: Humans often have problems generating truely random sequences of 
+    numbers or letters. The extent to which we are able to behave randomly
+    can be assessed with a variety of algorithms. These algorithms check for
+    different characteristics that a random sequence sequence should fullfil.
+    The implemented indices of randomness are based on the work of Ginsburg &
+    Karpiuk (1994, <doi:10.2466/pms.1994.79.3.1059>), Towse & Neil (1998,
+    <https://doi.org/10.3758/BF03209475>), and Skliar, Monge, Oviedo, & Medina 
+    (2009, <doi:10.15517/rmta.v16i1.1418>). 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
+NeedsCompilation: no
 Suggests: 
     testthat
 Depends: 
-    R (>= 2.10)
+    R (>= 3.6.0)
