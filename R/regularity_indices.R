@@ -29,8 +29,8 @@ runs_index <- function(x, asc = TRUE) {
 
   runs <- numeric(length = 1)
 
-  # iterate over vector and count runs
-  # make case distinction whether 'asc' is 'TRUE' or 'FALSE'
+  ## iterate over vector and count runs
+  ## make case distinction whether 'asc' is 'TRUE' or 'FALSE'
   current_length <- 1
   runs_counter <- 1
   for (i in 2:length(x)) {
@@ -45,10 +45,10 @@ runs_index <- function(x, asc = TRUE) {
     }
   }
 
-  # store length of last run
+  ## store length of last run
   runs[runs_counter] <- current_length
 
-  # compute population variance of runs
+  ## compute population variance of runs
   variance <- var(runs) * (length(runs) - 1) / length(runs)
 
   return(variance)
@@ -91,7 +91,7 @@ coupon_score <- function(x, options) {
   min_options <- 2
   base_checks(x, options, min_options)
 
-  # check whether all possible options are included in the provided sequence
+  ## check whether all possible options are included in the provided sequence
   distinct_options <- get_number_unique_responses(x)
   if (distinct_options < options) {
     warning(
@@ -102,19 +102,19 @@ coupon_score <- function(x, options) {
     return(NA)
   }
 
-  # logical vector to check whether digit has occurred in sequence
+  ## logical vector to check whether digit has occurred in sequence
   occurred_options <- vector(length = options)
 
   sequence_lengths <- vector(length = 1)
   current_length <- 0
   sequence_counter <- 1
 
-  # iterate over vector and update occurred_options
+  ## iterate over vector and update occurred_options
   for (i in 1:length(x)) {
 
-    # if all digits were emitted in a sequence, store sequence length
-    # if the last sequence does not contain all possible values, it will not be
-    # added to sequence_lengths
+    ## if all digits were emitted in a sequence, store sequence length
+    ## if the last sequence does not contain all possible values, it will not be
+    ## added to sequence_lengths
     if (all(occurred_options)) {
       sequence_lengths[sequence_counter] <- current_length
       current_length <- 0
@@ -127,12 +127,12 @@ coupon_score <- function(x, options) {
     current_length <- current_length + 1
   }
 
-  # store length of last sequence if its complete
+  ## store length of last sequence if its complete
   if (all(occurred_options)) {
     sequence_lengths[sequence_counter] <- current_length
   }
 
-  # compute mean of all complete sets of digits
+  ## compute mean of all complete sets of digits
   result <- mean(sequence_lengths)
   return(result)
 }
@@ -172,9 +172,9 @@ gap_score <- function(x) {
 
   for (i in 1:length(x)) {
 
-    # check whether current value has not occurred yet
-    # if so, update current value and position
-    # otherwise, go to the next value in vector x
+    ## check whether current value has not occurred yet
+    ## if so, update current value and position
+    ## otherwise, go to the next value in vector x
     if (!any(x[i] %in% occurred_values)) {
       current_value <- x[i]
       last_position <- i
@@ -184,12 +184,12 @@ gap_score <- function(x) {
       next
     }
 
-    # break loop if last value in vector x is reached
+    ## break loop if last value in vector x is reached
     if (i == length(x)) {
       break
     }
 
-    # compute and store gaps
+    ## compute and store gaps
     for (j in (i + 1):length(x)) {
       if (x[j] == current_value) {
         gap <- j - last_position
@@ -200,7 +200,7 @@ gap_score <- function(x) {
     }
   }
 
-  # compute median of gaps
+  ## compute median of gaps
   result <- median(gaps)
   return(result)
 }
@@ -237,17 +237,17 @@ poker_score <- function(x) {
   counter <- 1
   result <- 0
 
-  # iterate over vector x, store last 5 responses and check if an option
-  # occurred exactly 2 times
+  ## iterate over vector x, store last 5 responses and check if an option
+  ## occurred exactly 2 times
   for (i in 1:length(x)) {
     last_five[counter] <- x[i]
 
-    # check whether to begin new 5-digit-long sequence
-    # if so, check whether previous sequence contains two-of-a-kind
+    ## check whether to begin new 5-digit-long sequence
+    ## if so, check whether previous sequence contains two-of-a-kind
     if (counter %% 5 == 0) {
       values <- as.vector(table(last_five))
       two_of_a_kind <- values == 2
-      # increment result if a two-of-a-kind occurs exactly one time
+      ## increment result if a two-of-a-kind occurs exactly one time
       if (sum(two_of_a_kind == 1)) {
         result <- result + 1
       }
