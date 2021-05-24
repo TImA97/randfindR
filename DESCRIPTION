@@ -2,6 +2,11 @@ Package: randseq
 Type: Package
 Title: Analysis of Randomness in Human Henerated Sequences
 Version: 0.1.0
+Authors@R:
+    person(given = "Tim",
+           family = "Angelike",
+           role = c("aut", "cre"),
+           email = "tim.angelike@gmx.de")
 Author: Tim Angelike
 Maintainer: Tim Angelike <tim.angelike@gmx.de>
 Description: Humans often have problems generating truely random sequences of 
