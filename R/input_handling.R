@@ -3,6 +3,8 @@
 #' @param x vector of random numbers
 #' @param options number of available options in sequence
 #' @param order indicates displacement between response pairs (default is 1)
+#' @param circ indicate whether to include wrap around from end to the beginning
+#' of the sequence when computing response pairs
 #'
 #' @details helper function to transform a given vector to a matrix of first
 #' order dependencies, specifying the frequency of all possible 2-digit long
