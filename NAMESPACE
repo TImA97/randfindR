@@ -16,5 +16,6 @@ export(runs_index)
 export(series)
 export(tp_index)
 export(var_digits)
-
-importFrom("stats", "chisq.test", "median", "var")
+importFrom(stats,chisq.test)
+importFrom(stats,median)
+importFrom(stats,var)
