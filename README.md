@@ -94,7 +94,7 @@ all_rand(c(1,2,1,2,1,1,2,2,2), options = 2, indices = c("reg_index", "rng_index"
 ```
 
 You can just enter all relevant arguments into the `all_rand()` function
-and the it will take care of everything else and insert your specified
+and it will take care of everything else and insert your specified
 arguments in the right places\!
 
 ## List of randomness indices
@@ -118,7 +118,7 @@ More indices may be added in the future.
   - redundancy\_index
   - var\_digits
 
-Specific details of these algorithms can be found in the documentation
+Details on how to use these algorithms can be found in the documentation
 by entering `?index_name`into your R-console.
 
 ## References

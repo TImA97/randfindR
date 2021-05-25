@@ -87,7 +87,7 @@ But you can also explicitely specify the indices that should be computed:
 all_rand(c(1,2,1,2,1,1,2,2,2), options = 2, indices = c("reg_index", "rng_index"))
 ```
 
-You can just enter all relevant arguments into the `all_rand()` function and the 
+You can just enter all relevant arguments into the `all_rand()` function and
 it will take care of everything else and insert your specified arguments
 in the right places! 
 
@@ -113,7 +113,7 @@ More indices may be added in the future.
 - redundancy_index
 - var_digits
 
-Specific details of these algorithms can be found in the documentation by entering
+Details on how to use these algorithms can be found in the documentation by entering
 `?index_name`into your R-console. 
 
 ## References 
