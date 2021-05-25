@@ -44,9 +44,9 @@ reg_index(c(1,2,1,2,1,1,2,2,2), 2)
 #> [1] 0.4654518
 ```
 
-The `options`argument is important because many indices will react to
-the fact that one or several options were omitted in a sequence. Let’s
-take the example from above, but assume this time that there are three
+The `options`argument is important because many indices will reflect the
+fact that one or several options were omitted in a sequence. Let’s take
+the example from above, but assume this time that there are three
 possible options, i.e., one option was completely omitted\!
 
 ``` r
