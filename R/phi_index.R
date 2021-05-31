@@ -27,7 +27,7 @@ phi_index <- function(x, options, order = 2) {
   if (options == 2) {
     phi_index <- compute_phi_index(x, order)
   } else {
-    phi_index <- compute_average_phi_index(x, options, order)
+    #phi_index <- compute_average_phi_index(x, options, order)
   }
 
   ## make case distinction between 1) options = 2 and 2) options > 2
