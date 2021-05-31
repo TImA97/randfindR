@@ -7,7 +7,7 @@ Authors@R:
            family = "Angelike",
            role = c("aut", "cre"),
            email = "tim.angelike@gmx.de")
-Author: Tim Angelike
+Author: Tim Angelike [aut, cre]
 Maintainer: Tim Angelike <tim.angelike@gmx.de>
 Description: Humans often have problems generating truely random sequences of 
     numbers or letters. The extent to which we are able to behave randomly
