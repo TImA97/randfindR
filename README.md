@@ -26,9 +26,9 @@ devtools::install_github("TImA97/randseq")
 
 ## Getting started
 
-This is quick guide is meant to show you the indices of randomness that
-can be computed with randseq. As of now, randseq offers 15 different
-indices of randomness that can be easily computed as can be seen in the
+This quick guide is meant to show you the indices of randomness that can
+be computed with randseq. As of now, randseq offers 15 different indices
+of randomness that can be easily computed as can be seen in the
 following example:
 
 All functions take as first argument a vector (your random sequence). In
