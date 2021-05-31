@@ -22,7 +22,7 @@
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 digram_rep <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
@@ -62,7 +62,7 @@ digram_rep <- function(x, options) {
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 repetitions <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
@@ -95,7 +95,7 @@ repetitions <- function(x) {
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 series <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2
@@ -144,7 +144,7 @@ series <- function(x, options) {
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 cluster_ratio <- function(x, options) {
   x <- to_numeric(x)
   min_options <- 2

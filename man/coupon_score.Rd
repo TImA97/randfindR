@@ -35,7 +35,7 @@ runs_index(evans1978[, 2], 10)
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.
-\url{doi:10.2466/pms.1994.79.3.1059}
+\doi{doi:10.2466/pms.1994.79.3.1059}
 
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 methods used and a computer program for describing performance. Behavior

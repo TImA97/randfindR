@@ -34,5 +34,5 @@ reg_index(evans1978[, 2], 10)
 \references{
 Skliar, Osvaldo, Ricardo E. Monge, Guillermo Oviedo, and Víctor Medina. 2009.
 “Indices of regularity and indices of randomness for m-ary strings.”
-\url{doi:10.15517/rmta.v16i1.1418}.
+\doi{doi:10.15517/rmta.v16i1.1418}.
 }

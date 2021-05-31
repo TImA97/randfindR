@@ -28,5 +28,5 @@ repetitions(evans1978[, 2])
 \references{
 Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 Perceptual and Motor Skills. 1994;79(3):1059-1067.
-\url{doi:10.2466/pms.1994.79.3.1059}
+\doi{doi:10.2466/pms.1994.79.3.1059}
 }

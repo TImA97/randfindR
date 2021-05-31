@@ -41,4 +41,5 @@ rng2_index(evans1978[, 2], 10)
 Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 methods used and a computer program for describing performance. Behavior
 Research Methods, Instruments, & Computers 30, 583–591 (1998).
+\url{https://doi.org/10.3758/BF03209475}
 }

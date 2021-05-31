@@ -22,7 +22,7 @@
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 runs_index <- function(x, asc = TRUE) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
@@ -80,7 +80,7 @@ runs_index <- function(x, asc = TRUE) {
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 #'
 #' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 #' methods used and a computer program for describing performance. Behavior
@@ -158,7 +158,7 @@ coupon_score <- function(x, options) {
 #' @references
 #' #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 gap_score <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x)
@@ -228,7 +228,7 @@ gap_score <- function(x) {
 #' @references
 #' Ginsburg N, Karpiuk P. Random Generation: Analysis of the Responses.
 #' Perceptual and Motor Skills. 1994;79(3):1059-1067.
-#' \url{doi:10.2466/pms.1994.79.3.1059}
+#' \doi{doi:10.2466/pms.1994.79.3.1059}
 poker_score <- function(x) {
   x <- to_numeric(x)
   is_vector_long_enough(x, min_length = 5)
