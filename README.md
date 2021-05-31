@@ -10,11 +10,11 @@ that are typically found in human generated sequences.
 
 ## Installation
 
-Once accepted (\!), you can install the released version of randseq from
+Once accepted (!), you can install the released version of randseq from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("randseq")
+#install.packages("randseq")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -47,7 +47,7 @@ reg_index(c(1,2,1,2,1,1,2,2,2), 2)
 The `options`argument is important because many indices will reflect the
 fact that one or several options were omitted in a sequence. Let’s take
 the example from above, but assume this time that there are three
-possible options, i.e., one option was completely omitted\!
+possible options, i.e., one option was completely omitted!
 
 ``` r
 reg_index(c(1,2,1,2,1,1,2,2,2), 3)
@@ -95,28 +95,28 @@ all_rand(c(1,2,1,2,1,1,2,2,2), options = 2, indices = c("reg_index", "rng_index"
 
 You can just enter all relevant arguments into the `all_rand()` function
 and it will take care of everything else and insert your specified
-arguments in the right places\!
+arguments in the right places!
 
 ## List of randomness indices
 
 The following list contains all indices that are implemented in randseq.
 More indices may be added in the future.
 
-  - digram\_rep
-  - repetitions
-  - series
-  - cluster\_ratio
-  - null\_score
-  - reg\_index
-  - runs\_index
-  - coupon\_score
-  - gap\_score
-  - poker\_score
-  - rng\_index
-  - rng2\_index
-  - tp\_index
-  - redundancy\_index
-  - var\_digits
+-   digram\_rep
+-   repetitions
+-   series
+-   cluster\_ratio
+-   null\_score
+-   reg\_index
+-   runs\_index
+-   coupon\_score
+-   gap\_score
+-   poker\_score
+-   rng\_index
+-   rng2\_index
+-   tp\_index
+-   redundancy\_index
+-   var\_digits
 
 Details on how to use these algorithms can be found in the documentation
 by entering `?index_name`into your R-console.
