@@ -14,14 +14,14 @@ Once accepted (!), you can install the released version of randseq from
 [CRAN](https://CRAN.R-project.org) with (this is not yet possible):
 
 ``` r
-#install.packages("randseq")
+#install.packages("randfindR")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("TImA97/randseq")
+devtools::install_github("TImA97/randfindR")
 ```
 
 ## Getting started
