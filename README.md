@@ -11,7 +11,7 @@ that are typically found in human generated sequences.
 ## Installation
 
 Once accepted (!), you can install the released version of randseq from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://CRAN.R-project.org) with (this is not yet possible):
 
 ``` r
 #install.packages("randseq")
@@ -102,21 +102,21 @@ arguments in the right places!
 The following list contains all indices that are implemented in randseq.
 More indices may be added in the future.
 
--   digram\_rep
+-   digram_rep
 -   repetitions
 -   series
--   cluster\_ratio
--   null\_score
--   reg\_index
--   runs\_index
--   coupon\_score
--   gap\_score
--   poker\_score
--   rng\_index
--   rng2\_index
--   tp\_index
--   redundancy\_index
--   var\_digits
+-   cluster_ratio
+-   null_score
+-   reg_index
+-   runs_index
+-   coupon_score
+-   gap_score
+-   poker_score
+-   rng_index
+-   rng2_index
+-   tp_index
+-   redundancy_index
+-   var_digits
 
 Details on how to use these algorithms can be found in the documentation
 by entering `?index_name`into your R-console.

@@ -22,7 +22,8 @@ generated sequences.
 
 ## Installation
 
-Once accepted (!), you can install the released version of randseq from [CRAN](https://CRAN.R-project.org) with:
+Once accepted (!), you can install the released version of randseq from [CRAN](https://CRAN.R-project.org) with 
+(this is not yet possible):
 
 ``` r
 #install.packages("randseq")
