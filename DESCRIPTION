@@ -1,4 +1,4 @@
-Package: randseq
+Package: randfindR
 Type: Package
 Title: Analysis of Randomness in Human Henerated Sequences
 Version: 0.1.0
