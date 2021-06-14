@@ -24,8 +24,8 @@ Compute RNG index
 This function takes a vector \code{x} and computes an index that reflects
 whether the distribution of response pairs in the sequence is uneven given
 the number of possible \code{options}. The values of this index range between
-0 and 1. A value of '1' would indicate complete redundancy of response pairs,
-whereas a value of '0' would indicate an even distribution of response pairs.
+0 and 1. A value of 1 indicates complete redundancy of one response pair,
+whereas a value of 0 indicates an even distribution of response pairs.
 }
 \examples{
 rng_index(ginsburg1994, 10)

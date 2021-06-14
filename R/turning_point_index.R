@@ -20,8 +20,6 @@
 #' expected; values below 100 indicate fewer turning points than theoretically
 #' expected.
 #'
-#' Related to turning point text -> reference to package?
-#'
 #' @export
 #'
 #' @references

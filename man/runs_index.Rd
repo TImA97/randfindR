@@ -20,8 +20,10 @@ Compute runs index of randomness
 }
 \details{
 This function takes a vector \code{x} and computes the population variance
-of all ascending or descending run lengths, depending on \code{asc}. The
-default version of this function computes the population variance of
+of all ascending or descending run lengths, depending on \code{asc}.
+An ascending run is defined by a value in a sequence being followed by
+a larger value in the next position of the sequence.
+The default version of this function computes the population variance of
 ascending run lengths.
 }
 \examples{

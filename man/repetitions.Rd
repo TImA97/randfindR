@@ -13,11 +13,11 @@ repetitions(x)
 repetitions of \code{x}
 }
 \description{
-Compute frequency a value is repeated in the next round
+Compute the frequency a value is repeated in the next round
 }
 \details{
 This function takes a vector \code{x} and counts how often values are
-directly repeated in the next value.
+followed by the same value in the next position of the sequence.
 }
 \examples{
 repetitions(ginsburg1994)

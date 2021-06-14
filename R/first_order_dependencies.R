@@ -44,7 +44,7 @@ digram_rep <- function(x, options) {
 
 
 #' Repetitions index of randomness
-#' @description Compute frequency a value is repeated in the next round
+#' @description Compute the frequency a value is repeated in the next round
 #' @param x vector of random numbers
 #' @return repetitions of \code{x}
 #'
@@ -55,7 +55,7 @@ digram_rep <- function(x, options) {
 #'
 #' @details
 #' This function takes a vector \code{x} and counts how often values are
-#' directly repeated in the next value.
+#' followed by the same value in the next position of the sequence.
 #'
 #' @export
 #'
@@ -89,6 +89,9 @@ repetitions <- function(x) {
 #' followed by their most adjacent predecessor and successors given the number
 #' of possible \code{options}. This function includes series from the lowest to
 #' the highest value and vice versa.
+#' An example of a series would be '1,2,3' (options = 3)
+#' The resultign score of this series is 3 (from 1 to 2, from 2 to 3,
+#' and from 3 to 1)
 #'
 #' @export
 #'

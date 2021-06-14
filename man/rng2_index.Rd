@@ -26,8 +26,8 @@ whether the distribution of response pairs in the sequence is uneven given
 the number of possible \code{options}. In this modified version of the
 RNG index response pairs are constructed over the distance of two values,
 e.g., in the sequence c(1,2,3) the first response pair is (1,3).
-The values of this index range between 0 and 1. A value of '1' would indicate
-complete redundancy of response pairs,whereas a value of '0' would indicate
+The values of this index range between 0 and 1. A value of 1  indicates
+complete redundancy of response pairs,whereas a value of 0  indicates
 an even distribution of response pairs.
 }
 \examples{
