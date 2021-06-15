@@ -15,11 +15,11 @@ Description: Humans often have problems generating truely random sequences of
     different characteristics that a random sequence sequence should fullfil.
     The implemented indices of randomness are based on the work of Ginsburg &
     Karpiuk (1994, <doi:10.2466/pms.1994.79.3.1059>), Towse & Neil (1998,
-    <https://doi.org/10.3758/BF03209475>), and Skliar, Monge, Oviedo, & Medina 
+    <doi:10.3758/BF03209475>), and Skliar, Monge, Oviedo, & Medina 
     (2009, <doi:10.15517/rmta.v16i1.1418>). 
 License: MIT + file LICENSE
-URL: https://github.com/TImA97/randseq
-BugReports: https://github.com/TImA97/randseq/issues
+URL: https://github.com/TImA97/randfindR
+BugReports: https://github.com/TImA97/randfindR/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

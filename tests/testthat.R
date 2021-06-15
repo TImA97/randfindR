@@ -1,4 +1,4 @@
 library(testthat)
-library(randseq)
+library(randfindR)
 
-test_check("randseq")
+test_check("randfindR")

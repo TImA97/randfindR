@@ -27,7 +27,7 @@
 #' Evans, F.J. Monitoring attention deployment by random number generation:
 #' An index to measure subjective randomness.
 #' Bull. Psychon. Soc. 12, 35–38 (1978).
-#' \url{https://doi.org/10.3758/BF03329617}
+#' \doi{doi:10.3758/BF03209475}
 rng_index <- function(x, options, circ = TRUE) {
   x <- to_numeric(x)
   min_options <- 2
@@ -75,7 +75,7 @@ rng_index <- function(x, options, circ = TRUE) {
 #' Towse, J.N., Neil, D. Analyzing human random generation behavior: A review of
 #' methods used and a computer program for describing performance. Behavior
 #' Research Methods, Instruments, & Computers 30, 583–591 (1998).
-#' \url{https://doi.org/10.3758/BF03209475}
+#' \doi{doi:10.3758/BF03209475}
 rng2_index <- function(x, options, circ = TRUE) {
   x <- to_numeric(x)
   min_options <- 2
