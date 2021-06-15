@@ -77,6 +77,6 @@ correct_indices_provided <- function(indices, indices_names) {
     }
   } else {
     stop("The 'indices' argument must be a character vector of valid randomness
-       indices in the randseq package.")
+       indices in the randfindR package.")
   }
 }

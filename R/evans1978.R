@@ -7,11 +7,11 @@
 #'}
 #' @source
 #' Taken from Evans (1978; see reference below),
-#' \url{https://doi.org/10.3758/BF03329617}.
+#' \doi{doi:10.3758/BF03329617}.
 #'
 #' @references
 #' Evans, F.J. Monitoring attention deployment by random number generation:
 #' An index to measure subjective randomness.
 #' Bull. Psychon. Soc. 12, 35–38 (1978).
-#' \url{https://doi.org/10.3758/BF03329617}
+#' \doi{doi:10.3758/BF03329617}
 "evans1978"

@@ -3,15 +3,15 @@
 
 randfindR is a package for the programming language R in development for
 the analysis of randomness in sequences of distinct options (e.g.,
-numbers or letters). randfindR can help you determine with several indices
-how systematic a sequence of options is according to different
+numbers or letters). randfindR can help you determine with several
+indices how systematic a sequence of options is according to different
 benchmarks of randomness. Its focus lies on the detection of patterns
 that are typically found in human generated sequences.
 
 ## Installation
 
-Once accepted (!), you can install the released version of randfindR from
-[CRAN](https://CRAN.R-project.org) with (this is not yet possible):
+Once accepted (!), you can install the released version of randfindR
+from [CRAN](https://CRAN.R-project.org) with (this is not yet possible):
 
 ``` r
 #install.packages("randfindR")
@@ -27,8 +27,8 @@ devtools::install_github("TImA97/randfindR")
 ## Getting started
 
 This quick guide is meant to show you the indices of randomness that can
-be computed with randfindR. As of now, randfindR offers 15 different indices
-of randomness that can be easily computed as can be seen in the
+be computed with randfindR. As of now, randfindR offers 15 different
+indices of randomness that can be easily computed as can be seen in the
 following example:
 
 All functions take as first argument a vector (your random sequence). In
@@ -99,8 +99,8 @@ arguments in the right places!
 
 ## List of randomness indices
 
-The following list contains all indices that are implemented in randseq.
-More indices may be added in the future.
+The following list contains all indices that are implemented in
+randfindR. More indices may be added in the future.
 
 -   digram_rep
 -   repetitions
