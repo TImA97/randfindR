@@ -1,33 +1,33 @@
 
-# randseq
+# randfindR
 
-randseq is a package for the programming language R in development for
+randfindR is a package for the programming language R in development for
 the analysis of randomness in sequences of distinct options (e.g.,
-numbers or letters). randseq can help you determine with several indices
+numbers or letters). randfindR can help you determine with several indices
 how systematic a sequence of options is according to different
 benchmarks of randomness. Its focus lies on the detection of patterns
 that are typically found in human generated sequences.
 
 ## Installation
 
-Once accepted (!), you can install the released version of randseq from
+Once accepted (!), you can install the released version of randfindR from
 [CRAN](https://CRAN.R-project.org) with (this is not yet possible):
 
 ``` r
-#install.packages("randseq")
+#install.packages("randfindR")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("TImA97/randseq")
+devtools::install_github("TImA97/randfindR")
 ```
 
 ## Getting started
 
 This quick guide is meant to show you the indices of randomness that can
-be computed with randseq. As of now, randseq offers 15 different indices
+be computed with randfindR. As of now, randfindR offers 15 different indices
 of randomness that can be easily computed as can be seen in the
 following example:
 
@@ -38,7 +38,7 @@ sequence is with a value of 0 indicating no regularity and a value of 1
 maximum regularity.
 
 ``` r
-library(randseq)
+library(randfindR)
 
 reg_index(c(1,2,1,2,1,1,2,2,2), 2)
 #> [1] 0.4654518
