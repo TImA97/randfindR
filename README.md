@@ -29,7 +29,7 @@ devtools::install_github("TImA97/randfindR")
 This quick guide is meant to show you the indices of randomness that can
 be computed with randfindR. As of now, randfindR offers 15 different
 indices of randomness that can be easily computed as can be seen in the
-following example:
+following explanation.
 
 All functions take as first argument a vector (your random sequence). In
 most cases you also have to specify the number of possible `options` a
@@ -40,7 +40,7 @@ maximum regularity.
 ``` r
 library(randfindR)
 
-reg_index(c(1,2,1,2,1,1,2,2,2), 2)
+reg_index(c(1,2,1,2,1,1,2,2,2), options = 2)
 #> [1] 0.4654518
 ```
 
@@ -50,7 +50,7 @@ the example from above, but assume this time that there are three
 possible options, i.e., one option was completely omitted!
 
 ``` r
-reg_index(c(1,2,1,2,1,1,2,2,2), 3)
+reg_index(c(1,2,1,2,1,1,2,2,2), options = 3)
 #> [1] 0.5773503
 ```
 
