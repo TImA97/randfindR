@@ -7,7 +7,7 @@
 gap_score(x)
 }
 \arguments{
-\item{x}{vector of random numbers}
+\item{x}{vector of distinct options of numbers or characters}
 }
 \value{
 gap score of \code{x}

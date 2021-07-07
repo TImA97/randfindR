@@ -7,7 +7,7 @@
 tp_index(x)
 }
 \arguments{
-\item{x}{vector of random numbers}
+\item{x}{vector of distinct options of numbers or characters}
 }
 \value{
 Turning Point Index of \code{x}

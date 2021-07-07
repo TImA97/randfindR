@@ -7,7 +7,7 @@
 repetitions(x)
 }
 \arguments{
-\item{x}{vector of random numbers}
+\item{x}{vector of distinct options of numbers or characters}
 }
 \value{
 repetitions of \code{x}

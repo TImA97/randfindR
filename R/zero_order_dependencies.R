@@ -12,7 +12,7 @@
 #' A value of 0 indicates an even distribution of response frequencies,
 #' whereas a value of 100 indicates complete redundancy of one response.
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return redundancy index of \code{x}
 #'
@@ -73,7 +73,7 @@ redundancy_index <- function(x, options) {
 
 #' Variance of digits
 #' @description Computes the variance of marginal totals
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return variance of digits of \code{x}
 #'

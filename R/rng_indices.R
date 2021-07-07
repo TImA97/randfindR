@@ -1,6 +1,6 @@
 #' Compute RNG index
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @param circ indicate whether to include wrap around from end to the beginning
 #' of the sequence when computing response pairs
@@ -45,7 +45,7 @@ rng_index <- function(x, options, circ = TRUE) {
 
 #' Compute RNG2 index
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @param circ indicate whether to include wrap around from end to the beginning
 #' of the sequence when computing response pairs

@@ -7,7 +7,7 @@
 var_digits(x, options)
 }
 \arguments{
-\item{x}{vector of random numbers}
+\item{x}{vector of distinct options of numbers or characters}
 
 \item{options}{number of available options in sequence}
 }

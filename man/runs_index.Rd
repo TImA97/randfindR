@@ -7,7 +7,7 @@
 runs_index(x, asc = TRUE)
 }
 \arguments{
-\item{x}{vector of random numbers}
+\item{x}{vector of distinct options of numbers or characters}
 
 \item{asc}{Indicate whether to compute variance of ascending or descending
 runs. Default value is set to ascending.}

@@ -1,5 +1,5 @@
 #' Compute regularity index
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return regularity index of \code{x}
 #'
@@ -44,7 +44,7 @@ reg_index <- function(x, options) {
 #' Compute index for cases in which the sequence length is dividable by the
 #' number of dyads
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return regularity index of \code{x}
 #'
@@ -89,7 +89,7 @@ compute_index <- function(x, options) {
 #' Compute average index for cases in which the sequence length is not dividable
 #' by the number of dyads
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return regularity index of \code{x}
 #'
@@ -116,7 +116,7 @@ compute_average_index <- function(x, options) {
 #' Compute regularity statistic for each comparison of the original sequence
 #' with a newly transformed sequence
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param y vector of transformed sequence against which \code{x} is compared
 #' @param options number of available options in sequence
 #' @return regularity statistic for further computations

@@ -1,6 +1,6 @@
 #' Compute runs index of randomness
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param asc Indicate whether to compute variance of ascending or descending
 #' runs. Default value is set to ascending.
 #' @return runs of \code{x}
@@ -59,7 +59,7 @@ runs_index <- function(x, asc = TRUE) {
 #' Coupon Score
 #'
 #' @description Compute average digit length required for all responses to occur
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return Coupon Score of \code{x}
 #'
@@ -143,7 +143,7 @@ coupon_score <- function(x, options) {
 #' Gap Score
 #'
 #' @description Compute median gap between identical values
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @return gap score of \code{x}
 #'
 #' @examples
@@ -211,7 +211,7 @@ gap_score <- function(x) {
 #' Poker Score
 #' @description Compute number of times exactly two responses of the same value
 #' occur after division of the complete sequence into 5-digit-long sub-sequences
-#' @param x vector of random numbers
+#' @param vector of distinct options of numbers or characters
 #' @return poker score of \code{x}
 #'
 #' @examples

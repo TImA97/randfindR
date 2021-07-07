@@ -1,6 +1,6 @@
 #' Turning Point Index
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @return Turning Point Index of \code{x}
 #'
 #' @examples

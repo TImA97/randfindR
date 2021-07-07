@@ -7,7 +7,7 @@
 poker_score(x)
 }
 \arguments{
-\item{x}{vector of random numbers}
+\item{vector}{of distinct options of numbers or characters}
 }
 \value{
 poker score of \code{x}

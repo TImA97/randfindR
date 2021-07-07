@@ -3,7 +3,7 @@
 #' @description
 #' Compute sum of all response pairs minus one
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return digram repetition of \code{x}
 #'
@@ -45,7 +45,7 @@ digram_rep <- function(x, options) {
 
 #' Repetitions index of randomness
 #' @description Compute the frequency a value is repeated in the next round
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @return repetitions of \code{x}
 #'
 #' @examples
@@ -75,7 +75,7 @@ repetitions <- function(x) {
 #' Series index of randomness
 #' @description Compute frequency with which values are followed by their most
 #' adjacent predecessors and successors
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return series of \code{x}
 #'
@@ -128,7 +128,7 @@ series <- function(x, options) {
 
 #' Cluster ratio index
 #' @description compute the population variance of all response pair frequencies
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return cluster ratio of \code{x}
 #'
@@ -166,7 +166,7 @@ cluster_ratio <- function(x, options) {
 
 #' Guttmann's Null-Score Quotient
 #'
-#' @param x vector of random numbers
+#' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
 #' @return Guttmann Null-Score Quotient of \code{x}
 #'
