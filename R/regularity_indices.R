@@ -211,7 +211,7 @@ gap_score <- function(x) {
 #' Poker Score
 #' @description Compute number of times exactly two responses of the same value
 #' occur after division of the complete sequence into 5-digit-long sub-sequences
-#' @param vector of distinct options of numbers or characters
+#' @param x vector of distinct options of numbers or characters
 #' @return poker score of \code{x}
 #'
 #' @examples
