@@ -55,7 +55,7 @@ is_number_of_distinct_options_too_high <- function(x, options) {
   distinct_options <- get_number_unique_responses(x)
 
   if (distinct_options > options) {
-    stop(paste("Vector contains", distinct_options, "responses but only",
+    stop(paste("Vector contains distinct", distinct_options, "responses but only",
                options, "were declared in the 'options' argument")
     )
   }
