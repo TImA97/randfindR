@@ -1,6 +1,6 @@
 Package: randfindR
 Type: Package
-Title: Analysis of Randomness in Human Henerated Sequences
+Title: Analysis of Randomness in Human Generated Sequences
 Version: 0.1.0
 Authors@R:
     person(given = "Tim",
@@ -9,7 +9,7 @@ Authors@R:
            email = "tim.angelike@gmx.de")
 Author: Tim Angelike [aut, cre]
 Maintainer: Tim Angelike <tim.angelike@gmx.de>
-Description: Humans often have problems generating truely random sequences of 
+Description: Humans often have problems generating truly random sequences of 
     numbers or letters. The extent to which we are able to behave randomly
     can be assessed with a variety of algorithms. These algorithms check for
     different characteristics that a random sequence sequence should fullfil.
