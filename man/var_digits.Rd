@@ -20,6 +20,8 @@ Computes the variance of marginal totals
 \details{
 This function takes a vector \code{x} and computes the population variance
 of response frequencies given the number of possible \code{options}.
+A value of 0 indicates an even distribution of response frequencies. Higher
+value indicates an increasing redundancy of one or several responses.
 This index is conceptually closely related to the idea of the
 \code{\link{redundancy_index}}.
 }

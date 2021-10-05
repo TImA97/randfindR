@@ -15,7 +15,9 @@
 #' This function takes a vector \code{x} and computes the population variance
 #' of all ascending or descending run lengths, depending on \code{asc}.
 #' An ascending run is defined by a value in a sequence being followed by
-#' a larger value in the next position of the sequence.
+#' a larger value in the next position of the sequence. A value of 0 indicates
+#' no variance in run length, i.e., runs always have the same length. Higher
+#' values indicate an increased degree of variation in run length.
 #' The default version of this function computes the population variance of
 #' ascending run lengths.
 #'
@@ -70,12 +72,19 @@ runs_index <- function(x, asc = TRUE) {
 #'
 #' @details
 #' This function takes a vector \code{x} and computes the mean length of values
-#' that is required for all possible \code{options} to occur. A sub-string of
-#' a vector is considered a complete set if all \code{options} occur.
+#' that is required for all possible \code{options} to occur. The algorithm
+#' starts at the beginning of the sequence to count how many values it takes for
+#' all \code{options} to occur. Having observed all \code{options},
+#' the counting process starts again at zero at the next value of the sequence
+#' until all options have occurred. Finally, the mean over the length of these
+#' complete sets of values containing all options is computed.
 #' Incomplete sets of responses at the end of a sequence with at least one
-#' option omitted are not used for the computation of this index.
+#' option missing are not used for the computation of this index.
 #' Consequently, this index cannot be computed for vectors that do not
-#' contain all possible \code{options} and therefore, NA is returned.
+#' contain all possible \code{options} and therefore, NA is returned. The lowest
+#' value of this index equals the number of \code{options}, indicating that
+#' each complete set contains every possible option only once. A higher value
+#' indicates that at least one complete set contains values of the same kind.
 #'
 #' @export
 #'
@@ -153,7 +162,13 @@ coupon_score <- function(x, options) {
 #'
 #' @details
 #' This function takes a vector \code{x} and computes the median gap between
-#' the most adjacent identical values.
+#' the most adjacent identical values. For each value encountered in the sequence
+#' it is computed whether the same value occurs again in the sequence. If so,
+#' the length of the gap between them is stored. Finally, the mean over these
+#' gap lengths is computed and returned.
+#' The lowest index value of 1 indicates that most or all values of the same kind are
+#' right next to each other. A higher index value indicates that options of the
+#' same kind often have a gap between them containing options of a different kind.
 #'
 #' @export
 #'
@@ -222,9 +237,10 @@ gap_score <- function(x) {
 #' @details
 #' This function takes a vector \code{x} and computes the frequency with
 #' which exactly two identical values occur in 5-digit-long sub-sequences of the
-#' original vector. If the vector length is not dividable by 5, the last 1-4
-#' values will not be used for this index. This index is a measure of repetition
-#' in a sequence. Its values range from 0 to length of \code{x} / 5.
+#' original vector (2 in 5). If the vector length is not dividable by 5, the last 1-4
+#' values will not be used for the computation. This index is a measure of repetition
+#' in a sequence. Its values range from 0 (no 2 in 5) to (length of \code{x}) / 5
+#' (always a 2 in 5 for each sub-sequence).
 #'
 #' @export
 #'
