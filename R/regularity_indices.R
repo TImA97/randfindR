@@ -223,7 +223,8 @@ gap_score <- function(x) {
 #' This function takes a vector \code{x} and computes the frequency with
 #' which exactly two identical values occur in 5-digit-long sub-sequences of the
 #' original vector. If the vector length is not dividable by 5, the last 1-4
-#' values will not be used for this index.
+#' values will not be used for this index. This index is a measure of repetition
+#' in a sequence. Its values range from 0 to length of \code{x} / 5.
 #'
 #' @export
 #'

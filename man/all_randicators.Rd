@@ -14,16 +14,17 @@ all_randicators(
 )
 }
 \arguments{
-\item{x}{data frame or vector containing sequences of options in row-wise format}
+\item{x}{vector containing one sequence of discrete values or data frame containing
+sequences of discrete values in row-wise format}
 
-\item{options}{number of available options in sequence}
+\item{options}{number of possible unique discrete values in sequence}
 
 \item{circ}{indicate whether to include wrap around from end to the beginning}
 
-\item{asc}{Indicate whether to compute variance of ascending or descending
+\item{asc}{indicate whether to compute variance of ascending or descending
 runs. Default value is set to ascending.}
 
-\item{indices}{indices of randomness to be computed as character vector}
+\item{indices}{names of randomness indices to be computed as character vector}
 
 \item{combine}{indicates whether the computed indices should be combined with
 the original data frame.}
@@ -42,7 +43,7 @@ represents one sequence. All columns are included in the analysis.
 In this case, the output of the function is also a data frame. If you want
 the indices to be appended to your input data frame, you can set
 \code{combine} to TRUE.
-If \code{x} is a vector all indices are computed normally over said vector.
+If \code{x} is a vector, all indices are computed normally over said vector.
 In this case, the output of the function is also a vector with one value for
 each computed index.
 The \code{circ} arguments determines whether a wrap around of the last digits
@@ -54,8 +55,8 @@ The \code{indices} argument lets you specify the randomness indices that you
 want to have. By default all indices are computed.
 }
 \examples{
-all_rand(ginsburg1994, 10)
-all_rand(evans1978[, 1], 10)
-all_rand(evans1978[, 2], 10)
+all_randicators(ginsburg1994, 10)
+all_randicators(evans1978[, 1], 10)
+all_randicators(evans1978[, 2], 10)
 
 }
