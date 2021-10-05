@@ -35,7 +35,7 @@
 #' want to have. By default all indices are computed.
 #'
 #' @export
-all_rand <- function(x,
+all_randicators <- function(x,
                      options,
                      circ = TRUE,
                      asc = TRUE,
