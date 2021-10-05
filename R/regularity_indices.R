@@ -71,20 +71,20 @@ runs_index <- function(x, asc = TRUE) {
 #' runs_index(evans1978[, 2], 10)
 #'
 #' @details
-#' This function takes a vector \code{x} and computes the mean length of values
-#' that is required for all possible \code{options} to occur. The algorithm
-#' starts at the beginning of the sequence to count how many values it takes for
-#' all \code{options} to occur. Having observed all \code{options},
-#' the counting process starts again at zero at the next value of the sequence
-#' until all options have occurred. Finally, the mean over the length of these
-#' complete sets of values containing all options is computed.
+#' This function takes a vector \code{x} and computes the mean number of values
+#' that is required for all possible \code{options} to occur. This means that the algorithm
+#' starts to count at the beginning of the sequence until all \code{options} have occurred.
+#' Having observed all \code{options},
+#' the counting process starts again at zero at the next value of the sequence.
+#' Finally, the mean over the length of these
+#' complete sets of values (containing all options) is computed.
 #' Incomplete sets of responses at the end of a sequence with at least one
 #' option missing are not used for the computation of this index.
 #' Consequently, this index cannot be computed for vectors that do not
 #' contain all possible \code{options} and therefore, NA is returned. The lowest
-#' value of this index equals the number of \code{options}, indicating that
-#' each complete set contains every possible option only once. A higher value
-#' indicates that at least one complete set contains values of the same kind.
+#' possible index value equals the number of \code{options}, indicating that
+#' each complete set contains every possible option only once. A higher index value
+#' indicates that at least one complete set contains values of the same kind at least twice.
 #'
 #' @export
 #'
