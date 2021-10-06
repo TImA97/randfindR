@@ -21,7 +21,7 @@ This function takes a vector \code{x} and computes the frequency with
 which exactly two identical values occur in 5-digit-long sub-sequences of the
 original vector (2 in 5). If the vector length is not dividable by 5, the last 1-4
 values will not be used for the computation. This index is a measure of repetition
-in a sequence. Its values range from 0 (no 2 in 5) to (length of \code{x}) / 5
+in a sequence. The resulting score ranges from 0 (no 2 in 5) to (length of \code{x}) / 5
 (always a 2 in 5 for each sub-sequence).
 }
 \examples{

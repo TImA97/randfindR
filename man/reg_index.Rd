@@ -20,8 +20,8 @@ Compute regularity index
 \details{
 This function takes a vector \code{x} as a sequence and the number of
 possible \code{options} and computes the regularity of the given sequence.
-Values range from 0 and 1. A value of 0 (which is barely ever obtained)
-indicates no regularity, whereas a value of 1 indicates maximum regularity
+The score ranges from 0 and 1. A score of 0 (which is barely ever obtained)
+indicates no regularity, whereas a score of 1 indicates maximum regularity
 (always the same option in the sequence).
 The regularity index is obtained by identifying the the maximum regularity
 occurring in the sequence.

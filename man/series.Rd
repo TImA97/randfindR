@@ -23,9 +23,13 @@ This function takes a vector \code{x} and counts how often values are
 followed by their most adjacent predecessor and successors given the number
 of possible \code{options}. This function includes series from the lowest to
 the highest value and vice versa.
-An example of a series would be '1,2,3' (options = 3)
-The resultign score of this series is 3 (from 1 to 2, from 2 to 3,
-and from 3 to 1)
+An example of a series would be '1,2,3' (options = 3).
+The resulting score of this sequence is 3 (from 1 to 2, from 2 to 3,
+and from 3 to 1).
+The highest possible score equals the number of values in a sequence when
+each value is followed by its most adjacent predecessor or successor. The
+lowest possible score is 0 when each value is followed by another value than
+its predecessor or successor.
 }
 \examples{
 series(ginsburg1994, 10)

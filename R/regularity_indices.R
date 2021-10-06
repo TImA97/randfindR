@@ -15,9 +15,9 @@
 #' This function takes a vector \code{x} and computes the population variance
 #' of all ascending or descending run lengths, depending on \code{asc}.
 #' An ascending run is defined by a value in a sequence being followed by
-#' a larger value in the next position of the sequence. A value of 0 indicates
+#' a larger value in the next position of the sequence. A score of 0 indicates
 #' no variance in run length, i.e., runs always have the same length. Higher
-#' values indicate an increased degree of variation in run length.
+#' scores indicate an increased degree of variation in run length.
 #' The default version of this function computes the population variance of
 #' ascending run lengths.
 #'
@@ -82,8 +82,8 @@ runs_index <- function(x, asc = TRUE) {
 #' option missing are not used for the computation of this index.
 #' Consequently, this index cannot be computed for vectors that do not
 #' contain all possible \code{options} and therefore, NA is returned. The lowest
-#' possible index value equals the number of \code{options}, indicating that
-#' each complete set contains every possible option only once. A higher index value
+#' possible score equals the number of \code{options}, indicating that
+#' each complete set contains every possible option only once. A higher score
 #' indicates that at least one complete set contains values of the same kind at least twice.
 #'
 #' @export
@@ -166,8 +166,8 @@ coupon_score <- function(x, options) {
 #' it is computed whether the same value occurs again in the sequence. If so,
 #' the length of the gap between them is stored. Finally, the mean over these
 #' gap lengths is computed and returned.
-#' The lowest index value of 1 indicates that most or all values of the same kind are
-#' right next to each other. A higher index value indicates that options of the
+#' The lowest score of 1 indicates that most or all values of the same kind are
+#' right next to each other. A higher scores indicates that options of the
 #' same kind often have a gap between them containing options of a different kind.
 #'
 #' @export
@@ -239,7 +239,7 @@ gap_score <- function(x) {
 #' which exactly two identical values occur in 5-digit-long sub-sequences of the
 #' original vector (2 in 5). If the vector length is not dividable by 5, the last 1-4
 #' values will not be used for the computation. This index is a measure of repetition
-#' in a sequence. Its values range from 0 (no 2 in 5) to (length of \code{x}) / 5
+#' in a sequence. The resulting score ranges from 0 (no 2 in 5) to (length of \code{x}) / 5
 #' (always a 2 in 5 for each sub-sequence).
 #'
 #' @export

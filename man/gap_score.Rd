@@ -21,8 +21,8 @@ the most adjacent identical values. For each value encountered in the sequence
 it is computed whether the same value occurs again in the sequence. If so,
 the length of the gap between them is stored. Finally, the mean over these
 gap lengths is computed and returned.
-The lowest index value of 1 indicates that most or all values of the same kind are
-right next to each other. A higher index value indicates that options of the
+The lowest score of 1 indicates that most or all values of the same kind are
+right next to each other. A higher scores indicates that options of the
 same kind often have a gap between them containing options of a different kind.
 }
 \examples{

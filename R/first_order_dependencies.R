@@ -15,9 +15,9 @@
 #' @details
 #' This function takes a vector \code{x} and sums up the frequency of all
 #' response pairs given the number of possible \code{options}. For each response
-#' pair that occurs at least once the total sum is reduced by one. A lower value
+#' pair that occurs at least once the total sum is reduced by one. A lower score
 #' indicates an even distribution of response pairs, i.e., most or all of them occurred.
-#' A higher value indicates an uneven distribution of response pairs, i.e., many
+#' A higher score indicates an uneven distribution of response pairs, i.e., many
 #' response pairs did not occur.
 #'
 #' @export
@@ -58,9 +58,9 @@ digram_rep <- function(x, options) {
 #'
 #' @details
 #' This function takes a vector \code{x} and counts how often values are
-#' followed by the same value in the next position of the sequence. A value of 0
+#' followed by the same value in the next position of the sequence. A score of 0
 #' indicates that there are no repetitions of any value in the next position.
-#' A higher value indicates an increased degree of repetition.
+#' A higher score indicates an increased degree of repetition.
 #'
 #' @export
 #'
@@ -94,9 +94,13 @@ repetitions <- function(x) {
 #' followed by their most adjacent predecessor and successors given the number
 #' of possible \code{options}. This function includes series from the lowest to
 #' the highest value and vice versa.
-#' An example of a series would be '1,2,3' (options = 3)
-#' The resultign score of this series is 3 (from 1 to 2, from 2 to 3,
-#' and from 3 to 1)
+#' An example of a series would be '1,2,3' (options = 3).
+#' The resulting score of this sequence is 3 (from 1 to 2, from 2 to 3,
+#' and from 3 to 1).
+#' The highest possible score equals the number of values in a sequence when
+#' each value is followed by its most adjacent predecessor or successor. The
+#' lowest possible score is 0 when each value is followed by another value than
+#' its predecessor or successor.
 #'
 #' @export
 #'
@@ -146,6 +150,12 @@ series <- function(x, options) {
 #'
 #' This function takes a vector \code{x} and computes the population variance
 #' of all response pair frequencies given the number of possible \code{options}.
+#' A score of 0 indicates no variance among response pair frequencies, i.e.,
+#' all response pairs occur equally often. An example of this is the sequence
+#' '1-1-2-2' (response pairs: '1-1', '1-2', '2-2', and '2-1' from the last to
+#' the first value) as each response pair occurs exactly once. Higher scores
+#' indicate an increased degree of variance in the distribution of response pair
+#' frequencies.
 #'
 #' @export
 #'
@@ -164,7 +174,7 @@ cluster_ratio <- function(x, options) {
 
   ## compute variance and correct result so that it corresponds to the
   ## population variance
-  var_cells <- var(cells) *  (length(cells) - 1) / (length(cells))
+  var_cells <- var(cells) * (length(cells) - 1) / (length(cells))
 
   return(var_cells)
 }
@@ -188,8 +198,8 @@ cluster_ratio <- function(x, options) {
 #' possible number of unused response pairs for this sequence.
 #' The final result is attained by multiplying this quotient with 100.
 #' The result of this quotient ranges from 0 to 100.
-#' High values indicate an uneven distribution of response pairs, whereas low
-#' values indicate an even distribution of response pairs.
+#' High scores indicate an uneven distribution of response pairs, whereas low
+#' scores indicate an even distribution of response pairs.
 #'
 #' @export
 #'

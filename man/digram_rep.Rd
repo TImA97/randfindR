@@ -20,9 +20,9 @@ Compute sum of all response pairs minus one
 \details{
 This function takes a vector \code{x} and sums up the frequency of all
 response pairs given the number of possible \code{options}. For each response
-pair that occurs at least once the total sum is reduced by one. A lower value
+pair that occurs at least once the total sum is reduced by one. A lower score
 indicates an even distribution of response pairs, i.e., most or all of them occurred.
-A higher value indicates an uneven distribution of response pairs, i.e., many
+A higher score indicates an uneven distribution of response pairs, i.e., many
 response pairs did not occur.
 }
 \examples{

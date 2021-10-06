@@ -20,6 +20,12 @@ compute the population variance of all response pair frequencies
 \details{
 This function takes a vector \code{x} and computes the population variance
 of all response pair frequencies given the number of possible \code{options}.
+A score of 0 indicates no variance among response pair frequencies, i.e.,
+all response pairs occur equally often. An example of this is the sequence
+'1-1-2-2' (response pairs: '1-1', '1-2', '2-2', and '2-1' from the last to
+the first value) as each response pair occurs exactly once. Higher scores
+indicate an increased degree of variance in the distribution of response pair
+frequencies.
 }
 \examples{
 cluster_ratio(ginsburg1994, 10)

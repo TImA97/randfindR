@@ -17,9 +17,9 @@ Compute the frequency a value is repeated in the next round
 }
 \details{
 This function takes a vector \code{x} and counts how often values are
-followed by the same value in the next position of the sequence. A value of 0
+followed by the same value in the next position of the sequence. A score of 0
 indicates that there are no repetitions of any value in the next position.
-A higher value indicates an increased degree of repetition.
+A higher score indicates an increased degree of repetition.
 }
 \examples{
 repetitions(ginsburg1994)

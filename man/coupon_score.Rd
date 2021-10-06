@@ -29,8 +29,8 @@ Incomplete sets of responses at the end of a sequence with at least one
 option missing are not used for the computation of this index.
 Consequently, this index cannot be computed for vectors that do not
 contain all possible \code{options} and therefore, NA is returned. The lowest
-possible index value equals the number of \code{options}, indicating that
-each complete set contains every possible option only once. A higher index value
+possible score equals the number of \code{options}, indicating that
+each complete set contains every possible option only once. A higher score
 indicates that at least one complete set contains values of the same kind at least twice.
 }
 \examples{

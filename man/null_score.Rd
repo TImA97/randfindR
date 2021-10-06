@@ -24,8 +24,8 @@ pairs that do not occur in this sequence given the number of possible
 possible number of unused response pairs for this sequence.
 The final result is attained by multiplying this quotient with 100.
 The result of this quotient ranges from 0 to 100.
-High values indicate an uneven distribution of response pairs, whereas low
-values indicate an even distribution of response pairs.
+High scores indicate an uneven distribution of response pairs, whereas low
+scores indicate an even distribution of response pairs.
 }
 \examples{
 null_score(ginsburg1994, 10)
