@@ -9,8 +9,8 @@
 #' concerning the response frequencies against the highest observable
 #' information given the number of possible \code{options}. The resulting
 #' quotient is subtracted from 1 and then, multiplied with 100.
-#' A value of 0 indicates an even distribution of response frequencies,
-#' whereas a value of 100 indicates complete redundancy of one response.
+#' A score of 0 indicates an even distribution of response frequencies,
+#' whereas a score of 100 indicates complete redundancy of one response.
 #'
 #' @param x vector of distinct options of numbers or characters
 #' @param options number of available options in sequence
@@ -85,8 +85,8 @@ redundancy_index <- function(x, options) {
 #' @details
 #' This function takes a vector \code{x} and computes the population variance
 #' of response frequencies given the number of possible \code{options}.
-#' A value of 0 indicates an even distribution of response frequencies. Higher
-#' value indicates an increasing redundancy of one or several responses.
+#' A score of 0 indicates an even distribution of response frequencies. Higher
+#' scores indicate an increasing redundancy of one or several responses.
 #' This index is conceptually closely related to the idea of the
 #' \code{\link{redundancy_index}}.
 #'
