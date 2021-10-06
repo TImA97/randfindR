@@ -15,7 +15,10 @@
 #' @details
 #' This function takes a vector \code{x} and sums up the frequency of all
 #' response pairs given the number of possible \code{options}. For each response
-#' pair that occurs more than once the total sum is reduced by one.
+#' pair that occurs at least once the total sum is reduced by one. A lower value
+#' indicates an even distribution of response pairs, i.e., most or all of them occurred.
+#' A higher value indicates an uneven distribution of response pairs, i.e., many
+#' response pairs did not occur.
 #'
 #' @export
 #'
@@ -55,7 +58,9 @@ digram_rep <- function(x, options) {
 #'
 #' @details
 #' This function takes a vector \code{x} and counts how often values are
-#' followed by the same value in the next position of the sequence.
+#' followed by the same value in the next position of the sequence. A value of 0
+#' indicates that there are no repetitions of any value in the next position.
+#' A higher value indicates an increased degree of repetition.
 #'
 #' @export
 #'

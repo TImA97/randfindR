@@ -10,9 +10,11 @@ Authors@R:
 Author: Tim Angelike [aut, cre]
 Maintainer: Tim Angelike <tim.angelike@gmx.de>
 Description: Humans often have problems generating truly random sequences of 
-    numbers or letters. The extent to which we are able to behave randomly
+    numbers or letters. The extent to which they are able to behave randomly
     can be assessed with a variety of algorithms. These algorithms check for
     different characteristics that a random sequence sequence should fullfil.
+    Each function in the package receives as input a sequence of distinct 
+    options and provides as output a measure of randomness.
     The implemented indices of randomness are based on the work of Ginsburg &
     Karpiuk (1994, <doi:10.2466/pms.1994.79.3.1059>), Towse & Neil (1998,
     <doi:10.3758/BF03209475>), and Skliar, Monge, Oviedo, & Medina 
@@ -22,7 +24,7 @@ URL: https://github.com/TImA97/randfindR
 BugReports: https://github.com/TImA97/randfindR/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
 Suggests: 
     testthat

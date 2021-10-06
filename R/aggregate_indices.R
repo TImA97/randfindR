@@ -1,18 +1,19 @@
 #' Compute collection of randomness indices
 #'
-#' @param x data frame or vector containing sequences of options in row-wise format
-#' @param options number of available options in sequence
+#' @param x vector containing one sequence of discrete values or data frame containing
+#' sequences of discrete values in row-wise format
+#' @param options number of possible unique discrete values in sequence
 #' @param circ indicate whether to include wrap around from end to the beginning
-#' @param asc Indicate whether to compute variance of ascending or descending
+#' @param asc indicate whether to compute variance of ascending or descending
 #' runs. Default value is set to ascending.
-#' @param indices indices of randomness to be computed as character vector
+#' @param indices names of randomness indices to be computed as character vector
 #' @param combine indicates whether the computed indices should be combined with
 #' the original data frame.
 #' @return vector or data frame containing the selection of randomness indices
 #' @examples
-#' all_rand(ginsburg1994, 10)
-#' all_rand(evans1978[, 1], 10)
-#' all_rand(evans1978[, 2], 10)
+#' all_randicators(ginsburg1994, 10)
+#' all_randicators(evans1978[, 1], 10)
+#' all_randicators(evans1978[, 2], 10)
 #'
 #' @details
 #'
@@ -23,7 +24,7 @@
 #' In this case, the output of the function is also a data frame. If you want
 #' the indices to be appended to your input data frame, you can set
 #' \code{combine} to TRUE.
-#' If \code{x} is a vector all indices are computed normally over said vector.
+#' If \code{x} is a vector, all indices are computed normally over said vector.
 #' In this case, the output of the function is also a vector with one value for
 #' each computed index.
 #' The \code{circ} arguments determines whether a wrap around of the last digits
@@ -35,7 +36,7 @@
 #' want to have. By default all indices are computed.
 #'
 #' @export
-all_rand <- function(x,
+all_randicators <- function(x,
                      options,
                      circ = TRUE,
                      asc = TRUE,

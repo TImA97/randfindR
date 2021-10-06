@@ -85,6 +85,8 @@ redundancy_index <- function(x, options) {
 #' @details
 #' This function takes a vector \code{x} and computes the population variance
 #' of response frequencies given the number of possible \code{options}.
+#' A value of 0 indicates an even distribution of response frequencies. Higher
+#' value indicates an increasing redundancy of one or several responses.
 #' This index is conceptually closely related to the idea of the
 #' \code{\link{redundancy_index}}.
 #'
@@ -105,7 +107,7 @@ var_digits <- function(x, options) {
   ## compute variance and correct result so that it corresponds to the
   ## population variance
   variance <-
-    var (frequencies) * (length(frequencies) - 1) / length(frequencies)
+    var(frequencies) * (length(frequencies) - 1) / length(frequencies)
   return(variance)
 }
 
