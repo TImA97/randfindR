@@ -52,6 +52,12 @@ runs_index <- function(x, asc = TRUE) {
   ## store length of last run
   runs[runs_counter] <- current_length
 
+  ## print warning if just one run occurred
+  if (length(runs) == 1) {
+    warning("runs index cannot be computed because only one run occurred in the sequence.
+            Consequently, NA was returned.")
+  }
+
   ## compute population variance of runs
   variance <- var(runs) * (length(runs) - 1) / length(runs)
 
