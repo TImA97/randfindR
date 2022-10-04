@@ -106,7 +106,7 @@ all_rand_df <-
       arguments <- get_function_arguments(i, options, circ, asc)
 
       for (p in 1:nrow(x)) {
-        row <- list(x = x[p, ])
+        row <- list(x = as.numeric(x[p, ]))
         arguments["x"] <- row
 
         tryCatch({
