@@ -22,6 +22,8 @@
 #'
 #' Shannon, C. E. (n.d.). A Mathematical Theory of Communication. 55.
 block_entropy <- function(x, block_size = 1){
+  x <- to_numeric(x)
+
   ## compute entropy directly from observed frequencies for block_size= 1
   if (block_size== 1) {
     p_xi <- table(x) / length(x)
