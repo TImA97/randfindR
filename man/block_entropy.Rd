@@ -31,4 +31,5 @@ block_entropy(c(1, 1, 1, 2, 2, 2), block_size = 2)
 }
 \references{
 Shannon, C. E. (n.d.). A Mathematical Theory of Communication. 55.
+\url{https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf}
 }
