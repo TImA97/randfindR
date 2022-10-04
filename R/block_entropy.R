@@ -27,21 +27,21 @@ block_entropy <- function(x, block_size = 1){
   ## compute entropy directly from observed frequencies for block_size= 1
   if (block_size== 1) {
     p_xi <- table(x) / length(x)
-    result <- sum(p_xi * log2(p_xi)) * -1
+    result <- sum(p_xi * log2(p_xi)) * (-1)
     return(result)
   }
 
   ## extract all blocks of size k from sequence
-  max_index <- length(x) - block_size+ 1
+  max_index <- length(x) - block_size + 1
   blocks <- character(length = max_index)
   for (i in 1:max_index) {
-    block <- x[i:(i + block_size- 1)]
+    block <- x[i:(i + block_size - 1)]
     block_string <- paste0(block, collapse = "")
     blocks[i] <- block_string
   }
 
   ## compute higher-order block entropy over empirically observed block frequencies
   p_xi <- table(blocks) / length(blocks)
-  result <- sum(p_xi * log2(p_xi)) * -1
+  result <- sum(p_xi * log2(p_xi)) * (-1)
   return(result)
 }
