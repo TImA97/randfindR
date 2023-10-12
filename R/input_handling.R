@@ -11,7 +11,7 @@
 #' sequences
 #'
 #' @noRd
-convert_to_matrix <- function(x, options, order = 1, circ = FALSE) {
+convert_to_matrix <- function(x, options, order = 1, circ = TRUE) {
   matr <- matrix(data = 0, nrow = options, ncol = options)
 
   ## check whether to include wrap around in the computation of response pairs
